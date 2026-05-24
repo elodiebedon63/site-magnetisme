@@ -104,25 +104,44 @@ function renderNavLinks() {
   if (!navLinksEl || !linksConfig.nav) return;
 
   navLinksEl.innerHTML = '';
+
   linksConfig.nav.forEach((item) => {
     const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = item.href;
-    a.textContent = item.label;
-    li.appendChild(a);
+
+    // 👉 CAS GOOGLE CALENDAR
+    if (item.type === 'calendar') {
+      const container = document.createElement('div');
+      container.id = 'calendarBtnNav';
+      li.appendChild(container);
+    } 
+    else {
+      const a = document.createElement('a');
+      a.href = item.href;
+      a.textContent = item.label;
+      li.appendChild(a);
+    }
+
     navLinksEl.appendChild(li);
   });
 
+  // MOBILE
   if (mobileMenuEl) {
     const closeBtn = mobileMenuEl.querySelector('.mobile-close');
     mobileMenuEl.innerHTML = '';
     if (closeBtn) mobileMenuEl.appendChild(closeBtn);
+
     linksConfig.nav.forEach((item) => {
-      const a = document.createElement('a');
-      a.href = item.href;
-      a.textContent = item.label;
-      a.addEventListener('click', () => window.closeMobile());
-      mobileMenuEl.appendChild(a);
+      if (item.type === 'calendar') {
+        const div = document.createElement('div');
+        div.id = 'calendarBtnMobile';
+        mobileMenuEl.appendChild(div);
+      } else {
+        const a = document.createElement('a');
+        a.href = item.href;
+        a.textContent = item.label;
+        a.addEventListener('click', () => window.closeMobile());
+        mobileMenuEl.appendChild(a);
+      }
     });
   }
 }
@@ -130,4 +149,58 @@ function renderNavLinks() {
 document.addEventListener('DOMContentLoaded', () => {
   renderNavLinks();
   renderSocialLinks();
+});
+
+
+
+window.addEventListener('load', function () {
+  const url =
+    'https://calendar.google.com/calendar/appointments/schedules/AcZssZ16iinafw-9OpOMxmRSyT2MBK7xkPyoqgdx8vp7mH2tLkiVEgGKk23ZOHJq_tL7j6KuMOb-cYLf?gv=true';
+  const config = {
+    url,
+    color: '#0B6281',
+    label: 'Prendre rendez-vous',
+  };
+
+  const heroTarget = document.getElementById('calendarBtn');
+  const navTarget = document.getElementById('calendarBtnNav');
+
+  if (heroTarget) {
+    calendar.schedulingButton.load({
+      ...config,
+      target: heroTarget,
+    });
+  }
+
+  if (navTarget) {
+    calendar.schedulingButton.load({
+      ...config,
+      target: navTarget,
+    });
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const openBtn = document.getElementById('openVideoModal');
+  const modal = document.getElementById('videoModal');
+  const closeBtn = document.getElementById('closeVideoModal');
+  const iframe = document.getElementById('youtubeIframe');
+
+  if (openBtn && modal && closeBtn) {
+    openBtn.addEventListener('click', function () {
+      modal.style.display = 'flex';
+    });
+    closeBtn.addEventListener('click', function () {
+      modal.style.display = 'none';
+      // Stop la vidéo quand on ferme
+      iframe.src = iframe.src;
+    });
+    window.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        iframe.src = iframe.src;
+      }
+    });
+  }
 });

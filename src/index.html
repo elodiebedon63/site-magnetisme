@@ -12,6 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
+
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
 </head>
 <body>
 
@@ -28,6 +32,7 @@
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#seances">Séances & tarifs</a></li>
       <li><a href="#infos">Infos pratiques</a></li>
+      <li><div id="calendarBtnNav"></div></li>
     </ul>
     <div class="burger" id="burgerBtn">
       <span></span><span></span><span></span>
@@ -40,6 +45,7 @@
     <a href="#apropos"  onclick="closeMobile()">À propos</a>
     <a href="#seances"  onclick="closeMobile()">Séances</a>
     <a href="#infos"    onclick="closeMobile()">Infos pratiques</a>
+    <div id="calendarBtn"></div>
   </div>
 
   <!-- Accueil -->
@@ -63,22 +69,25 @@
         <span class="disc-pill">Tarologie</span>
         <span class="disc-pill">Massage énergétique</span>
       </div>
-      <div class="hero-ctas">
 
-        <a href="/visualisation-arbre.html" class="hero-cta hero-cta-secondary">
+      <div class="hero-ctas">
+        <a href="https://www.youtube.com/watch?v=pqkXfC8QDU4" class="hero-cta hero-cta-secondary" target="_blank" rel="noopener noreferrer">
           Visualisation de l'arbre
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 3v10M5 6l3-3 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 3v10M5 6l3-3 3 3" stroke="currentColor" stroke-width="1.5"/>
           </svg>
         </a>
-        
-        <a  href="#" class="hero-cta">
+        <!-- <a  href="#" class="hero-cta">
           Prendre rendez-vous
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </a>
+        </a> -->
+
+        <!-- SLOT GOOGLE -->
+        <div id="calendarBtn"></div>
       </div>
+      
     </div>
 
     <div class="hero-scroll">
@@ -154,7 +163,7 @@
       <!-- Slide 0 -->
       <div class="slide-text active">
         <p class="section-tag">À propos du <em>cabinet</em></p>
-        <h2>Découvrrez le <em>cabinet</em></h2>
+        <h2>Découvrez le <em>cabinet</em></h2>
         <p>La salle de soin est située dans le cabinet Psy'Jaude au 2 avenue Julien, à proximité de la place Jaude.</p>
         <p>C'est un espace dédié chaleureux, sécurisant et apaisant qui vous invite à une expérience de soin particulière. Cet instant hors temps activera vos sens et vous déconnectera du quotidien, vous permettant ainsi de vous recentrer et de vous reconnecter à votre corps, à vos sensations et à ce qui vous est essentiel.</p>
       </div>
@@ -237,7 +246,7 @@
       <!-- Slide 5 -->
       <div class="slide-text">
         <p class="section-tag">À propos de <em>moi</em></p>
-        <h2>Certification & Références</h2>
+        <h2>Certifications & Références</h2>
         <p>
           Après une formation avec Pascal Quesne, je poursuis mon apprentissage du Magnétisme avec l'enseignement de Barbara Ann Brennan (guérisseuse, psychothérapeute et physicienne). 
           J'utilise les cristaux et je suis surtout l'enseignement en Lithothérapie de Reynald Georges Boschiero. 

@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/site-magnetisme/', // remplacer par '/' si DNS
+  base: '/', // remplacer par '/' si DNS
   root: 'src',
   publicDir: '../assets',
   build: {
