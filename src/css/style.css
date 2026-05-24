@@ -484,8 +484,6 @@ footer span { color: var(--sage-light); }
   color: var(--text-light);
 }
 
-
-
 /* ─── À PROPOS / CARROUSEL ─── */
 #apropos {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -495,8 +493,8 @@ footer span { color: var(--sage-light); }
 /* Carrousel gauche */
 .carousel-wrap { position: relative; }
 .carousel-track {
-  position: relative;
-  width: 100%; aspect-ratio: 3/4;
+  position: relative; margin: 0 auto;
+  width: 65%; aspect-ratio: 3/4;
   border-radius: 3px; overflow: hidden;
   background: var(--beige-dark);
 }
