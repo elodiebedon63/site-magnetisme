@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/src/css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
@@ -46,13 +46,13 @@
 
     <!-- arbre SVG décoratif -->
     <svg class="hero-tree" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 280 L100 140" stroke="#4f7a54" stroke-width="3"/>
-      <path d="M100 200 Q70 170 50 140 Q80 155 100 170" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
-      <path d="M100 175 Q130 145 150 115 Q120 130 100 150" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
-      <path d="M100 155 Q65 120 40 85 Q75 105 100 135" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
-      <path d="M100 140 Q135 100 160 65 Q125 90 100 120" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
-      <circle cx="100" cy="60" r="55" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
-      <circle cx="100" cy="60" r="38" stroke="#4f7a54" stroke-width="1" fill="none" opacity=".5"/>
+      <path d="M100 280 L100 140" stroke="#0B6281" stroke-width="3"/>
+      <path d="M100 200 Q70 170 50 140 Q80 155 100 170" stroke="#0B6281" stroke-width="1.5" fill="none"/>
+      <path d="M100 175 Q130 145 150 115 Q120 130 100 150" stroke="#0B6281" stroke-width="1.5" fill="none"/>
+      <path d="M100 155 Q65 120 40 85 Q75 105 100 135" stroke="#0B6281" stroke-width="1.5" fill="none"/>
+      <path d="M100 140 Q135 100 160 65 Q125 90 100 120" stroke="#0B6281" stroke-width="1.5" fill="none"/>
+      <circle cx="100" cy="60" r="55" stroke="#0B6281" stroke-width="1.5" fill="none"/>
+      <circle cx="100" cy="60" r="38" stroke="#0B6281" stroke-width="1" fill="none" opacity=".5"/>
     </svg>
 
     <div class="hero-content">
@@ -66,12 +66,20 @@
         <span class="disc-pill">Tarologie</span>
         <span class="disc-pill">Massage énergétique</span>
       </div>
-      <a href="#contact" class="hero-cta">
-        Prendre rendez-vous
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+      <div class="hero-ctas">
+        <a href="/visualisation-arbre.html" class="hero-cta hero-cta-secondary">
+          Visualisation de l'arbre
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 3v10M5 6l3-3 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#contact" class="hero-cta">
+          Prendre rendez-vous
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
     </div>
 
     <div class="hero-scroll">
@@ -91,14 +99,14 @@
   <section id="apropos">
     <div class="apropos-img-frame reveal">
       <img
-        src="https://static.wixstatic.com/media/65ad7f_c207124574b24af29ad9334198aa9106~mv2.jpg/v1/fill/w_500,h_660,al_c,q_80/PHOTO%20DE%20PROFIL%20N%26B%20basse%20def_edited.jpg"
+        src="/elodie-bedon-profil.jpg"
         alt="Élodie Bedon — Énergéticienne"
         onerror="this.style.display='none'; this.parentElement.querySelector('.img-fallback').style.display='flex';"
       />
       <div class="img-fallback" style="display:none; flex-direction:column; align-items:center; gap:1rem;">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <circle cx="32" cy="24" r="10" stroke="#7a9e7e" stroke-width="1.5"/>
-          <path d="M12 52c0-11 9-20 20-20s20 9 20 20" stroke="#7a9e7e" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="32" cy="24" r="10" stroke="#1D88AD" stroke-width="1.5"/>
+          <path d="M12 52c0-11 9-20 20-20s20 9 20 20" stroke="#1D88AD" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
         <p style="font-size:.75rem;letter-spacing:.1em;opacity:.5;">Votre photo ici</p>
       </div>
@@ -170,7 +178,7 @@
         </div>
       </div>
 
-      <div class="pratique-card featured reveal reveal-delay-1">
+      <div class="pratique-card reveal reveal-delay-1">
         <div class="pratique-header">
           <div class="pratique-icon">✦</div>
         </div>
@@ -255,7 +263,7 @@
   <!-- INFOS PRATIQUES -->
   <section id="infos">
     <div>
-      <p class="section-tag reveal">Organisation</p>
+      <p class="section-tag reveal">Me contacter</p>
       <h2 class="reveal">Infos <em>pratiques</em></h2>
 
       <div class="infos-block reveal reveal-delay-1">
@@ -315,18 +323,20 @@
           </div>
         </div>
       </div>
+
+      <div class="infos-block reveal reveal-delay-2">
+        <h3>Mes réseaux sociaux</h3>
+        <div class="social-links">
+          <!-- Rendered from config/links.json -->
+        </div>
+      </div>
     </div>
   </section>
-
-  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-info">
       <p class="section-tag reveal">Me contacter</p>
       <h2 class="reveal">Prendre<br><em>rendez-vous</em></h2>
       <p class="reveal reveal-delay-1">La prise de rendez-vous est obligatoire. N'hésitez pas à me préciser votre situation et vos disponibilités, je vous répondrai dans les meilleurs délais.</p>
-      <div class="social-links reveal reveal-delay-2">
-        <!-- Rendered from config/links.json -->
-      </div>
     </div>
 
     <form class="contact-form reveal" onsubmit="handleSubmit(event)">
@@ -375,6 +385,6 @@
     <p>© 2026 <span>Élodie Bedon</span> — Énergéticienne · Clermont-Ferrand</p>
   </footer>
 
-  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/js/main.js"></script>
 </body>
 </html>
