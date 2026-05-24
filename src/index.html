@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Magnétisme, soins et rééquilibrage énergétique, lithothérapie, état élargi de conscience — Clermont-Ferrand" />
-  <title>Élodie Bedon — Énergéticienne · Clermont-Ferrand</title>
+  <title>Élodie Bedon — Magnétiseuse · Clermont-Ferrand</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -14,9 +14,9 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <a href="#hero" class="nav-logo">
+    <a href="#accueil" class="nav-logo">
       Élodie Bedon
-      <span>Énergéticienne · Clermont-Ferrand</span>
+      <span>Magnétiseuse · Clermont-Ferrand</span>
     </a>
     <ul class="nav-links">
       <li><a href="#apropos">À propos</a></li>
@@ -38,22 +38,14 @@
     <a href="#contact"  onclick="closeMobile()">Contact</a>
   </div>
 
-  <!-- HERO -->
-  <section id="hero">
+  <!-- Accueil -->
+  <section id="accueil" class="hero">
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-circle-1"></div>
     <div class="hero-circle-2"></div>
 
     <!-- arbre SVG décoratif -->
-    <svg class="hero-tree" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 280 L100 140" stroke="#0B6281" stroke-width="3"/>
-      <path d="M100 200 Q70 170 50 140 Q80 155 100 170" stroke="#0B6281" stroke-width="1.5" fill="none"/>
-      <path d="M100 175 Q130 145 150 115 Q120 130 100 150" stroke="#0B6281" stroke-width="1.5" fill="none"/>
-      <path d="M100 155 Q65 120 40 85 Q75 105 100 135" stroke="#0B6281" stroke-width="1.5" fill="none"/>
-      <path d="M100 140 Q135 100 160 65 Q125 90 100 120" stroke="#0B6281" stroke-width="1.5" fill="none"/>
-      <circle cx="100" cy="60" r="55" stroke="#0B6281" stroke-width="1.5" fill="none"/>
-      <circle cx="100" cy="60" r="38" stroke="#0B6281" stroke-width="1" fill="none" opacity=".5"/>
-    </svg>
+    <img class="hero-logo" src="/logo-sans-fond.svg" alt="Logo Élodie Bedon" width="80" />
 
     <div class="hero-content">
       <p class="hero-tag">Magnétisme · Lithothérapie · État élargi de conscience</p>
@@ -61,6 +53,7 @@
       <p class="hero-sub">Je vous accompagne pour développer vos sensations, la conscientisation et le ressenti de votre propre énergie.</p>
       <div class="hero-disciplines">
         <span class="disc-pill">Magnétisme</span>
+        <span class="disc-pill">Rééquillibrage énergétiques</span>
         <span class="disc-pill">Lithothérapie</span>
         <span class="disc-pill">État élargi de conscience</span>
         <span class="disc-pill">Tarologie</span>
@@ -100,7 +93,7 @@
     <div class="apropos-img-frame reveal">
       <img
         src="/elodie-bedon-profil.jpg"
-        alt="Élodie Bedon — Énergéticienne"
+        alt="Élodie Bedon — Magnétisme — Lithothérapie — État élargi de conscience — Tarologie — Massage énergétique"
         onerror="this.style.display='none'; this.parentElement.querySelector('.img-fallback').style.display='flex';"
       />
       <div class="img-fallback" style="display:none; flex-direction:column; align-items:center; gap:1rem;">
@@ -160,9 +153,6 @@
     <div class="pratiques-grid">
 
       <div class="pratique-card reveal">
-        <div class="pratique-header">
-          <div class="pratique-icon">🌿</div>
-        </div>
         <div class="pratique-title">Rééquilibrage énergétique</div>
         <p class="pratique-desc">Magnétisme par imposition des mains, rééquilibrage aux pierres et conseil en lithothérapie.</p>
         <ul class="pratique-domains">
@@ -179,9 +169,6 @@
       </div>
 
       <div class="pratique-card reveal reveal-delay-1">
-        <div class="pratique-header">
-          <div class="pratique-icon">✦</div>
-        </div>
         <div class="pratique-title">Soin en magnétisme</div>
         <p class="pratique-desc">Imposition des mains, souffle et prières, lithothérapie — soin ciblé ou global sur tout le corps.</p>
         <ul class="pratique-domains">
@@ -197,9 +184,6 @@
       </div>
 
       <div class="pratique-card reveal reveal-delay-2">
-        <div class="pratique-header">
-          <div class="pratique-icon">🌙</div>
-        </div>
         <div class="pratique-title">État élargi de conscience & Tarologie</div>
         <p class="pratique-desc">Rêve éveillé, état modifié de conscience, lecture de Tarot comme message de l'inconscient. Changer de point de vue pour sortir d'une impasse.</p>
         <ul class="pratique-domains">
@@ -265,7 +249,8 @@
     <div>
       <p class="section-tag reveal">Me contacter</p>
       <h2 class="reveal">Infos <em>pratiques</em></h2>
-
+    </div>
+    <div>
       <div class="infos-block reveal reveal-delay-1">
         <h3>Sur rendez-vous au cabinet</h3>
         <div class="info-item">
@@ -281,16 +266,15 @@
           <div class="info-icon">🕐</div>
           <div>
             <strong>Horaires</strong>
-            Lun – Ven : 9h–12h et 13h30–18h<br>
-            Samedi : 9h–12h
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon">🏠</div>
-          <div>
-            <strong>À domicile</strong>
-            Possible sur le secteur de Clermont-Ferrand<br>
-            <em style="font-size:.8rem;color:var(--sage-dark);">Supplément de 10 €</em>
+            <div class="horaires-grid">
+              <span>Lundi</span>      <span>9h–12h et 13h30–18h</span>
+              <span>Mardi</span>      <span>9h–12h et 13h30–18h</span>
+              <span>Mercredi</span>   <span>9h–12h et 13h30–18h</span>
+              <span>Jeudi</span>      <span>9h–12h et 13h30–18h</span>
+              <span>Vendredi</span>   <span>9h–12h et 13h30–18h</span>
+              <span>Samedi</span>     <span>9h–12h</span>
+              <span>Dimanche / Jours Fériés</span> <span>Fermé</span>
+            </div>
           </div>
         </div>
       </div>
@@ -331,7 +315,9 @@
         </div>
       </div>
     </div>
+  
   </section>
+  
   <section id="contact">
     <div class="contact-info">
       <p class="section-tag reveal">Me contacter</p>
@@ -382,9 +368,10 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 <span>Élodie Bedon</span> — Énergéticienne · Clermont-Ferrand</p>
+    <p>© 2026 <span>Élodie Bedon</span> — Magnétiseuse · Clermont-Ferrand</p>
   </footer>
 
   <script type="module" src="/js/main.js"></script>
+  
 </body>
 </html>

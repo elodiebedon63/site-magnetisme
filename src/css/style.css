@@ -93,8 +93,8 @@ nav.scrolled {
 .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--text); text-decoration: none; }
 .mobile-close { position: absolute; top: 1.6rem; right: 2rem; font-size: 1.8rem; cursor: pointer; color: var(--text-light); background: none; border: none; }
 
-/* ─── HERO ─── */
-#hero {
+/* ─── ACCUEIL ─── */
+#accueil {
   position: relative;
   height: 100vh;
   min-height: 620px;
@@ -121,11 +121,17 @@ nav.scrolled {
   border-radius: 50%; background: rgba(29,136,173,.07);
   top: 50%; right: 11%; transform: translateY(-50%);
 }
-.hero-tree {
+/* .hero-tree {
   position: absolute;
   right: 12%; top: 50%; transform: translateY(-50%);
   width: 180px; opacity: .12;
+} */
+.hero-logo {
+  position: absolute;
+  right: 15%; top: 50%; transform: translateY(-50%);
+  width: 200px; opacity: 0.5;
 }
+
 .hero-content {
   position: relative; z-index: 2;
   padding: 0 4rem; max-width: 860px;
@@ -156,7 +162,7 @@ h1 em { color: var(--sage-dark); font-style: italic; }
 }
 .hero-disciplines {
   display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.8rem;
-  opacity: 0; animation: fadeUp .9s .7s forwards;
+  opacity: 1; animation: fadeUp .9s .7s forwards;
 }
 .disc-pill {
   padding: .35rem .9rem;
@@ -307,8 +313,6 @@ h2 em { color: var(--sage-dark); font-style: italic; }
 .pratique-card.featured .pratique-price { border-top-color: rgba(255,255,255,.2); }
 .pratique-card.featured::before { background: var(--terre); }
 
-.pratique-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-.pratique-icon { font-size: 1.5rem; }
 .pratique-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.35rem; font-weight: 400; color: var(--text); line-height: 1.2;
@@ -383,6 +387,17 @@ h2 em { color: var(--sage-dark); font-style: italic; }
 }
 .info-item div { font-size: .87rem; line-height: 1.7; color: var(--text-light); }
 .info-item strong { display: block; color: var(--text); font-weight: 500; margin-bottom: .15rem; }
+
+#infos {
+  display: flex;
+  gap: 4rem; /* espace entre les deux blocs */
+  align-items: flex-start; /* alignement vertical en haut */
+  flex-wrap: wrap; /* pour le responsive */
+}
+#infos > div {
+  flex: 1 1 320px; /* largeur flexible, minimum 320px */
+}
+
 
 /* ─── CONTACT ─── */
 #contact {
@@ -459,3 +474,108 @@ footer span { color: var(--sage-light); }
   .form-row { grid-template-columns: 1fr; }
   .hero-content { padding: 0 2rem; }
 }
+
+.horaires-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.3rem 1.5rem;
+  margin-top: 0.4rem;
+  font-size: 0.87rem;
+  color: var(--text-light);
+}
+
+
+
+/* ─── À PROPOS / CARROUSEL ─── */
+#apropos {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+  background: var(--white);
+}
+/* Carrousel gauche */
+.carousel-wrap { position: relative; }
+.carousel-track {
+  position: relative;
+  width: 100%; aspect-ratio: 3/4;
+  border-radius: 3px; overflow: hidden;
+  background: var(--beige-dark);
+}
+.carousel-slide {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity .6s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.carousel-slide.active { opacity: 1; }
+.carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+.carousel-slide .slide-placeholder {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1rem; color: var(--text-light);
+  font-size: .8rem; letter-spacing: .1em;
+}
+.slide-placeholder span { opacity: .45; }
+/* Flèches */
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 5; width: 40px; height: 40px;
+  background: rgba(253,250,245,.88); border: 1px solid rgba(90,60,40,.1);
+  border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .25s, transform .25s;
+  backdrop-filter: blur(4px);
+}
+.carousel-btn:hover { background: var(--white); transform: translateY(-50%) scale(1.08); }
+.carousel-btn svg { stroke: var(--text); }
+.carousel-prev { left: -18px; }
+.carousel-next { right: -18px; }
+/* Dots */
+.carousel-dots {
+  display: flex; justify-content: center; gap: .6rem;
+  margin-top: 1.2rem;
+}
+.carousel-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--beige-dark); border: 1px solid var(--sage);
+  cursor: pointer; transition: background .3s, transform .3s;
+}
+.carousel-dot.active { background: var(--sage); transform: scale(1.2); }
+/* Compteur */
+.carousel-counter {
+  position: absolute; bottom: 1rem; right: 1rem;
+  font-size: .68rem; letter-spacing: .12em;
+  color: rgba(255,255,255,.8);
+  background: rgba(58,46,40,.35);
+  padding: .3rem .7rem; border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+/* Texte droite */
+.apropos-text { position: relative; }
+.slide-text {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity .5s ease, transform .5s ease;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+.slide-text.active {
+  opacity: 1; transform: translateY(0);
+  position: relative; pointer-events: auto;
+}
+.slide-text .section-tag { margin-bottom: .8rem; }
+.slide-text h2 { margin-bottom: 1.4rem; }
+.slide-text p {
+  font-size: .92rem; line-height: 1.9; color: var(--text-light); margin-bottom: 1rem;
+}
+.formation-list { margin-top: 2rem; }
+.formation-list h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 400; margin-bottom: 1.2rem; color: var(--text);
+}
+.formation-item {
+  display: flex; align-items: flex-start; gap: 1rem; margin-bottom: .9rem;
+}
+.formation-year {
+  font-size: .7rem; font-weight: 500; letter-spacing: .08em;
+  color: var(--sage-dark); min-width: 38px; padding-top: 2px;
+}
+.formation-item p { font-size: .83rem; line-height: 1.6; color: var(--text-light); }
