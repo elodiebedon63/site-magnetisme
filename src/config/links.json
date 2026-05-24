@@ -3,7 +3,7 @@
     { "label": "À propos", "href": "#apropos" },
     { "label": "Séances & tarifs", "href": "#seances" },
     { "label": "Infos pratiques", "href": "#infos" },
-    { "label": "Prendre Rendez-Vous", "href": "#contact" }
+    { "label": "Prendre Rendez-Vous", "href": "#" }
   ],
   "social": [
     {

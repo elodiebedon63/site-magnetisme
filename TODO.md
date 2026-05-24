@@ -2,8 +2,6 @@
 
 ## Déploiement site 
 
-- [ ] faire créer compte github a Elodie
-- [ ] faire créer proejet en privé + ajout contributeur  Clem
 - [ ] push code + créer CI deploiement Page avec Github action
 - [ ] configurer le DNS cf. Github documentation
 
@@ -14,15 +12,18 @@
 
 ## Contenus / Navigation
 
-- [ ] Supprimer ou revoir a propos
-- [ ] Supprimer bloque Prendre RDV, remplacer par un bouton => prendre rdv redirection formulaire Google Calendar
-- [ ] Ajouter bouton, me contacter
-    - sur PC => ouverture MAIL
-    - sur telepgone => m'appeler / mail => ouverture applis (est-ce possible ?)
+- [ ] lier Prendre RDV avec lien google calendat
+- [ ] ajouter lien address sur le lien de la fiche google maps 
+
+## Autre 
+
+- [ ] ameliorer favicon
 
 ## Design 
+- [ ] mettre le logo cercle devant Elodie Bedon / span Magnetisme Clermont-ferrand
+- [ ] reduire la taille des photos carrouselle
 - [ ] couleur / opacité des tags de accueil plus foncé 
-- ajouter un carrouselle d'image dans "A propos"
+- [ ] icones Infos pratiques
 - [ ] Taille de la police : 
     - Actuel : 
 ```

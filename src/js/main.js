@@ -45,6 +45,32 @@ window.closeMobile = function () {
   mobileMenu.classList.remove('open');
 };
 
+// CARROUSEL
+const slides     = document.querySelectorAll('.carousel-slide');
+const texts      = document.querySelectorAll('.slide-text');
+const dots       = document.querySelectorAll('.carousel-dot');
+const slideNum   = document.getElementById('slideNum');
+let current = 0;
+let autoTimer;
+
+function goTo(index) {
+  slides[current].classList.remove('active');
+  texts[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (index + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  texts[current].classList.add('active');
+  dots[current].classList.add('active');
+  slideNum.textContent = current + 1;
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+document.getElementById('nextBtn').addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+dots.forEach(dot => dot.addEventListener('click', () => { goTo(+dot.dataset.index); resetAuto(); }));
+
+// function resetAuto() { clearInterval(autoTimer); autoTimer = setInterval(() => goTo(current + 1), 5000); }
+// resetAuto();
+
 // ─── FORM ───
 window.handleSubmit = function (e) {
   e.preventDefault();

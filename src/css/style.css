@@ -507,13 +507,13 @@ footer span { color: var(--sage-light); }
 }
 .carousel-slide.active { opacity: 1; }
 .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
-.carousel-slide .slide-placeholder {
-  width: 100%; height: 100%;
+/* .carousel-slide .slide-placeholder {
+  width: 50%; height: 50%;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   gap: 1rem; color: var(--text-light);
   font-size: .8rem; letter-spacing: .1em;
-}
+} */
 .slide-placeholder span { opacity: .45; }
 /* Flèches */
 .carousel-btn {
