@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Magnétisme, soins et rééquilibrage énergétique, lithothérapie, état élargi de conscience — Clermont-Ferrand" />
+  <title>Élodie Bedon — Énergéticienne · Clermont-Ferrand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      Élodie Bedon
+      <span>Énergéticienne · Clermont-Ferrand</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#seances">Séances & tarifs</a></li>
+      <li><a href="#infos">Infos pratiques</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="burger" id="burgerBtn">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="closeMenu">✕</button>
+    <a href="#apropos"  onclick="closeMobile()">À propos</a>
+    <a href="#seances"  onclick="closeMobile()">Séances</a>
+    <a href="#infos"    onclick="closeMobile()">Infos pratiques</a>
+    <a href="#contact"  onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-circle-1"></div>
+    <div class="hero-circle-2"></div>
+
+    <!-- arbre SVG décoratif -->
+    <svg class="hero-tree" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 280 L100 140" stroke="#4f7a54" stroke-width="3"/>
+      <path d="M100 200 Q70 170 50 140 Q80 155 100 170" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
+      <path d="M100 175 Q130 145 150 115 Q120 130 100 150" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
+      <path d="M100 155 Q65 120 40 85 Q75 105 100 135" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
+      <path d="M100 140 Q135 100 160 65 Q125 90 100 120" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
+      <circle cx="100" cy="60" r="55" stroke="#4f7a54" stroke-width="1.5" fill="none"/>
+      <circle cx="100" cy="60" r="38" stroke="#4f7a54" stroke-width="1" fill="none" opacity=".5"/>
+    </svg>
+
+    <div class="hero-content">
+      <p class="hero-tag">Magnétisme · Lithothérapie · État élargi de conscience</p>
+      <h1>Vous êtes au cœur<br>de votre <em>guérison</em></h1>
+      <p class="hero-sub">Je vous accompagne pour développer vos sensations, la conscientisation et le ressenti de votre propre énergie.</p>
+      <div class="hero-disciplines">
+        <span class="disc-pill">Magnétisme</span>
+        <span class="disc-pill">Lithothérapie</span>
+        <span class="disc-pill">État élargi de conscience</span>
+        <span class="disc-pill">Tarologie</span>
+        <span class="disc-pill">Massage énergétique</span>
+      </div>
+      <a href="#contact" class="hero-cta">
+        Prendre rendez-vous
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Découvrir</span>
+    </div>
+  </section>
+
+  <!-- ACCROCHE -->
+  <div id="accroche">
+    <div class="accroche-inner reveal">
+      <p>Le soin est une expérience qui vous permet de vous <em>reconnecter à votre corps</em>, à votre être intérieur et à votre environnement. J'utilise lors des soins l'apposition des mains, mon souffle, les cristaux, le pendule, le bol tibétain, les prières, le massage énergétique et vous invite à la visualisation.</p>
+    </div>
+  </div>
+
+  <!-- À PROPOS -->
+  <section id="apropos">
+    <div class="apropos-img-frame reveal">
+      <img
+        src="https://static.wixstatic.com/media/65ad7f_c207124574b24af29ad9334198aa9106~mv2.jpg/v1/fill/w_500,h_660,al_c,q_80/PHOTO%20DE%20PROFIL%20N%26B%20basse%20def_edited.jpg"
+        alt="Élodie Bedon — Énergéticienne"
+        onerror="this.style.display='none'; this.parentElement.querySelector('.img-fallback').style.display='flex';"
+      />
+      <div class="img-fallback" style="display:none; flex-direction:column; align-items:center; gap:1rem;">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="24" r="10" stroke="#7a9e7e" stroke-width="1.5"/>
+          <path d="M12 52c0-11 9-20 20-20s20 9 20 20" stroke="#7a9e7e" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p style="font-size:.75rem;letter-spacing:.1em;opacity:.5;">Votre photo ici</p>
+      </div>
+    </div>
+
+    <div class="apropos-text">
+      <p class="section-tag reveal">À propos</p>
+      <h2 class="reveal">Un chemin vers<br><em>l'énergie</em> qui vous habite</h2>
+
+      <div class="reveal reveal-delay-1">
+        <p>Naturellement sensible aux champs énergétiques et magnétiques, j'ai fait la rencontre de guérisseuses qui m'ont orientée sur cette voie pour laquelle je ne me destinais pas a priori.</p>
+        <p>Après une formation à l'IFM avec Pascal Quesne, je poursuis mon apprentissage avec l'enseignement de Barbara Ann Brennan (guérisseuse, psychothérapeute et physicienne). Je suis surtout l'enseignement de Reynald Georges Boschiero, et j'ai suivi une formation d'hypnose spirituelle sur l'autoguérison.</p>
+        <p>J'enrichis mes connaissances en m'intéressant à d'autres disciplines complémentaires : psychoénergétique, médecine chinoise, médecine holistique, états de conscience élargis, biodécodage, tarologie, naturopathie et art-thérapie.</p>
+        <p>Je suis également artiste peintre et mène des ateliers de médiation artistique auprès de personnes en situation de handicap.</p>
+      </div>
+
+      <div class="formation-list reveal reveal-delay-2">
+        <h3>Formation</h3>
+        <div class="formation-item">
+          <span class="formation-year">2026</span>
+          <p>Autoguérison : Guérir mon corps – guérir mon âme, IIHS</p>
+        </div>
+        <div class="formation-item">
+          <span class="formation-year">2021</span>
+          <p>Certificat praticienne en massage énergétique, IFM</p>
+        </div>
+        <div class="formation-item">
+          <span class="formation-year">2021</span>
+          <p>Diplôme de Lithothérapie – Cristallothérapie, CFD</p>
+        </div>
+        <div class="formation-item">
+          <span class="formation-year">2017</span>
+          <p>Certificat praticienne en magnétisme, IFM</p>
+        </div>
+        <div class="formation-item">
+          <span class="formation-year">2014</span>
+          <p>M2 Médiatrice culturelle, UJM Saint-Étienne</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÉANCES & TARIFS -->
+  <section id="seances">
+    <div class="seances-intro">
+      <p class="section-tag reveal">Mes accompagnements</p>
+      <h2 class="reveal">Séances <em>&</em> tarifs</h2>
+      <p class="reveal reveal-delay-1">Chaque soin est une expérience unique, adaptée à votre situation du moment. La première séance permet de nous découvrir et de définir ensemble le cadre le plus adapté.</p>
+    </div>
+
+    <div class="pratiques-grid">
+
+      <div class="pratique-card reveal">
+        <div class="pratique-header">
+          <div class="pratique-icon">🌿</div>
+        </div>
+        <div class="pratique-title">Rééquilibrage énergétique</div>
+        <p class="pratique-desc">Magnétisme par imposition des mains, rééquilibrage aux pierres et conseil en lithothérapie.</p>
+        <ul class="pratique-domains">
+          <li>Fatigue passagère, sommeil difficile</li>
+          <li>Stress, surmenage</li>
+          <li>Tensions et gestion des émotions</li>
+          <li>Confiance en soi</li>
+          <li>Besoin de se recentrer et s'ancrer</li>
+        </ul>
+        <div class="pratique-price">
+          <strong>50 €</strong>
+          <span>/ 45 min</span>
+        </div>
+      </div>
+
+      <div class="pratique-card featured reveal reveal-delay-1">
+        <div class="pratique-header">
+          <div class="pratique-icon">✦</div>
+        </div>
+        <div class="pratique-title">Soin en magnétisme</div>
+        <p class="pratique-desc">Imposition des mains, souffle et prières, lithothérapie — soin ciblé ou global sur tout le corps.</p>
+        <ul class="pratique-domains">
+          <li>Fatigue, stress, insomnie, angoisse</li>
+          <li>Maladies de peau, brûlures</li>
+          <li>Douleurs, tensions, douleurs menstruelles</li>
+          <li>Aide à la cicatrisation osseuse et musculaire</li>
+        </ul>
+        <div class="pratique-price">
+          <strong>60 €</strong>
+          <span>/ 1h à 1h15</span>
+        </div>
+      </div>
+
+      <div class="pratique-card reveal reveal-delay-2">
+        <div class="pratique-header">
+          <div class="pratique-icon">🌙</div>
+        </div>
+        <div class="pratique-title">État élargi de conscience & Tarologie</div>
+        <p class="pratique-desc">Rêve éveillé, état modifié de conscience, lecture de Tarot comme message de l'inconscient. Changer de point de vue pour sortir d'une impasse.</p>
+        <ul class="pratique-domains">
+          <li>Deuil d'un être ou d'une situation, burn-out</li>
+          <li>Maladies et douleurs chroniques</li>
+          <li>Crise existentielle, blocage, mal-être</li>
+        </ul>
+        <div class="pratique-price">
+          <strong>80 €</strong>
+          <span>/ 1h30 à 2h30</span>
+        </div>
+      </div>
+
+      <div class="pratique-card reveal reveal-delay-3">
+        <div class="pratique-header">
+          <div class="pratique-icon">🌸</div>
+        </div>
+        <div class="pratique-title">Massage énergétique complet</div>
+        <p class="pratique-desc">Massages à l'huile tiède, magnétisme par imposition des mains et rééquilibrage aux pierres.</p>
+        <ul class="pratique-domains">
+          <li>Fatigue, stress, insomnie</li>
+          <li>Raffermissement de la peau</li>
+          <li>Douleurs, tensions</li>
+          <li>Circulation sanguine et digestion</li>
+          <li>Conscientisation du corps</li>
+        </ul>
+        <div class="pratique-price">
+          <strong>90 €</strong>
+          <span>/ 1h15</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Outils -->
+    <div class="outils-section reveal">
+      <h3>Outils utilisés lors des soins</h3>
+      <div class="outils-grid">
+        <div class="outil-pill">Apposition des mains</div>
+        <div class="outil-pill">Souffle et prières</div>
+        <div class="outil-pill">Cristaux & pierres</div>
+        <div class="outil-pill">Pendule</div>
+        <div class="outil-pill">Bol tibétain</div>
+        <div class="outil-pill">Massage énergétique</div>
+        <div class="outil-pill">Visualisation</div>
+        <div class="outil-pill">Rêve éveillé</div>
+        <div class="outil-pill">Lecture de Tarot</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARALLAX DIVIDER -->
+  <div class="parallax-divider">
+    <div class="parallax-bg" id="parallaxBg"></div>
+    <div class="parallax-quote">
+      <blockquote>« Le soin est une invitation à se reconnecter à soi, à son corps, à son environnement. »</blockquote>
+      <cite>Élodie Bedon</cite>
+    </div>
+  </div>
+
+  <!-- INFOS PRATIQUES -->
+  <section id="infos">
+    <div>
+      <p class="section-tag reveal">Organisation</p>
+      <h2 class="reveal">Infos <em>pratiques</em></h2>
+
+      <div class="infos-block reveal reveal-delay-1">
+        <h3>Sur rendez-vous au cabinet</h3>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <strong>Cabinet Psy'Jaude</strong>
+            2 avenue Julien, place Jaude<br>
+            63000 Clermont-Ferrand<br>
+            <em style="font-size:.8rem;color:var(--sage-dark);">Tram / Bus A-B-C-E4 — Arrêt Jaude<br>Parkings payants Jaude 1 et Jaude 2</em>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div>
+            <strong>Horaires</strong>
+            Lun – Ven : 9h–12h et 13h30–18h<br>
+            Samedi : 9h–12h
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🏠</div>
+          <div>
+            <strong>À domicile</strong>
+            Possible sur le secteur de Clermont-Ferrand<br>
+            <em style="font-size:.8rem;color:var(--sage-dark);">Supplément de 10 €</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="infos-block reveal">
+        <h3>Comment prendre rendez-vous</h3>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div>
+            <strong>Par mail</strong>
+            elodie.bedon@hotmail.fr<br>
+            <em style="font-size:.8rem;color:var(--text-light);">Premier contact recommandé</em>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <strong>Par téléphone</strong>
+            07 68 48 54 14<br>
+            <em style="font-size:.8rem;color:var(--text-light);">Laissez un message, je vous rappelle</em>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📋</div>
+          <div>
+            <strong>Via le formulaire</strong>
+            Utilisez le formulaire ci-dessous en précisant le type de soin souhaité et vos disponibilités.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-info">
+      <p class="section-tag reveal">Me contacter</p>
+      <h2 class="reveal">Prendre<br><em>rendez-vous</em></h2>
+      <p class="reveal reveal-delay-1">La prise de rendez-vous est obligatoire. N'hésitez pas à me préciser votre situation et vos disponibilités, je vous répondrai dans les meilleurs délais.</p>
+      <div class="social-links reveal reveal-delay-2">
+        <!-- Rendered from config/links.json -->
+      </div>
+    </div>
+
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="field">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" placeholder="Votre prénom" required />
+        </div>
+        <div class="field">
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" placeholder="Votre nom" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="tel">Téléphone</label>
+        <input type="tel" id="tel" placeholder="06 xx xx xx xx" />
+      </div>
+      <div class="field">
+        <label for="email">Email *</label>
+        <input type="email" id="email" placeholder="votre@email.fr" required />
+      </div>
+      <div class="field">
+        <label for="soin">Type de consultation souhaitée *</label>
+        <select id="soin" required>
+          <option value="">— Sélectionner —</option>
+          <option>Rééquilibrage énergétique — 50 €</option>
+          <option>Soin en magnétisme — 60 €</option>
+          <option>État élargi de conscience / Tarologie — 80 €</option>
+          <option>Massage énergétique complet — 90 €</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="dispo">Vos disponibilités</label>
+        <input type="text" id="dispo" placeholder="Ex : mardi matin ou jeudi après-midi" />
+      </div>
+      <div class="field">
+        <label for="message">Votre message</label>
+        <textarea id="message" placeholder="Décrivez brièvement ce qui vous amène…"></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Envoyer le message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <span>Élodie Bedon</span> — Énergéticienne · Clermont-Ferrand</p>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

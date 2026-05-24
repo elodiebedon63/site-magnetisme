@@ -1,0 +1,15 @@
+{
+  "name": "elodie-bedon-magnetisme",
+  "version": "1.0.0",
+  "description": "Site vitrine — Élodie Bedon, Énergéticienne · Clermont-Ferrand",
+  "private": true,
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.3.0"
+  }
+}
