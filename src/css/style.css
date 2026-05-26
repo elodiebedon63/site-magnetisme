@@ -16,6 +16,22 @@
 
 html { scroll-behavior: smooth; }
 
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 1000;
+  background: var(--sage-dark);
+  color: var(--white);
+  padding: .8rem 1.2rem;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: .85rem;
+  letter-spacing: .05em;
+  transition: top .2s ease;
+}
+.skip-link:focus { top: 1rem; outline: 2px solid var(--white); outline-offset: 2px; }
+
 body {
   font-family: 'Jost', sans-serif;
   background: var(--beige);
@@ -96,7 +112,16 @@ nav.scrolled {
 .nav-links a:hover { color: var(--sage-dark); }
 .nav-links a:hover::after { width: 100%; }
 
-.burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: inherit;
+}
 .burger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all .3s; }
 .mobile-menu {
   display: none;
@@ -558,6 +583,7 @@ footer span { color: var(--sage-light); }
   width: 7px; height: 7px; border-radius: 50%;
   background: var(--beige-dark); border: 1px solid var(--sage);
   cursor: pointer; transition: background .3s, transform .3s;
+  padding: 0;
 }
 .carousel-dot.active { background: var(--sage); transform: scale(1.2); }
 /* Compteur */

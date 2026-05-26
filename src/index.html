@@ -19,6 +19,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
+
   <!-- NAV -->
   <nav id="navbar">
     <a href="#accueil" class="nav-logo">
@@ -34,9 +36,9 @@
       <li><a href="#infos">Infos pratiques</a></li>
       <li><div id="calendarBtnNav"></div></li>
     </ul>
-    <div class="burger" id="burgerBtn">
+    <button class="burger" id="burgerBtn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </nav>
 
   <!-- MOBILE MENU -->
@@ -47,6 +49,8 @@
     <a href="#infos"    onclick="closeMobile()">Infos pratiques</a>
     <div id="calendarBtn"></div>
   </div>
+
+  <main id="main-content">
 
   <!-- Accueil -->
   <section id="accueil" class="hero">
@@ -107,53 +111,53 @@
   <section id="apropos">
 
     <!-- GAUCHE : carrousel images -->
-    <div class="carousel-wrap reveal">
-      <div class="carousel-track">
+    <div class="carousel-wrap reveal" role="region" aria-roledescription="carrousel" aria-label="Découverte du cabinet et des soins">
+      <div class="carousel-track" aria-live="polite">
 
-        <div class="carousel-slide active">
+        <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 sur 6" aria-hidden="false">
           <img src="/cabinet.jpg" alt="Salle de soin du cabinet Psy'Jaude à Clermont-Ferrand" />
         </div>
 
-        <div class="carousel-slide">
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 sur 6" aria-hidden="true">
           <img src="/magnetisation.jpg" alt="Séance de magnétisme par imposition des mains" />
         </div>
 
-        <div class="carousel-slide">
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 sur 6" aria-hidden="true">
           <img src="/bol-et-cristaux.jpg" alt="Bol tibétain et cristaux utilisés en séance énergétique" />
         </div>
 
-        <div class="carousel-slide">
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 sur 6" aria-hidden="true">
           <img src="/tarot.jpg" alt="Cartes du Tarot de Marseille pour une lecture en tarologie" />
         </div>
 
-        <div class="carousel-slide">
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="5 sur 6" aria-hidden="true">
           <img src="/massage.jpg" alt="Massage énergétique à l'huile tiède" />
         </div>
 
 
-        <div class="carousel-slide">
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="6 sur 6" aria-hidden="true">
           <img src="/biblio.jpg" alt="Bibliothèque du cabinet — ouvrages de référence en énergétique et lithothérapie" />
         </div>
 
-        <div class="carousel-counter"><span id="slideNum">1</span> / 6</div>
+        <div class="carousel-counter" aria-hidden="true"><span id="slideNum">1</span> / 6</div>
       </div>
 
       <!-- Flèches -->
-      <button class="carousel-btn carousel-prev" id="prevBtn" aria-label="Précédent">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <button class="carousel-btn carousel-prev" id="prevBtn" type="button" aria-label="Slide précédente">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <button class="carousel-btn carousel-next" id="nextBtn" aria-label="Suivant">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <button class="carousel-btn carousel-next" id="nextBtn" type="button" aria-label="Slide suivante">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
 
       <!-- Dots -->
-      <div class="carousel-dots">
-        <div class="carousel-dot active" data-index="0"></div>
-        <div class="carousel-dot" data-index="1"></div>
-        <div class="carousel-dot" data-index="2"></div>
-        <div class="carousel-dot" data-index="3"></div>
-        <div class="carousel-dot" data-index="4"></div>
-        <div class="carousel-dot" data-index="5"></div>
+      <div class="carousel-dots" role="tablist" aria-label="Choisir une slide">
+        <button class="carousel-dot active" type="button" data-index="0" aria-label="Aller à la slide 1" aria-current="true"></button>
+        <button class="carousel-dot" type="button" data-index="1" aria-label="Aller à la slide 2"></button>
+        <button class="carousel-dot" type="button" data-index="2" aria-label="Aller à la slide 3"></button>
+        <button class="carousel-dot" type="button" data-index="3" aria-label="Aller à la slide 4"></button>
+        <button class="carousel-dot" type="button" data-index="4" aria-label="Aller à la slide 5"></button>
+        <button class="carousel-dot" type="button" data-index="5" aria-label="Aller à la slide 6"></button>
       </div>
     </div>
 
@@ -486,6 +490,8 @@
       <button type="submit" class="btn-submit">Envoyer le message</button>
     </form>
   </section> -->
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
