@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elodiebedon63.github.io/site-magnetisme/sitemap.xml
