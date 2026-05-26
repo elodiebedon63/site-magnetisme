@@ -1,5 +1,7 @@
 import linksConfig from '../config/links.json';
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ─── NAV SCROLL ───
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -7,17 +9,19 @@ window.addEventListener('scroll', () => {
 });
 
 // ─── PARALLAX ───
-const heroBg = document.getElementById('heroBg');
-const parallaxBg = document.getElementById('parallaxBg');
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  if (heroBg) heroBg.style.transform = `translateY(${y * 0.32}px)`;
-  if (parallaxBg) {
-    const rect = parallaxBg.parentElement.getBoundingClientRect();
-    const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * 0.18;
-    parallaxBg.style.transform = `translateY(${offset}px)`;
-  }
-});
+if (!prefersReducedMotion) {
+  const heroBg = document.getElementById('heroBg');
+  const parallaxBg = document.getElementById('parallaxBg');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (heroBg) heroBg.style.transform = `translateY(${y * 0.32}px)`;
+    if (parallaxBg) {
+      const rect = parallaxBg.parentElement.getBoundingClientRect();
+      const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * 0.18;
+      parallaxBg.style.transform = `translateY(${offset}px)`;
+    }
+  });
+}
 
 // ─── REVEAL ON SCROLL ───
 const reveals = document.querySelectorAll('.reveal');

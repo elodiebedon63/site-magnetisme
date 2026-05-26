@@ -674,3 +674,19 @@ footer span { color: var(--sage-light); }
 .video-container iframe {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 }
+
+/* ─── REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-tag, h1, .hero-sub, .hero-disciplines, .hero-ctas, .hero-scroll {
+    opacity: 1 !important; animation: none !important;
+  }
+  .scroll-line { animation: none !important; opacity: .5 !important; }
+  .hero-bg, .parallax-bg { transform: none !important; }
+}
