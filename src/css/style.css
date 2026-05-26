@@ -253,11 +253,6 @@ h2 em { color: var(--sage-dark); font-style: italic; }
 .accroche-inner p em { font-style: italic; color: var(--sage-light); }
 
 /* ─── À PROPOS ─── */
-#apropos {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 6rem; align-items: center;
-  background: var(--white);
-}
 .apropos-img-frame {
   width: 50%; aspect-ratio: 3/4;
   background: linear-gradient(135deg, rgba(29,136,173,.20) 0%, rgba(11,98,129,.15) 100%), var(--beige-dark);
@@ -409,8 +404,13 @@ h2 em { color: var(--sage-dark); font-style: italic; }
 /* ─── INFOS PRATIQUES ─── */
 #infos {
   background: var(--white);
-  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
+#infos > div { flex: 1 1 320px; }
+
 .infos-block h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem; font-weight: 400; color: var(--text); margin-bottom: 1.5rem;
@@ -427,17 +427,6 @@ h2 em { color: var(--sage-dark); font-style: italic; }
     color: var(--text-light); 
 }
 .info-item strong { display: block; color: var(--text); font-weight: 500; margin-bottom: .15rem; }
-
-#infos {
-  display: flex;
-  gap: 4rem; /* espace entre les deux blocs */
-  align-items: flex-start; /* alignement vertical en haut */
-  flex-wrap: wrap; /* pour le responsive */
-}
-#infos > div {
-  flex: 1 1 320px; /* largeur flexible, minimum 320px */
-}
-
 
 /* ─── CONTACT ─── */
 #contact {
@@ -509,7 +498,7 @@ footer span { color: var(--sage-light); }
   #accroche { padding: 4rem 2rem; }
   #apropos { grid-template-columns: 1fr; gap: 3rem; }
   .pratiques-grid { grid-template-columns: 1fr; }
-  #infos { grid-template-columns: 1fr; gap: 3rem; }
+  #infos { gap: 3rem; }
   #contact { grid-template-columns: 1fr; gap: 3rem; }
   .form-row { grid-template-columns: 1fr; }
   .hero-content { padding: 0 2rem; }
@@ -597,19 +586,24 @@ footer span { color: var(--sage-light); }
 .slide-text p {
   font-size: .98rem; line-height: 1.9; color: var(--text-light); margin-bottom: 1rem;
 }
-.formation-list { margin-top: 2rem; }
-.formation-list h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem; font-weight: 400; margin-bottom: 1.2rem; color: var(--text);
+.slide-list {
+  list-style: none;
+  margin-bottom: 1rem;
 }
-.formation-item {
-  display: flex; align-items: flex-start; gap: 1rem; margin-bottom: .9rem;
+.slide-list li {
+  font-size: .98rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  padding-left: 1.2rem;
+  position: relative;
+  margin-bottom: .5rem;
 }
-.formation-year {
-  font-size: .7rem; font-weight: 500; letter-spacing: .08em;
-  color: var(--sage-dark); min-width: 38px; padding-top: 2px;
+.slide-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--sage);
 }
-.formation-item p { font-size: .83rem; line-height: 1.6; color: var(--text-light); }
 
 
 #calendarBtn button {
