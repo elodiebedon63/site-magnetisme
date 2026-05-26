@@ -1,0 +1,7 @@
+node_modules
+dist
+.vite
+.ai
+ai/node_modules
+assets/sitemap.xml
+package-lock.json

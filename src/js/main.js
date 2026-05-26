@@ -62,8 +62,6 @@ function closeMobile() {
   }
 }
 
-window.closeMobile = closeMobile;
-
 burgerBtn.addEventListener('click', openMobile);
 document.getElementById('closeMenu').addEventListener('click', closeMobile);
 
@@ -93,10 +91,10 @@ document.addEventListener('keydown', (e) => {
 });
 
 // CARROUSEL
-const slides     = document.querySelectorAll('.carousel-slide');
-const texts      = document.querySelectorAll('.slide-text');
-const dots       = document.querySelectorAll('.carousel-dot');
-const slideNum   = document.getElementById('slideNum');
+const slides = document.querySelectorAll('.carousel-slide');
+const texts = document.querySelectorAll('.slide-text');
+const dots = document.querySelectorAll('.carousel-dot');
+const slideNum = document.getElementById('slideNum');
 let current = 0;
 
 function goTo(index) {
@@ -118,7 +116,7 @@ function goTo(index) {
 
 document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
 document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
-dots.forEach(dot => dot.addEventListener('click', () => goTo(+dot.dataset.index)));
+dots.forEach((dot) => dot.addEventListener('click', () => goTo(+dot.dataset.index)));
 
 // ─── SOCIAL LINKS FROM CONFIG ───
 function renderSocialLinks() {
@@ -153,8 +151,7 @@ function renderNavLinks() {
       const container = document.createElement('div');
       container.id = 'calendarBtnNav';
       li.appendChild(container);
-    } 
-    else {
+    } else {
       const a = document.createElement('a');
       a.href = item.href;
       a.textContent = item.label;
@@ -179,7 +176,7 @@ function renderNavLinks() {
         const a = document.createElement('a');
         a.href = item.href;
         a.textContent = item.label;
-        a.addEventListener('click', () => window.closeMobile());
+        a.addEventListener('click', closeMobile);
         mobileMenuEl.appendChild(a);
       }
     });
@@ -193,8 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('copyright-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
-
-
 
 window.addEventListener('load', function () {
   const url =
