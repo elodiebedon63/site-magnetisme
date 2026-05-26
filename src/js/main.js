@@ -165,22 +165,23 @@ window.addEventListener('load', function () {
     label: 'Prendre rendez-vous',
   };
 
-  const heroTarget = document.getElementById('calendarBtn');
-  const navTarget = document.getElementById('calendarBtnNav');
+  const targets = [
+    document.getElementById('calendarBtn'),
+    document.getElementById('calendarBtnNav'),
+  ].filter(Boolean);
 
-  if (heroTarget) {
-    calendar.schedulingButton.load({
-      ...config,
-      target: heroTarget,
+  if (targets.length === 0) return;
+
+  if (typeof calendar === 'undefined' || !calendar.schedulingButton) {
+    targets.forEach((target) => {
+      target.innerHTML = `<a class="hero-cta" href="${url}" target="_blank" rel="noopener noreferrer">${config.label}</a>`;
     });
+    return;
   }
 
-  if (navTarget) {
-    calendar.schedulingButton.load({
-      ...config,
-      target: navTarget,
-    });
-  }
+  targets.forEach((target) => {
+    calendar.schedulingButton.load({ ...config, target });
+  });
 });
 
 
