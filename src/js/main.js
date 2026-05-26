@@ -171,6 +171,9 @@ function renderNavLinks() {
       if (item.type === 'calendar') {
         const div = document.createElement('div');
         div.id = 'calendarBtnMobile';
+        // Ferme le menu mobile dès qu'un clic remonte du slot (y compris le
+        // bouton Google injecté plus tard de façon async).
+        div.addEventListener('click', closeMobile);
         mobileMenuEl.appendChild(div);
       } else {
         const a = document.createElement('a');
@@ -203,6 +206,7 @@ window.addEventListener('load', function () {
   const targets = [
     document.getElementById('calendarBtn'),
     document.getElementById('calendarBtnNav'),
+    document.getElementById('calendarBtnMobile'),
   ].filter(Boolean);
 
   if (targets.length === 0) return;
