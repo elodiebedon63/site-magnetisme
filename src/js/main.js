@@ -41,13 +41,54 @@ reveals.forEach((el) => observer.observe(el));
 // ─── BURGER / MOBILE MENU ───
 const burgerBtn = document.getElementById('burgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
+const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+let mobileLastFocused = null;
 
-burgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-document.getElementById('closeMenu').addEventListener('click', () => mobileMenu.classList.remove('open'));
+function openMobile() {
+  mobileLastFocused = document.activeElement;
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const first = mobileMenu.querySelector(FOCUSABLE);
+  first?.focus();
+}
 
-window.closeMobile = function () {
+function closeMobile() {
   mobileMenu.classList.remove('open');
-};
+  document.body.style.overflow = '';
+  if (mobileLastFocused && typeof mobileLastFocused.focus === 'function') {
+    mobileLastFocused.focus();
+  }
+}
+
+window.closeMobile = closeMobile;
+
+burgerBtn.addEventListener('click', openMobile);
+document.getElementById('closeMenu').addEventListener('click', closeMobile);
+
+document.addEventListener('keydown', (e) => {
+  if (!mobileMenu.classList.contains('open')) return;
+
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    closeMobile();
+    return;
+  }
+
+  if (e.key === 'Tab') {
+    const focusables = mobileMenu.querySelectorAll(FOCUSABLE);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+});
 
 // CARROUSEL
 const slides     = document.querySelectorAll('.carousel-slide');
