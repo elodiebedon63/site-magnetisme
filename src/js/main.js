@@ -98,7 +98,6 @@ const texts      = document.querySelectorAll('.slide-text');
 const dots       = document.querySelectorAll('.carousel-dot');
 const slideNum   = document.getElementById('slideNum');
 let current = 0;
-let autoTimer;
 
 function goTo(index) {
   slides[current].classList.remove('active');
@@ -120,15 +119,6 @@ function goTo(index) {
 document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
 document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
 dots.forEach(dot => dot.addEventListener('click', () => goTo(+dot.dataset.index)));
-
-// ─── FORM ───
-window.handleSubmit = function (e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
-  btn.textContent = 'Message envoyé ✓';
-  btn.style.background = 'var(--sage-dark)';
-  btn.disabled = true;
-};
 
 // ─── SOCIAL LINKS FROM CONFIG ───
 function renderSocialLinks() {
@@ -232,29 +222,4 @@ window.addEventListener('load', function () {
   targets.forEach((target) => {
     calendar.schedulingButton.load({ ...config, target });
   });
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  const openBtn = document.getElementById('openVideoModal');
-  const modal = document.getElementById('videoModal');
-  const closeBtn = document.getElementById('closeVideoModal');
-  const iframe = document.getElementById('youtubeIframe');
-
-  if (openBtn && modal && closeBtn) {
-    openBtn.addEventListener('click', function () {
-      modal.style.display = 'flex';
-    });
-    closeBtn.addEventListener('click', function () {
-      modal.style.display = 'none';
-      // Stop la vidéo quand on ferme
-      iframe.src = iframe.src;
-    });
-    window.addEventListener('click', function (e) {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        iframe.src = iframe.src;
-      }
-    });
-  }
 });
