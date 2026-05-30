@@ -3,5 +3,5 @@ dist
 .vite
 .ai
 ai/node_modules
-assets/sitemap.xml
+src/assets/sitemap.xml
 package-lock.json

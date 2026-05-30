@@ -2,26 +2,28 @@ import linksConfig from '../config/links.json';
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ─── NAV SCROLL ───
+// ─── SCROLL HANDLER (nav + parallax, throttle rAF, listener passif) ───
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
+const heroBg = prefersReducedMotion ? null : document.getElementById('heroBg');
+const parallaxBg = prefersReducedMotion ? null : document.getElementById('parallaxBg');
 
-// ─── PARALLAX ───
-if (!prefersReducedMotion) {
-  const heroBg = document.getElementById('heroBg');
-  const parallaxBg = document.getElementById('parallaxBg');
-  window.addEventListener('scroll', () => {
+let scrollTicking = false;
+function onScroll() {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(() => {
     const y = window.scrollY;
+    navbar.classList.toggle('scrolled', y > 60);
     if (heroBg) heroBg.style.transform = `translateY(${y * 0.32}px)`;
     if (parallaxBg) {
       const rect = parallaxBg.parentElement.getBoundingClientRect();
       const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * 0.18;
       parallaxBg.style.transform = `translateY(${offset}px)`;
     }
+    scrollTicking = false;
   });
 }
+window.addEventListener('scroll', onScroll, { passive: true });
 
 // ─── REVEAL ON SCROLL ───
 const reveals = document.querySelectorAll('.reveal');
