@@ -1,0 +1,25 @@
+/* Pied de page — composant Footer.astro */
+
+footer {
+  background: var(--brown);
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  padding: 2.5rem 4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
+footer span {
+  color: var(--sage-light);
+}
+.footer-legal {
+  margin-top: 0.6rem;
+}
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  transition: color 0.2s ease;
+}
+.footer-legal a:hover {
+  color: var(--sage-light);
+}

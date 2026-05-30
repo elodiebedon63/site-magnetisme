@@ -1,0 +1,29 @@
+/* Bandeau d'accroche — composant Accroche.astro */
+
+#accroche {
+  background: var(--sage-dark);
+  padding: 5rem 4rem;
+  text-align: center;
+}
+.accroche-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.accroche-inner p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+}
+.accroche-inner p em {
+  font-style: italic;
+  color: var(--sage-light);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 960px) {
+  #accroche {
+    padding: 4rem 2rem;
+  }
+}

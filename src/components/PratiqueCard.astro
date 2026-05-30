@@ -1,0 +1,39 @@
+---
+import '../styles/pratique-card.css';
+
+/**
+ * Carte d'une séance / pratique. Les données proviennent de
+ * src/data/services.json (voir _doc/organisation.md → « Ajouter un service »).
+ */
+interface Props {
+  title: string;
+  description: string;
+  domains: string[];
+  price: string;
+  duration: string;
+  icon?: string;
+  /** Position dans la grille — pilote le délai d'apparition au scroll. */
+  index?: number;
+}
+const { title, description, domains, price, duration, icon, index = 0 } = Astro.props;
+const revealDelay = index > 0 ? `reveal-delay-${index}` : '';
+---
+
+<div class:list={['pratique-card', 'reveal', revealDelay]}>
+  {
+    icon && (
+      <div class="pratique-header">
+        <div class="pratique-icon">{icon}</div>
+      </div>
+    )
+  }
+  <div class="pratique-title">{title}</div>
+  <p class="pratique-desc">{description}</p>
+  <ul class="pratique-domains">
+    {domains.map((d) => <li>{d}</li>)}
+  </ul>
+  <div class="pratique-price">
+    <strong>{price}</strong>
+    <span>{duration}</span>
+  </div>
+</div>

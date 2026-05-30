@@ -1,0 +1,43 @@
+/* Bandeau citation avec parallaxe — composant ParallaxDivider.astro */
+
+.parallax-divider {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.parallax-bg {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse at 25% 60%, rgba(29, 136, 173, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(11, 98, 129, 0.22) 0%, transparent 50%),
+    linear-gradient(135deg, #c8dde5 0%, #b8ced8 100%);
+  will-change: transform;
+}
+.parallax-quote {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 2rem;
+}
+.parallax-quote blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.45;
+  max-width: 680px;
+}
+.parallax-quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-style: normal;
+}

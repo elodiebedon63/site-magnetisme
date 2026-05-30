@@ -1,0 +1,89 @@
+---
+import Social from './Social.astro';
+import '../styles/infos.css';
+---
+
+<section id="infos">
+  <div>
+    <p class="section-tag reveal">Me contacter</p>
+    <h2 class="reveal">Infos <em>pratiques</em></h2>
+  </div>
+  <div>
+    <div class="infos-block reveal reveal-delay-1">
+      <h3>Sur rendez-vous au cabinet</h3>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <strong>Cabinet Psy'Jaude</strong>
+          2 avenue Julien, place Jaude<br />
+          63000 Clermont-Ferrand<br />
+          <em style="font-size: 0.8rem; color: var(--sage-dark)">
+            Tram / Bus A-B-C-E4 — Arrêt Jaude<br />Parkings payants Jaude 1 et Jaude 2
+          </em>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div>
+          <strong>Horaires</strong>
+          <div class="horaires-grid">
+            <span>Lundi</span>
+            <span>9h–12h et 13h30–18h</span>
+            <span>Mardi</span>
+            <span>9h–12h et 13h30–18h</span>
+            <span>Mercredi</span>
+            <span>9h–12h et 13h30–18h</span>
+            <span>Jeudi</span>
+            <span>9h–12h et 13h30–18h</span>
+            <span>Vendredi</span>
+            <span>9h–12h et 13h30–18h</span>
+            <span>Samedi</span>
+            <span>9h–12h</span>
+            <span>Dimanche / Jours Fériés</span>
+            <span>Fermé</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="infos-block reveal">
+      <h3>Comment prendre rendez-vous</h3>
+      <div class="info-item">
+        <div class="info-icon">✉️</div>
+        <div>
+          <strong>Par mail</strong>
+          <a href="mailto:elodie.bedon@hotmail.fr">elodie.bedon@hotmail.fr</a>
+          <br />
+          <em style="font-size: 0.8rem; color: var(--text-light)">
+            Premier contact recommandé ou pour toute question
+          </em>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <strong>Par téléphone</strong>
+          <a href="tel:0768485414">07 68 48 54 14</a>
+          <br />
+          <em style="font-size: 0.8rem; color: var(--text-light)">
+            Laissez un message, je vous rappelle
+          </em>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📋</div>
+        <div>
+          <strong>Via le formulaire</strong>
+          Utilisez le formulaire ci-dessous en précisant le type de soin souhaité et vos disponibilités.
+        </div>
+      </div>
+    </div>
+
+    <div class="infos-block reveal reveal-delay-2">
+      <h3>Mes réseaux sociaux</h3>
+      <Social />
+    </div>
+  </div>
+</section>

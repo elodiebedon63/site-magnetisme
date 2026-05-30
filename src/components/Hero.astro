@@ -1,0 +1,56 @@
+---
+import CalendarButton from './CalendarButton.astro';
+import '../styles/hero.css';
+
+const base = import.meta.env.BASE_URL;
+
+const disciplines = [
+  'Magnétisme',
+  'Rééquilibrage énergétique',
+  'Lithothérapie',
+  'État élargi de conscience',
+  'Tarologie',
+  'Massage énergétique',
+];
+---
+
+<section id="accueil" class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+
+  <img class="hero-logo" src={`${base}logo.svg`} alt="Logo Élodie Bedon" width="80" />
+
+  <div class="hero-content">
+    <p class="hero-tag">Magnétisme · Lithothérapie · État élargi de conscience</p>
+    <h1>Vous êtes au cœur<br />de votre <em>guérison</em></h1>
+    <p class="hero-sub">
+      Je vous accompagne pour développer vos sensations, la conscientisation et le ressenti de votre
+      propre énergie.
+    </p>
+    <div class="hero-disciplines">
+      {disciplines.map((d) => <span class="disc-pill">{d}</span>)}
+    </div>
+
+    <div class="hero-ctas">
+      <a
+        href="https://www.youtube.com/watch?v=pqkXfC8QDU4"
+        class="hero-cta hero-cta-secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Visualisation de l'arbre
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 3v10M5 6l3-3 3 3" stroke="currentColor" stroke-width="1.5"></path>
+        </svg>
+      </a>
+
+      <CalendarButton id="calendarBtn" />
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Découvrir</span>
+  </div>
+</section>

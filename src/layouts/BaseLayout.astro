@@ -1,0 +1,107 @@
+---
+import Nav from '../components/Nav.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
+import business from '../data/business.json';
+import '../styles/global.css';
+
+type Schema = Record<string, unknown>;
+
+/**
+ * Layout commun à toutes les pages : balises <head> (SEO, Open Graph, JSON-LD,
+ * polices, Google Calendar), barre de navigation, menu mobile et pied de page.
+ * Chaque page n'a plus qu'à fournir son contenu principal via <slot />.
+ */
+export interface Props {
+  title?: string;
+  description?: string;
+  /** Image Open Graph (chemin absolu sous le domaine de prod). */
+  ogImage?: string;
+  /**
+   * Données structurées Schema.org additionnelles, propres à la page
+   * (ex. Article, Service, BreadcrumbList). Le LocalBusiness du site est
+   * toujours émis automatiquement en plus.
+   */
+  jsonLd?: Schema | Schema[];
+}
+
+const {
+  title = 'Élodie Bedon — Magnétisme, Rééquilibrage énergétique, Lithothérapie, État élargi de conscience, Tarologie, Massage énergétique · Magnétiseuse à Clermont-Ferrand',
+  description = 'Magnétisme, soins et rééquilibrage énergétique, lithothérapie, état élargi de conscience — Clermont-Ferrand',
+  ogImage = 'elodie-bedon-cabinet.jpg',
+  jsonLd,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
+
+// Schéma LocalBusiness du site (données dans src/data/business.json), enrichi
+// des URLs calculées au build, suivi des éventuels schémas propres à la page.
+const localBusiness: Schema = { ...business, url: canonical, image: ogImageUrl };
+const pageSchemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const schemas: Schema[] = [localBusiness, ...pageSchemas];
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href={`${base}logo.svg`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}logo-cercle.png`} />
+    <link rel="apple-touch-icon" href={`${base}logo-cercle.png`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Élodie Bedon — Magnétiseuse" />
+    <meta property="og:title" content="Élodie Bedon — Magnétiseuse · Clermont-Ferrand" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="Élodie Bedon dans son cabinet à Clermont-Ferrand" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Calendar (bouton de prise de rendez-vous) -->
+    <link
+      href="https://calendar.google.com/calendar/scheduling-button-script.css"
+      rel="stylesheet"
+    />
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async is:inline
+    ></script>
+
+    <!-- Schema.org JSON-LD (LocalBusiness du site + schémas propres à la page) -->
+    <JsonLd schema={schemas} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Aller au contenu</a>
+
+    <Nav />
+    <MobileMenu />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

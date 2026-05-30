@@ -34,12 +34,13 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Build
+      - name: Build (Astro)
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Astro génère le site statique dans dist/ (cf. astro.config.mjs).
           path: dist
 
   deploy:

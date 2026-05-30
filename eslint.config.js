@@ -3,7 +3,9 @@ import globals from 'globals';
 
 export default [
   {
-    ignores: ['dist/**', 'node_modules/**', '.vite/**', 'ai/**', '.ai/**'],
+    // Les fichiers .astro sont vérifiés par Astro lui-même (et formatés par
+    // Prettier) ; ESLint ne lint que le JS client et les fichiers de config.
+    ignores: ['dist/**', 'node_modules/**', '.astro/**', 'ai/**', '.ai/**', 'trash/**'],
   },
   js.configs.recommended,
   {

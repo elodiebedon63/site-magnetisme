@@ -1,0 +1,13 @@
+---
+/**
+ * Emplacement où le script Google Calendar injecte le bouton « Prendre
+ * rendez-vous » (voir src/scripts/main.js). En cas d'échec de chargement du
+ * script, un lien de secours y est inséré à la place.
+ */
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<div id={id}></div>

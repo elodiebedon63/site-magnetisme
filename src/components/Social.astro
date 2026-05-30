@@ -1,0 +1,20 @@
+---
+import social from '../data/social.json';
+import '../styles/social.css';
+---
+
+<div class="social-links">
+  {
+    social.map((link) => (
+      <a
+        class="social-link"
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={link.label}
+        aria-label={link.label}
+        set:html={link.icon}
+      />
+    ))
+  }
+</div>

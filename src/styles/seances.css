@@ -1,0 +1,77 @@
+/* Section « Séances & tarifs » (grille + outils) — composant Seances.astro
+   Le style d'une carte est dans pratique-card.css (composant PratiqueCard). */
+
+#seances {
+  background: var(--beige);
+  position: relative;
+  overflow: hidden;
+}
+#seances::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(29, 136, 173, 0.1), transparent 70%);
+  pointer-events: none;
+}
+.seances-intro {
+  max-width: 620px;
+  margin-bottom: 4rem;
+}
+.seances-intro p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-light);
+  margin-top: 1rem;
+}
+
+.pratiques-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Outils */
+.outils-section {
+  background: var(--beige-dark);
+  padding: 3rem;
+  border-radius: 3px;
+}
+.outils-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+.outils-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+.outil-pill {
+  background: var(--white);
+  padding: 0.6rem 1rem;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.outil-pill::before {
+  content: '¤';
+  color: var(--sage);
+  font-size: 0.9rem;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 960px) {
+  .pratiques-grid {
+    grid-template-columns: 1fr;
+  }
+}
