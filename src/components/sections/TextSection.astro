@@ -1,0 +1,66 @@
+---
+/**
+ * Section de contenu textuel sur fond blanc, pour les pages légales et
+ * éditoriales (mentions légales, politique de confidentialité…).
+ *
+ * Affiche un titre principal (prop `title`) suivi du contenu passé en slot,
+ * structuré librement en sous-titres (<h2>) et paragraphes (<p>).
+ */
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<section class="text-section">
+  <div class="text-section__inner">
+    <h1>{title}</h1>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .text-section {
+    background: var(--white);
+  }
+  .text-section__inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .text-section h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 3rem;
+  }
+
+  /* Contenu fourni en slot (rendu hors du scope du composant) :
+     ciblé via :global() mais borné au conteneur .text-section. */
+  .text-section :global(h2) {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--sage-dark);
+    margin: 2.8rem 0 1.2rem;
+  }
+
+  .text-section :global(p) {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .text-section :global(a) {
+    color: var(--sage-dark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .text-section :global(a:hover) {
+    color: var(--brown);
+  }
+</style>

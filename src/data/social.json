@@ -2,16 +2,16 @@
   {
     "label": "Instagram",
     "url": "https://www.instagram.com/elodiebedonmagnetisme/",
-    "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/><circle cx=\"17.5\" cy=\"6.5\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/></svg>"
+    "icon": "instagram.svg"
   },
   {
     "label": "Facebook",
     "url": "https://www.facebook.com/elodiebedon.magnetisme",
-    "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z\"/></svg>"
+    "icon": "facebook.svg"
   },
   {
     "label": "LinkedIn",
     "url": "https://www.linkedin.com/in/elodie-bedon-156a45184/",
-    "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z\"/><rect x=\"2\" y=\"9\" width=\"4\" height=\"12\"/><circle cx=\"4\" cy=\"4\" r=\"2\"/></svg>"
+    "icon": "linkedin.svg"
   }
 ]

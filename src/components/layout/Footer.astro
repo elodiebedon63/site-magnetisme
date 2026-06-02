@@ -1,0 +1,47 @@
+---
+// L'année est figée au moment du build (régénérée à chaque déploiement).
+const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+---
+
+<footer>
+  <p>
+    © {year}
+    <span>Élodie Bedon</span> — Magnétiseuse · Clermont-Ferrand
+  </p>
+  <p class="footer-legal">
+    <a href={`${base}mentions-legals`}>Mentions légales</a>
+    <a href={`${base}confidentialite`}>Politique de confidentialité</a>
+  </p>
+</footer>
+
+<style>
+  /* Pied de page */
+  footer {
+    background: var(--brown);
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+    padding: 1rem 4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+  footer span {
+    color: var(--sage-light);
+  }
+  .footer-legal {
+    margin-top: 0.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+  }
+  .footer-legal a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    transition: color 0.2s ease;
+  }
+  .footer-legal a:hover {
+    color: var(--sage-light);
+  }
+</style>

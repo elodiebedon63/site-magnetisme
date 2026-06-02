@@ -1,12 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import cabinet from '../assets/images/cabinet.jpg';
-import magnetisation from '../assets/images/magnetisation.jpg';
-import bolEtCristaux from '../assets/images/bol-et-cristaux.jpg';
-import tarot from '../assets/images/tarot.jpg';
-import massage from '../assets/images/massage.jpg';
-import biblio from '../assets/images/biblio.jpg';
-import '../styles/apropos.css';
+import cabinet from '../../assets/images/cabinet.jpg';
+import magnetisation from '../../assets/images/magnetisation.jpg';
+import bolEtCristaux from '../../assets/images/bol-et-cristaux.jpg';
+import tarot from '../../assets/images/tarot.jpg';
+import massage from '../../assets/images/massage.jpg';
+import biblio from '../../assets/images/biblio.jpg';
 
 // Images du carrousel — Astro génère automatiquement des WebP optimisés et
 // dimensionnés. L'ordre des slides correspond à l'ordre des textes plus bas.
@@ -250,3 +249,218 @@ const total = slides.length;
     </div>
   </div>
 </section>
+
+<style>
+  /* Section « À propos » + carrousel */
+  #apropos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    background: var(--white);
+  }
+
+  /* Carrousel (gauche) */
+  .carousel-wrap {
+    position: relative;
+  }
+  .carousel-track {
+    position: relative;
+    margin: 0 auto;
+    width: 65%;
+    aspect-ratio: 3/4;
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--beige-dark);
+  }
+  .carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .carousel-slide.active {
+    opacity: 1;
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slide-placeholder span {
+    opacity: 0.45;
+  }
+
+  /* Flèches */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    background: rgba(253, 250, 245, 0.88);
+    border: 1px solid rgba(90, 60, 40, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      background 0.25s,
+      transform 0.25s;
+    backdrop-filter: blur(4px);
+  }
+  .carousel-btn:hover {
+    background: var(--white);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .carousel-btn svg {
+    stroke: var(--text);
+  }
+  .carousel-prev {
+    left: -18px;
+  }
+  .carousel-next {
+    right: -18px;
+  }
+
+  /* Dots */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+  }
+  .carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--beige-dark);
+    border: 1px solid var(--sage);
+    cursor: pointer;
+    transition:
+      background 0.3s,
+      transform 0.3s;
+    padding: 0;
+  }
+  .carousel-dot.active {
+    background: var(--sage);
+    transform: scale(1.2);
+  }
+
+  /* Compteur */
+  .carousel-counter {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(58, 46, 40, 0.35);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Textes liés aux slides (droite) */
+  .apropos-text {
+    position: relative;
+  }
+  .apropos-text p {
+    font-size: 0.92rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+  }
+  .slide-text {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+    transform: translateY(10px);
+    pointer-events: none;
+  }
+  .slide-text.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    pointer-events: auto;
+  }
+  .slide-text .section-tag {
+    margin-bottom: 0.8rem;
+  }
+  .slide-text h2 {
+    margin-bottom: 1.4rem;
+  }
+  .slide-text p {
+    font-size: 0.98rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+  .slide-list {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+  .slide-list li {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    padding-left: 1.2rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  .slide-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--sage);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    #apropos {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>
+
+<script>
+  // Carrousel « À propos » : synchronise images, textes, pastilles et compteur.
+  const slides = document.querySelectorAll<HTMLElement>('.carousel-slide');
+  const texts = document.querySelectorAll<HTMLElement>('.slide-text');
+  const dots = document.querySelectorAll<HTMLElement>('.carousel-dot');
+  const slideNum = document.getElementById('slideNum');
+
+  if (slides.length > 0) {
+    let current = 0;
+
+    const goTo = (index: number) => {
+      slides[current].classList.remove('active');
+      slides[current].setAttribute('aria-hidden', 'true');
+      texts[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      dots[current].removeAttribute('aria-current');
+
+      current = (index + slides.length) % slides.length;
+
+      slides[current].classList.add('active');
+      slides[current].setAttribute('aria-hidden', 'false');
+      texts[current].classList.add('active');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-current', 'true');
+      if (slideNum) slideNum.textContent = String(current + 1);
+    };
+
+    document.getElementById('prevBtn')?.addEventListener('click', () => goTo(current - 1));
+    document.getElementById('nextBtn')?.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot) => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))));
+  }
+</script>

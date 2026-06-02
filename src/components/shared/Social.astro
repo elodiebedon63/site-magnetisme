@@ -1,0 +1,56 @@
+---
+import social from '../../data/social.json';
+
+// Contenu brut des SVG d'icônes (rendus inline pour hériter de `currentColor`).
+const icons = import.meta.glob<string>('../../assets/images/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+---
+
+<div class="social-links">
+  {
+    social.map((link) => (
+      <a
+        class="social-link"
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={link.label}
+        aria-label={link.label}
+        set:html={icons[`../../assets/images/${link.icon}`]}
+      />
+    ))
+  }
+</div>
+
+<style>
+  /* Liens réseaux sociaux */
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .social-link {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(11, 98, 129, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--sage-dark);
+    transition:
+      background 0.3s,
+      border-color 0.3s,
+      color 0.3s;
+  }
+  .social-link:hover {
+    background: var(--sage-dark);
+    border-color: var(--sage-dark);
+    color: var(--white);
+  }
+</style>

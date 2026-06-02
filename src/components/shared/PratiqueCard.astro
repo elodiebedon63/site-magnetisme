@@ -1,0 +1,140 @@
+---
+/**
+ * Carte d'une séance / pratique. Les données proviennent de
+ * src/data/services.json (voir _doc/organisation.md → « Ajouter un service »).
+ */
+interface Props {
+  title: string;
+  description: string;
+  domains: string[];
+  price: string;
+  duration: string;
+  /** Position dans la grille — pilote le délai d'apparition au scroll. */
+  index?: number;
+}
+const { title, description, domains, price, duration, index = 0 } = Astro.props;
+const revealDelay = index > 0 ? `reveal-delay-${index}` : '';
+---
+
+<div class:list={['pratique-card', 'reveal', revealDelay]}>
+  <div class="pratique-title">{title}</div>
+  <p class="pratique-desc">{description}</p>
+  <ul class="pratique-domains">
+    {domains.map((d) => <li>{d}</li>)}
+  </ul>
+  <div class="pratique-price">
+    <strong>{price}</strong>
+    <span>{duration}</span>
+  </div>
+</div>
+
+<style>
+  /* Carte d'une séance */
+  .pratique-card {
+    background: var(--white);
+    padding: 2.2rem 2.5rem;
+    border-radius: 3px;
+    position: relative;
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+    overflow: hidden;
+  }
+  .pratique-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--sage);
+    transition: height 0.4s;
+  }
+  .pratique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(11, 98, 129, 0.12);
+  }
+  .pratique-card:hover::before {
+    height: 100%;
+  }
+  .pratique-card.featured {
+    background: var(--sage-dark);
+  }
+  .pratique-card.featured .pratique-title {
+    color: var(--white);
+  }
+  .pratique-card.featured .pratique-desc {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .pratique-card.featured .pratique-domains li {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .pratique-card.featured .pratique-domains li::before {
+    background: var(--sage-light);
+  }
+  .pratique-card.featured .pratique-price strong {
+    color: var(--beige);
+  }
+  .pratique-card.featured .pratique-price span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .pratique-card.featured .pratique-price {
+    border-top-color: rgba(255, 255, 255, 0.2);
+  }
+  .pratique-card.featured::before {
+    background: var(--terre);
+  }
+
+  .pratique-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .pratique-desc {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+  }
+  .pratique-domains {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .pratique-domains li {
+    font-size: 1rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .pratique-domains li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+  }
+  .pratique-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    border-top: 1px solid var(--beige-dark);
+    padding-top: 1.2rem;
+  }
+  .pratique-price strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--terre);
+  }
+  .pratique-price span {
+    font-size: 0.8rem;
+    color: var(--text-light);
+  }
+</style>

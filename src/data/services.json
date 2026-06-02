@@ -1,5 +1,6 @@
 [
   {
+    "order": 1,
     "title": "Rééquilibrage énergétique",
     "description": "Magnétisme par imposition des mains, rééquilibrage aux pierres et conseil en lithothérapie.",
     "domains": [
@@ -13,6 +14,7 @@
     "duration": "/ 45 min"
   },
   {
+    "order": 2,
     "title": "Soin en magnétisme",
     "description": "Imposition des mains, souffle et prières, lithothérapie — soin ciblé ou global sur tout le corps.",
     "domains": [
@@ -25,6 +27,7 @@
     "duration": "/ 1h à 1h15"
   },
   {
+    "order": 3,
     "title": "État élargi de conscience & Tarologie",
     "description": "Rêve éveillé, état modifié de conscience, lecture de Tarot comme message de l'inconscient. Changer de point de vue pour sortir d'une impasse.",
     "domains": [
@@ -36,9 +39,23 @@
     "duration": "/ 1h30 à 2h30"
   },
   {
+    "order": 4,
     "title": "Massage énergétique complet",
-    "icon": "🌸",
     "description": "Massages à l'huile tiède, magnétisme par imposition des mains et rééquilibrage aux pierres.",
+    "domains": [
+      "Fatigue, stress, insomnie",
+      "Raffermissement de la peau",
+      "Douleurs, tensions",
+      "Circulation sanguine et digestion",
+      "Conscientisation du corps"
+    ],
+    "price": "90 €",
+    "duration": "/ 1h15"
+  },
+  {
+    "order": 5,
+    "title": "toto",
+    "description": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
     "domains": [
       "Fatigue, stress, insomnie",
       "Raffermissement de la peau",

@@ -1,0 +1,45 @@
+---
+import accroche from '../../data/accroche.json';
+
+// `text` est un tableau de lignes (pour la lisibilité du JSON) assemblé en un
+// seul paragraphe. set:html pour interpréter le balisage (<em>…) du contenu.
+const text = Array.isArray(accroche.text) ? accroche.text.join(' ') : accroche.text;
+---
+
+<div id="accroche">
+  <div class="accroche-inner reveal">
+    <p set:html={text} />
+  </div>
+</div>
+
+<style>
+  /* Bandeau d'accroche */
+  #accroche {
+    background: var(--sage-dark);
+    padding: 5rem 4rem;
+    text-align: center;
+  }
+  .accroche-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .accroche-inner p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  /* `em` provient de set:html (pas d'attribut de scope Astro) → :global() borné. */
+  .accroche-inner p :global(em) {
+    font-style: italic;
+    color: var(--sage-light);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    #accroche {
+      padding: 4rem 2rem;
+    }
+  }
+</style>

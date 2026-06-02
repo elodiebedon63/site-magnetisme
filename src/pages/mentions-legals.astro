@@ -1,11 +1,77 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Accroche from '../components/Accroche.astro';
-import Apropos from '../components/Apropos.astro';
-import Seances from '../components/Seances.astro';
-import ParallaxDivider from '../components/ParallaxDivider.astro';
-import Infos from '../components/Infos.astro';
+import TextSection from '../components/sections/TextSection.astro';
 ---
 
-<BaseLayout />
+<BaseLayout
+  title="Mentions légales — Élodie Bedon, Magnétiseuse à Clermont-Ferrand"
+  description="Mentions légales du site d'Élodie Bedon, magnétiseuse à Clermont-Ferrand."
+>
+  <TextSection title="Mentions légales">
+    <h2>Éditeur du site</h2>
+    <p>Ce site est édité par :</p>
+    <p>
+      [Prénom NOM]<br />
+      Micro-entrepreneur<br />
+      SIRET : XXX XXX XXX XXXXX<br />
+      Code APE/NAF : XXXX (à adapter selon votre activité)<br />
+      Adresse : [Adresse complète]<br />
+      Email : [votre@email.com]<br />
+      Téléphone : [optionnel]
+    </p>
+
+    <h2>Hébergement</h2>
+    <p>
+      Ce site est hébergé par :<br />
+      [Nom de l'hébergeur] — [adresse et site web de l'hébergeur]<br />
+      (ex : GitHub Pages, Netlify, OVH, etc.)
+    </p>
+
+    <h2>Activité</h2>
+    <p>
+      [Prénom NOM] exerce en tant que micro-entrepreneur dans le domaine de [votre activité],
+      non assujetti à la TVA en vertu de l'article 293 B du CGI.
+    </p>
+
+    <h2>Contenu tiers</h2>
+    <p>Ce site intègre des services tiers :</p>
+    <p>
+      YouTube (Google LLC) : une vidéo est diffusée via le lecteur YouTube intégré. Son
+      utilisation est soumise aux conditions d'utilisation de YouTube et à la politique de
+      confidentialité de Google.
+    </p>
+    <p>
+      Google Calendar (Google LLC) : le système de réservation utilise Google Calendar intégré
+      en iframe. Son utilisation est soumise à la politique de confidentialité de Google.
+    </p>
+    <p>
+      Ces services peuvent collecter des données (cookies, adresse IP) indépendamment de ce site.
+      Vous pouvez consulter les politiques de Google pour en savoir plus.
+    </p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>
+      L'ensemble du contenu de ce site (textes, visuels, structure) est la propriété de
+      [Prénom NOM], sauf contenus tiers expressément mentionnés. Toute reproduction sans
+      autorisation est interdite.
+    </p>
+
+    <h2>Données personnelles & Cookies</h2>
+    <p>
+      Ce site ne collecte aucune donnée personnelle directement. Toutefois, les services tiers
+      intégrés (YouTube, Google Calendar) peuvent déposer des cookies sur votre appareil.
+    </p>
+    <p>
+      Si vous souhaitez exercer vos droits (accès, rectification, suppression) sur des données
+      traitées via Google, rendez-vous sur myaccount.google.com.
+    </p>
+    <p>Pour toute question : [votre@email.com]</p>
+
+    <h2>Responsabilité</h2>
+    <p>
+      [Prénom NOM] s'efforce de maintenir les informations de ce site à jour mais ne saurait être
+      tenu responsable d'erreurs, d'omissions ou des contenus des sites tiers vers lesquels ce
+      site renvoie.
+    </p>
+  </TextSection>
+</BaseLayout>

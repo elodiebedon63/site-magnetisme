@@ -1,9 +1,8 @@
 ---
-import Nav from '../components/Nav.astro';
-import MobileMenu from '../components/MobileMenu.astro';
-import Footer from '../components/Footer.astro';
-import JsonLd from '../components/JsonLd.astro';
-import business from '../data/business.json';
+import Nav from '../components/layout/Nav.astro';
+import MobileMenu from '../components/layout/MobileMenu.astro';
+import Footer from '../components/layout/Footer.astro';
+import JsonLd from '../components/meta/JsonLd.astro';
 import '../styles/global.css';
 
 type Schema = Record<string, unknown>;
@@ -36,12 +35,6 @@ const {
 const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
-
-// Schéma LocalBusiness du site (données dans src/data/business.json), enrichi
-// des URLs calculées au build, suivi des éventuels schémas propres à la page.
-const localBusiness: Schema = { ...business, url: canonical, image: ogImageUrl };
-const pageSchemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
-const schemas: Schema[] = [localBusiness, ...pageSchemas];
 ---
 
 <!doctype html>
@@ -88,7 +81,7 @@ const schemas: Schema[] = [localBusiness, ...pageSchemas];
     ></script>
 
     <!-- Schema.org JSON-LD (LocalBusiness du site + schémas propres à la page) -->
-    <JsonLd schema={schemas} />
+    <JsonLd image={ogImageUrl} schema={jsonLd} />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu</a>
@@ -102,6 +95,29 @@ const schemas: Schema[] = [localBusiness, ...pageSchemas];
 
     <Footer />
 
-    <script src="../scripts/main.js"></script>
+    <script>
+      // Apparition au défilement : ajoute la classe `.visible` aux éléments
+      // `.reveal` dès qu'ils entrent dans le viewport (l'animation est en CSS).
+      // Comportement transversal (éléments présents dans plusieurs composants),
+      // d'où sa place dans le layout. Les comportements propres à un composant
+      // vivent dans le <script> du composant correspondant.
+      const reveals = document.querySelectorAll('.reveal');
+
+      if (reveals.length > 0) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        reveals.forEach((el) => observer.observe(el));
+      }
+    </script>
   </body>
 </html>

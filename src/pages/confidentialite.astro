@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TextSection from '../components/sections/TextSection.astro';
+---
+
+<BaseLayout
+  title="Politique de confidentialité — Élodie Bedon, Magnétiseuse à Clermont-Ferrand"
+  description="Politique de confidentialité du site d'Élodie Bedon : données collectées, services tiers et exercice de vos droits."
+>
+  <TextSection title="Politique de confidentialité">
+    <p>
+      La présente politique de confidentialité décrit la manière dont les données des visiteurs
+      sont traitées sur ce site. Dernière mise à jour : [JJ/MM/AAAA].
+    </p>
+
+    <h2>Responsable du traitement</h2>
+    <p>
+      Le responsable du traitement des données est [Prénom NOM], micro-entrepreneur.<br />
+      Email : [votre@email.com]<br />
+      Pour plus d'informations, consultez les <a href={`${import.meta.env.BASE_URL}mentions-legals`}
+        >mentions légales</a
+      >.
+    </p>
+
+    <h2>Données collectées par le site</h2>
+    <p>
+      Ce site est un site vitrine statique. Il ne comporte pas de formulaire de contact et ne
+      collecte aucune donnée personnelle directement (pas de compte, pas de newsletter, pas de
+      base de données).
+    </p>
+
+    <h2>Services tiers</h2>
+    <p>
+      Certaines fonctionnalités reposent sur des services externes susceptibles de déposer des
+      cookies et de collecter des données (adresse IP, identifiants techniques) de manière
+      autonome, dès lors que vous interagissez avec eux :
+    </p>
+    <p>
+      <strong>Google Calendar (Google LLC)</strong> — la prise de rendez-vous s'effectue via un
+      module Google Calendar intégré. Les informations que vous y saisissez (nom, email, créneau)
+      sont traitées par Google selon sa propre politique de confidentialité.
+    </p>
+    <p>
+      <strong>YouTube (Google LLC)</strong> — une vidéo de présentation est diffusée via le
+      lecteur YouTube intégré. Sa lecture peut entraîner le dépôt de cookies par Google.
+    </p>
+    <p>
+      <strong>Google Fonts</strong> — les polices d'écriture sont chargées depuis les serveurs de
+      Google, ce qui implique la transmission de votre adresse IP à Google lors du chargement de
+      la page.
+    </p>
+
+    <h2>Cookies</h2>
+    <p>
+      Ce site ne dépose aucun cookie de mesure d'audience ni de publicité qui lui soit propre.
+      Seuls les services tiers mentionnés ci-dessus peuvent déposer des cookies. Vous pouvez les
+      gérer ou les bloquer via les paramètres de votre navigateur.
+    </p>
+
+    <h2>Hébergement</h2>
+    <p>
+      Le site est hébergé par [Nom de l'hébergeur] (ex : GitHub Pages). L'hébergeur peut
+      enregistrer des données techniques de connexion (journaux serveur) à des fins de sécurité
+      et de bon fonctionnement.
+    </p>
+
+    <h2>Durée de conservation</h2>
+    <p>
+      Ce site ne conservant aucune donnée personnelle, aucune durée de conservation ne s'applique
+      de son fait. Les données traitées par les services tiers le sont selon leurs propres
+      politiques.
+    </p>
+
+    <h2>Vos droits</h2>
+    <p>
+      Conformément au Règlement général sur la protection des données (RGPD) et à la loi
+      « Informatique et Libertés », vous disposez d'un droit d'accès, de rectification,
+      d'effacement, de limitation et d'opposition sur vos données.
+    </p>
+    <p>
+      S'agissant des données traitées via les services Google (Calendar, YouTube, Fonts), vous
+      pouvez exercer vos droits directement auprès de Google sur myaccount.google.com. Pour toute
+      autre question : [votre@email.com].
+    </p>
+    <p>
+      Vous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr) si vous
+      estimez que vos droits ne sont pas respectés.
+    </p>
+  </TextSection>
+</BaseLayout>

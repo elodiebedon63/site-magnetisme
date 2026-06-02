@@ -1,0 +1,28 @@
+---
+/**
+ * Émet les données structurées Schema.org (JSON-LD) du site.
+ *
+ * Le schéma LocalBusiness (src/data/jsonld.json) est toujours rendu, enrichi
+ * de l'URL canonique de la page et de l'image Open Graph. Des schémas
+ * additionnels propres à la page peuvent être fournis via la prop `schema`.
+ */
+import business from '../../data/jsonld.json';
+
+type Schema = Record<string, unknown>;
+
+interface Props {
+  /** URL absolue de l'image Open Graph (calculée par le layout). */
+  image: string;
+  /** Schémas additionnels propres à la page (Article, Service, BreadcrumbList…). */
+  schema?: Schema | Schema[];
+}
+
+const { image, schema } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const localBusiness: Schema = { ...business, url: canonical, image };
+const pageSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const items: Schema[] = [localBusiness, ...pageSchemas];
+---
+
+{items.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
