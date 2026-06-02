@@ -1,0 +1,466 @@
+---
+import { Image } from 'astro:assets';
+import cabinet from '../../assets/images/cabinet.jpg';
+import magnetisation from '../../assets/images/magnetisation.jpg';
+import bolEtCristaux from '../../assets/images/bol-et-cristaux.jpg';
+import tarot from '../../assets/images/tarot.jpg';
+import massage from '../../assets/images/massage.jpg';
+import biblio from '../../assets/images/biblio.jpg';
+
+// Images du carrousel — Astro génère automatiquement des WebP optimisés et
+// dimensionnés. L'ordre des slides correspond à l'ordre des textes plus bas.
+const slides = [
+  { img: cabinet, alt: "Salle de soin du cabinet Psy'Jaude à Clermont-Ferrand" },
+  { img: magnetisation, alt: 'Séance de magnétisme par imposition des mains' },
+  { img: bolEtCristaux, alt: 'Bol tibétain et cristaux utilisés en séance énergétique' },
+  { img: tarot, alt: 'Cartes du Tarot de Marseille pour une lecture en tarologie' },
+  { img: massage, alt: "Massage énergétique à l'huile tiède" },
+  {
+    img: biblio,
+    alt: 'Bibliothèque du cabinet — ouvrages de référence en énergétique et lithothérapie',
+  },
+];
+const total = slides.length;
+---
+
+<section id="apropos">
+  <!-- GAUCHE : carrousel images -->
+  <div
+    class="carousel-wrap reveal"
+    role="region"
+    aria-roledescription="carrousel"
+    aria-label="Découverte du cabinet et des soins"
+  >
+    <div class="carousel-track" aria-live="polite">
+      {
+        slides.map((slide, i) => (
+          <div
+            class:list={['carousel-slide', { active: i === 0 }]}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${i + 1} sur ${total}`}
+            aria-hidden={i === 0 ? 'false' : 'true'}
+          >
+            <Image
+              src={slide.img}
+              alt={slide.alt}
+              width={900}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          </div>
+        ))
+      }
+
+      <div class="carousel-counter" aria-hidden="true"><span id="slideNum">1</span> / {total}</div>
+    </div>
+
+    <!-- Flèches -->
+    <button
+      class="carousel-btn carousel-prev"
+      id="prevBtn"
+      type="button"
+      aria-label="Slide précédente"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M10 3L5 8l5 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+        ></path>
+      </svg>
+    </button>
+    <button
+      class="carousel-btn carousel-next"
+      id="nextBtn"
+      type="button"
+      aria-label="Slide suivante"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M6 3l5 5-5 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Dots -->
+    <div class="carousel-dots" role="tablist" aria-label="Choisir une slide">
+      {
+        slides.map((_, i) => (
+          <button
+            class:list={['carousel-dot', { active: i === 0 }]}
+            type="button"
+            data-index={i}
+            aria-label={`Aller à la slide ${i + 1}`}
+            aria-current={i === 0 ? 'true' : undefined}
+          />
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- DROITE : textes liés aux slides -->
+  <div class="apropos-text reveal reveal-delay-1">
+    <!-- Slide 0 -->
+    <div class="slide-text active">
+      <p class="section-tag">À propos du <em>cabinet</em></p>
+      <h2>Découvrez le <em>cabinet</em></h2>
+      <p>
+        La salle de soin est située dans le cabinet Psy'Jaude au 2 avenue Julien, à proximité de la
+        place Jaude.
+      </p>
+      <p>
+        C'est un espace dédié chaleureux, sécurisant et apaisant qui vous invite à une expérience de
+        soin particulière. Cet instant hors temps activera vos sens et vous déconnectera du
+        quotidien, vous permettant ainsi de vous recentrer et de vous reconnecter à votre corps, à
+        vos sensations et à ce qui vous est essentiel.
+      </p>
+    </div>
+
+    <!-- Slide 1 -->
+    <div class="slide-text">
+      <p class="section-tag">À propos du <em>magnétisme</em></p>
+      <h2>Le soin en <em>magnétisme</em> - C'est quoi ?</h2>
+      <p>
+        Le monde est composé d'énergie, d'ondes (par exemple les sons, couleurs, formes, les champs
+        énergétiques des êtres vivants). Il existe trois grands types d'énergie, l'énergie cosmique
+        (positive, ciel, rayons cosmiques), l'énergie tellurique (négative, terre, magnétisme
+        telluriques) et l'énergie animale.
+      </p>
+      <p>
+        Le champ d'énergie humaine est défini en physique comme la somme des radiations et des
+        émanations du corps. Ce sont différents corps subtils qui se superposent, liés aux 7
+        chakras.
+      </p>
+      <p>
+        Les chakras (roue) sont des vortex qui permettent au champs énergétique universel (cosmique
+        et tellurique) de circuler dans le corps humain qui est à la fois canal, émetteur et
+        récepteur d'énergie. L'énergie circule correctement et harmonieusement dans un corps sain.
+        Le.a magnétiseur.se perçoit cette énergie et peut agir sur les douleurs, les fuites, les
+        blocages... en harmonisant la circulation énergétique dans le corps et permettre ainsi la
+        guérison.
+      </p>
+      <p>
+        Lors des séances j'utilise le magnétisme par apposition des mains et mon souffle ainsi que
+        les prières pour soigner, rééquilibrer et faire circuler l'énergie.
+      </p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide-text">
+      <p class="section-tag">À propos de la <em>lithothérapie</em></p>
+      <h2>La <em>Lithothérapie</em> - C'est quoi ?</h2>
+      <p>
+        Du grec litho = pierre<br />La lithothérapie est un soin par les pierres et cristaux.<br />
+        Par leur champ énergétique, leur couleur, leurs oligoéléments... les pierres sont un excellent
+        outil pour amplifier et faciliter les résultats d'un soin énergétiques.<br />
+        Déposé dans un espace ou porté sur soi, les pierres ont des vertues subtiles mais réelles qui
+        améliorent votre quotidien.
+      </p>
+
+      <br /><br />
+
+      <p class="section-tag">À propos du <em>Bol Tibétain</em></p>
+      <h2>Le <em>Bol Tibétain</em> - C'est quoi ?</h2>
+      <p>
+        Aussi nommé bol chantant, c'est un instrument qui émet un son vibratoire d'une grande
+        intensité.<br />
+        Il est utilisé depuis les temps anciens au Tibet pour accéder à une relaxation profonde.<br
+        />
+        Il est composé de 7 métaux symbolisant les planètes.<br />
+        Activé à proximité du corps ou directement en contact avec celui-ci, la vibration du bol résonne
+        avec les fréquences internes.
+      </p>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide-text">
+      <p class="section-tag">À propos de l'<em>état élargi de conscience</em></p>
+      <h2>L'<em>état élargi de conscience</em> - C'est quoi ?</h2>
+      <p>
+        C'est un état modifié de conscience, accessible par le rêve éveillé et la visualisation
+        guidée.<br />
+        En relâchant le mental analytique, on laisse émerger des images, des sensations et des ressentis
+        qui éclairent une situation autrement.<br />
+        C'est un précieux outil pour changer de point de vue, sortir d'une impasse et accueillir ce qui
+        demande à être entendu.
+      </p>
+
+      <br /><br />
+
+      <p class="section-tag">À propos de la <em>tarologie</em></p>
+      <h2>La <em>tarologie</em> - C'est quoi ?</h2>
+      <p>
+        Rien à voir avec la divination ou la cartomancie, ici il s'agit d'offrir à l'inconscient une
+        voix, une parole métaphorique.<br />
+        Son langage est le Tarot de Marseille, et par votre tirage vous révèle un message.<br />
+        Je suis là pour traduire et vous aider à le comprendre.
+      </p>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide-text">
+      <p class="section-tag">À propos du <em>Massage énergétique</em></p>
+      <h2><em>Massage</em> à l'huile tiède bio sur tout le corps</h2>
+      <ul class="slide-list">
+        <li>
+          Le dos pour évacuer les tensions, détendre les muscles et stimuler le système nerveux par
+          le massage des ganglions le long de la colonne vertébrale.
+        </li>
+        <li>
+          Le buste et le ventre pour ouvrir la cage thoracique et améliorer le fonctionnement du
+          système digestif.
+        </li>
+        <li>Les jambes pour améliorer la circulation sanguine et lymphatique.</li>
+        <li>
+          Le visage et la nuque pour évacuer les tensions, détendre et ouvrir l'esprit, redonner de
+          la souplesse à la peau.
+        </li>
+        <li>
+          Les mains et les pieds pour agir directement sur le squelette et les organes grâce à la
+          réflexologie.
+        </li>
+      </ul>
+      <p>
+        Un massage complet dure en moyenne 1h30, plusieurs magnétisations sont effectuées pendant le
+        massage et le soin se termine par une harmonisation avec les cristaux.<br />
+        Le chant du bol tibétain ouvre et ferme le massage.
+      </p>
+      <p>
+        ❗️ Le massage énergétique complet est proposé aux consultants dans un contexte de soin
+        préétabli ensemble ❗️
+      </p>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide-text">
+      <p class="section-tag">À propos de <em>moi</em></p>
+      <h2>Certifications & Références</h2>
+      <p>
+        Après une formation avec Pascal Quesne, je poursuis mon apprentissage du Magnétisme avec
+        l'enseignement de Barbara Ann Brennan (guérisseuse, psychothérapeute et physicienne).
+        J'utilise les cristaux et je suis surtout l'enseignement en Lithothérapie de Reynald Georges
+        Boschiero. J'ai suivi une formation d'Hypnose Spirituelle sur l'Autoguérison par Mario
+        Beauregard et Jean-Charles Chabot et j'entamme une formation en Hypnose Humaniste à
+        l'institut d'Olivier Lockert. Concernant la relation d'aide, c'est l'enseignement de Colette
+        Portelance que je suis, avec son approche non directrice créative. En matière de Tarologie,
+        j'utilise le Tarot de Marseille du XIIIème siècle et l'enseignement d'Alejandro Jodorowsky.
+      </p>
+      <p>
+        J'enrichis mes connaissances en m'intéressant à d'autres disciplines complémentaires comme :
+        la Psychoénergétique de Michel Odoul, qui base son savoir sur les fondements de la médecine
+        chinoise ; l'aromathérapie ; la naturopathie ; l'art-thérapie...
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Section « À propos » + carrousel */
+  #apropos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    background: var(--white);
+  }
+
+  /* Carrousel (gauche) */
+  .carousel-wrap {
+    position: relative;
+  }
+  .carousel-track {
+    position: relative;
+    margin: 0 auto;
+    width: 65%;
+    aspect-ratio: 3/4;
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--beige-dark);
+  }
+  .carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .carousel-slide.active {
+    opacity: 1;
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slide-placeholder span {
+    opacity: 0.45;
+  }
+
+  /* Flèches */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    background: rgba(253, 250, 245, 0.88);
+    border: 1px solid rgba(90, 60, 40, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      background 0.25s,
+      transform 0.25s;
+    backdrop-filter: blur(4px);
+  }
+  .carousel-btn:hover {
+    background: var(--white);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .carousel-btn svg {
+    stroke: var(--text);
+  }
+  .carousel-prev {
+    left: -18px;
+  }
+  .carousel-next {
+    right: -18px;
+  }
+
+  /* Dots */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+  }
+  .carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--beige-dark);
+    border: 1px solid var(--sage);
+    cursor: pointer;
+    transition:
+      background 0.3s,
+      transform 0.3s;
+    padding: 0;
+  }
+  .carousel-dot.active {
+    background: var(--sage);
+    transform: scale(1.2);
+  }
+
+  /* Compteur */
+  .carousel-counter {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(58, 46, 40, 0.35);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Textes liés aux slides (droite) */
+  .apropos-text {
+    position: relative;
+  }
+  .apropos-text p {
+    font-size: 0.92rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+  }
+  .slide-text {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+    transform: translateY(10px);
+    pointer-events: none;
+  }
+  .slide-text.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    pointer-events: auto;
+  }
+  .slide-text .section-tag {
+    margin-bottom: 0.8rem;
+  }
+  .slide-text h2 {
+    margin-bottom: 1.4rem;
+  }
+  .slide-text p {
+    font-size: 0.98rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+  .slide-list {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+  .slide-list li {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    padding-left: 1.2rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  .slide-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--sage);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    #apropos {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>
+
+<script>
+  // Carrousel « À propos » : synchronise images, textes, pastilles et compteur.
+  const slides = document.querySelectorAll<HTMLElement>('.carousel-slide');
+  const texts = document.querySelectorAll<HTMLElement>('.slide-text');
+  const dots = document.querySelectorAll<HTMLElement>('.carousel-dot');
+  const slideNum = document.getElementById('slideNum');
+
+  if (slides.length > 0) {
+    let current = 0;
+
+    const goTo = (index: number) => {
+      slides[current].classList.remove('active');
+      slides[current].setAttribute('aria-hidden', 'true');
+      texts[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      dots[current].removeAttribute('aria-current');
+
+      current = (index + slides.length) % slides.length;
+
+      slides[current].classList.add('active');
+      slides[current].setAttribute('aria-hidden', 'false');
+      texts[current].classList.add('active');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-current', 'true');
+      if (slideNum) slideNum.textContent = String(current + 1);
+    };
+
+    document.getElementById('prevBtn')?.addEventListener('click', () => goTo(current - 1));
+    document.getElementById('nextBtn')?.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot) => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))));
+  }
+</script>

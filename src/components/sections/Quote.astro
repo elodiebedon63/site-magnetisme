@@ -1,14 +1,14 @@
 ---
-
+import quote from '../../data/quote.json';
 ---
 
 <div class="quote-container">
   <div class="quote-bg" id="quoteBg"></div>
   <div class="quote">
     <blockquote>
-      « Le soin est une invitation à se reconnecter à soi, à son corps, à son environnement. »
+      {quote.quote}
     </blockquote>
-    <cite>Élodie Bedon</cite>
+    <cite>{quote.cite}</cite>
   </div>
 </div>
 

@@ -1,0 +1,103 @@
+---
+/**
+ * Panneau de texte d'une slide du carrousel « À propos ».
+ * Affiche un ou plusieurs blocs : surtitre (.section-tag), titre (h2), liste
+ * optionnelle puis paragraphes. Le contenu peut contenir du HTML (<em>, <br>),
+ * d'où set:html — les données proviennent du projet (apropos.json), de confiance.
+ *
+ * La visibilité (classe `.active`) est pilotée par le script du carrousel dans
+ * Apropos.astro ; `active` initialise la première slide.
+ */
+type Block = {
+  tag: string;
+  title: string;
+  list?: string[];
+  content: string[];
+};
+
+interface Props {
+  blocks: Block[];
+  active?: boolean;
+}
+
+const { blocks, active = false } = Astro.props;
+---
+
+<div class:list={['slide-text', { active }]}>
+  {
+    blocks.map((block) => (
+      <div class="slide-block">
+        <p class="section-tag" set:html={block.tag} />
+        <h2 set:html={block.title} />
+        {block.list && (
+          <ul class="slide-list">
+            {block.list.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )}
+        {block.content.map((paragraph) => (
+          <p set:html={paragraph} />
+        ))}
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  /* Slides empilées : seule la slide active prend de la place (position relative)
+     et devient visible ; les autres sont superposées et masquées. */
+  .slide-text {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+    transform: translateY(10px);
+    pointer-events: none;
+  }
+  .slide-text.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    pointer-events: auto;
+  }
+
+  /* Espace entre deux blocs d'une même slide (ex. Lithothérapie + Bol tibétain). */
+  .slide-block + .slide-block {
+    margin-top: 2.5rem;
+  }
+
+  .slide-text .section-tag {
+    margin-bottom: 0.8rem;
+  }
+  .slide-text h2 {
+    margin-bottom: 1.4rem;
+  }
+  .slide-text p {
+    font-size: 0.98rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+
+  .slide-list {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+  .slide-list li {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    padding-left: 1.2rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  .slide-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--sage);
+  }
+</style>

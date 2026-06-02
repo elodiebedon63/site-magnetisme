@@ -1,39 +1,30 @@
 ---
-import services from '../../data/services.json';
+import services from '../../data/seances.json';
 import PratiqueCard from '../shared/PratiqueCard.astro';
 
-const outils = [
-  'Apposition des mains',
-  'Souffle et prières',
-  'Cristaux & pierres',
-  'Pendule',
-  'Bol tibétain',
-  'Massage énergétique',
-  'Visualisation',
-  'Rêve éveillé',
-  'Lecture de Tarot',
-];
+// Affichage des séances selon le champ `order` (copie pour ne pas muter l'import).
+const seancesList = [...services.services].sort((a, b) => a.order - b.order);
+
 ---
 
 <section id="seances">
   <div class="seances-intro">
-    <p class="section-tag reveal">Mes accompagnements</p>
-    <h2 class="reveal">Séances <em>&</em> tarifs</h2>
+    <p class="section-tag reveal">{services.tag}</p>
+    <h2 class="reveal" set:html={services.title} />
     <p class="reveal reveal-delay-1">
-      Chaque soin est une expérience unique, adaptée à votre situation du moment. La première séance
-      permet de nous découvrir et de définir ensemble le cadre le plus adapté.
+      {services.description}
     </p>
   </div>
 
   <div class="pratiques-grid">
-    {services.map((service, i) => <PratiqueCard {...service} index={i} />)}
+    {seancesList.map((seances, i) => <PratiqueCard {...seances} index={i} />)}
   </div>
 
   <!-- Outils -->
   <div class="outils-section reveal">
-    <h3>Outils utilisés lors des soins</h3>
+    <h3>{services.outils.title}</h3>
     <div class="outils-grid">
-      {outils.map((outil) => <div class="outil-pill">{outil}</div>)}
+      {services.outils.list.map((outil) => <div class="outil-pill">{outil}</div>)}
     </div>
   </div>
 </section>
