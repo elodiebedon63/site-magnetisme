@@ -40,6 +40,15 @@ const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
 <!doctype html>
 <html lang="fr">
   <head>
+    <!-- Google tag (gtag.js) — is:inline pour qu'Astro ne bundle/déplace pas ces scripts. -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-S4XS67YQVG"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S4XS67YQVG');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
