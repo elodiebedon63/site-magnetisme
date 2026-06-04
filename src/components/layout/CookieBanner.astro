@@ -1,0 +1,218 @@
+---
+/**
+ * Bannière de consentement aux cookies (RGPD).
+ *
+ * Google Analytics n'est chargé QUE si l'utilisateur accepte explicitement.
+ * Le choix (« granted » / « denied ») est mémorisé dans localStorage : la
+ * bannière ne réapparaît plus tant que ce choix n'est pas effacé.
+ *
+ * L'identifiant de mesure provient de la source unique src/data/business.json.
+ */
+import business from '../../data/business.json';
+import texts from '../../data/cookie-banner.json';
+
+const base = import.meta.env.BASE_URL;
+const gaId = business.analytics.googleTagId;
+---
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite"
+     aria-label="Gestion des cookies" hidden>
+  <div class="cookie-banner-inner">
+    <p class="cookie-banner-text">
+      {texts.text}
+      <a href={`${base}confidentialite`}>{texts.link}</a>
+    </p>
+    <p id="cookie-status" class="cookie-banner-status" hidden></p>
+    <div class="cookie-banner-actions">
+      <button id="cookie-refuse" class="cookie-btn cookie-btn-secondary" type="button">
+        {texts.refuse}
+      </button>
+      <button id="cookie-accept" class="cookie-btn" type="button">
+        {texts.accept}
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Bandeau fixé en bas, dans la continuité de la palette du site. */
+  .cookie-banner {
+    position: fixed;
+    inset: auto 1.5rem 1.5rem 1.5rem;
+    z-index: 2000;
+    max-width: 520px;
+    margin-inline: auto;
+    background: var(--white);
+    color: var(--text);
+    border: 1px solid var(--beige-dark);
+    border-radius: 4px;
+    box-shadow: 0 12px 40px rgba(6, 47, 62, 0.18);
+    padding: 1.5rem 1.6rem;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .cookie-banner[hidden] {
+    display: none;
+  }
+
+  .cookie-banner-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .cookie-banner-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  .cookie-banner-text a {
+    color: var(--sage-dark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Rappel du choix en cours, affiché quand la bannière est rouverte. */
+  .cookie-banner-status {
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--sage-dark);
+    margin-top: -0.4rem;
+  }
+  .cookie-banner-status[hidden] {
+    display: none;
+  }
+
+  .cookie-banner-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: flex-end;
+  }
+
+  /* Boutons alignés sur le style .hero-cta (mais autonomes, taille réduite). */
+  .cookie-btn {
+    padding: 0.7rem 1.6rem;
+    background: var(--sage-dark);
+    color: var(--white);
+    border: 1px solid var(--sage-dark);
+    font-family: inherit;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition:
+      background 0.3s,
+      color 0.3s,
+      transform 0.3s;
+  }
+
+  .cookie-btn:hover {
+    background: var(--brown);
+    border-color: var(--brown);
+    transform: translateY(-2px);
+  }
+
+  .cookie-btn-secondary {
+    background: transparent;
+    color: var(--sage-dark);
+  }
+
+  .cookie-btn-secondary:hover {
+    background: var(--sage-dark);
+    color: var(--white);
+    border-color: var(--sage-dark);
+  }
+
+  /* Choix actuellement enregistré : bouton mis en évidence. */
+  .cookie-btn.is-active {
+    box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--sage);
+  }
+
+  @media (max-width: 480px) {
+    .cookie-banner {
+      inset: auto 0.8rem 0.8rem 0.8rem;
+      padding: 1.2rem 1.2rem;
+    }
+    .cookie-banner-actions {
+      flex-direction: column-reverse;
+    }
+    .cookie-btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script define:vars={{ gaId, statusText: texts.status }}>
+  const STORAGE_KEY = 'cookie-consent';
+
+  // Charge Google Analytics (gtag.js) — appelé uniquement après acceptation.
+  function loadAnalytics() {
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    document.head.appendChild(s);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', gaId);
+  }
+
+  const banner = document.getElementById('cookie-banner');
+  const status = document.getElementById('cookie-status');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const refuseBtn = document.getElementById('cookie-refuse');
+
+  // Reflète le choix enregistré : libellé d'état + bouton correspondant mis en
+  // évidence. Sans choix (1re visite), l'état reste masqué pour une bannière nette.
+  function refreshStatus() {
+    const choice = localStorage.getItem(STORAGE_KEY);
+    acceptBtn.classList.toggle('is-active', choice === 'granted');
+    refuseBtn.classList.toggle('is-active', choice === 'denied');
+
+    if (choice === 'granted') {
+      status.textContent = statusText.granted;
+    } else if (choice === 'denied') {
+      status.textContent = statusText.denied;
+    }
+    status.hidden = !choice;
+  }
+
+  const consent = localStorage.getItem(STORAGE_KEY);
+
+  if (consent === 'granted') {
+    // Choix déjà donné lors d'une visite précédente : on active sans bannière.
+    loadAnalytics();
+  } else if (consent !== 'denied') {
+    // Aucun choix mémorisé : on présente la bannière.
+    banner.hidden = false;
+  }
+
+  // Permet de rouvrir la bannière depuis n'importe quel lien « Gérer les
+  // cookies » (footer, page confidentialité…) marqué [data-cookie-settings].
+  document.querySelectorAll('[data-cookie-settings]').forEach((el) => {
+    el.addEventListener('click', (event) => {
+      event.preventDefault();
+      refreshStatus();
+      banner.hidden = false;
+    });
+  });
+
+  acceptBtn?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, 'granted');
+    banner.hidden = true;
+    loadAnalytics();
+  });
+
+  refuseBtn?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, 'denied');
+    banner.hidden = true;
+    // Aucun script Google Analytics n'est chargé.
+  });
+</script>

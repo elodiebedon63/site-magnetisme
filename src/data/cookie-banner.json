@@ -1,0 +1,10 @@
+{
+  "text": "Avec votre accord, des cookies peuvent être déposés. Aucun cookie de mesure n'est déposé tant que vous n'avez pas accepté.",
+  "link": "En savoir plus",
+  "accept": "Accepter",
+  "refuse": "Refuser",
+  "status": {
+    "granted": "✓ État actuel : cookies de mesure d’audience acceptés.",
+    "denied": "✕ État actuel : cookies de mesure d’audience refusés."
+  }
+}
