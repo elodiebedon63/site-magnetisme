@@ -1,0 +1,41 @@
+{
+  "type": "HealthAndBeautyBusiness",
+  "name": "Élodie Bedon — Magnétiseuse",
+  "description": "Magnétisme, rééquilibrage énergétique, lithothérapie, état élargi de conscience, tarologie et massage énergétique à Clermont-Ferrand.",
+  "email": "elodie.bedon@hotmail.fr",
+  "phone": "+33768485414",
+  "areaServed": "Clermont-Ferrand",
+  "address": {
+    "name": "Cabinet Psy'Jaude",
+    "street": "2 avenue Julien, place Jaude",
+    "postalCode": "63000",
+    "locality": "Clermont-Ferrand",
+    "country": "FR"
+  },
+  "hours": [
+    { "day": "monday", "ranges": [] },
+    { "day": "tuesday", "ranges": [] },
+    { "day": "wednesday", "ranges": [["09:00", "12:00"], ["13:30", "18:00"]] },
+    { "day": "thursday", "ranges": [["09:00", "12:00"], ["13:30", "18:00"]] },
+    { "day": "friday", "ranges": [["09:00", "12:00"], ["13:30", "18:00"]] },
+    { "day": "saturday", "ranges": [["09:00", "12:00"]] },
+    { "day": "sunday", "ranges": [] }
+  ],
+  "social": [
+    {
+      "network": "Instagram",
+      "url": "https://www.instagram.com/elodiebedonmagnetisme/",
+      "icon": "instagram.svg"
+    },
+    {
+      "network": "Facebook",
+      "url": "https://www.facebook.com/elodiebedon.magnetisme",
+      "icon": "facebook.svg"
+    },
+    {
+      "network": "LinkedIn",
+      "url": "https://www.linkedin.com/in/elodie-bedon-156a45184/",
+      "icon": "linkedin.svg"
+    }
+  ]
+}

@@ -2,7 +2,9 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import CarrouselSlide from '../shared/CarrouselSlide.astro';
-import apropos from '../../data/apropos.json';
+import content from '../../data/content.json';
+
+const apropos = content.apropos;
 
 // Images du carrousel — Astro génère automatiquement des WebP optimisés et
 // dimensionnés. Chargées par nom de fichier (depuis apropos.json) via glob.

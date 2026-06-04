@@ -1,6 +1,8 @@
 ---
 import CalendarButton from '../shared/CalendarButton.astro';
-import hero from '../../data/hero.json';
+import content from '../../data/content.json';
+
+const hero = content.hero;
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -25,7 +27,7 @@ const base = import.meta.env.BASE_URL;
 
     <div class="hero-ctas">
       <a
-        href="{hero.video.src}"
+        href={hero.video.src}
         class="hero-cta hero-cta-secondary"
         target="_blank"
         rel="noopener noreferrer"

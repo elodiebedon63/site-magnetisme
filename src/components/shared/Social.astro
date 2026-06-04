@@ -1,5 +1,7 @@
 ---
-import social from '../../data/social.json';
+import business from '../../data/business.json';
+
+const social = business.social;
 
 // Contenu brut des SVG d'icônes (rendus inline pour hériter de `currentColor`).
 const icons = import.meta.glob<string>('../../assets/images/*.svg', {
@@ -17,8 +19,8 @@ const icons = import.meta.glob<string>('../../assets/images/*.svg', {
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"
-        title={link.label}
-        aria-label={link.label}
+        title={link.network}
+        aria-label={link.network}
         set:html={icons[`../../assets/images/${link.icon}`]}
       />
     ))

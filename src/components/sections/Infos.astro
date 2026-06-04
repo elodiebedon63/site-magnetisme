@@ -1,7 +1,44 @@
 ---
 import Social from '../shared/Social.astro';
 import InfoItem from '../shared/InfoItem.astro';
-import infos from '../../data/infos.json';
+import content from '../../data/content.json';
+import business from '../../data/business.json';
+import {
+  addressLabel,
+  addressLines,
+  hoursDisplay,
+  emailHref,
+  phoneHref,
+  phoneDisplay,
+} from '../../lib/business';
+
+type ResolvedItem = {
+  icon: string;
+  label?: string;
+  text?: string;
+  note?: string;
+  link?: { href: string; text: string };
+  hours?: { day: string; time: string }[];
+};
+
+// Un item peut référencer une donnée de business.json via `source` ; on y
+// injecte alors la valeur dérivée (libellé/texte/lien/horaires) au build.
+function resolve(item: { icon: string; [key: string]: any }): ResolvedItem {
+  switch (item.source) {
+    case 'address':
+      return { ...item, label: addressLabel(), text: addressLines() };
+    case 'hours':
+      return { ...item, hours: hoursDisplay() };
+    case 'email':
+      return { ...item, link: { href: emailHref(), text: business.email } };
+    case 'phone':
+      return { ...item, link: { href: phoneHref(), text: phoneDisplay() } };
+    default:
+      return item;
+  }
+}
+
+const infos = content.infos;
 
 // Deux colonnes : le 1er bloc seul, puis le 2e bloc + les réseaux sociaux.
 const [cabinet, rendezVous] = infos.blocks;
@@ -16,14 +53,14 @@ const [cabinet, rendezVous] = infos.blocks;
   <div>
     <div class="infos-block reveal reveal-delay-1">
       <h3>{cabinet.title}</h3>
-      {cabinet.items.map((item) => <InfoItem {...item} />)}
+      {cabinet.items.map((item) => <InfoItem {...resolve(item)} />)}
     </div>
   </div>
 
   <div>
     <div class="infos-block reveal">
       <h3>{rendezVous.title}</h3>
-      {rendezVous.items.map((item) => <InfoItem {...item} />)}
+      {rendezVous.items.map((item) => <InfoItem {...resolve(item)} />)}
     </div>
 
     <div class="infos-block reveal reveal-delay-2">
