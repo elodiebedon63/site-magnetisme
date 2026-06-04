@@ -12,7 +12,7 @@ const base = import.meta.env.BASE_URL;
   <p class="footer-legal">
     <a href={`${base}mentions-legals`}>Mentions légales</a>
     <a href={`${base}confidentialite`}>Politique de confidentialité</a>
-    <a href="#" data-cookie-settings>Gérer les cookies</a>
+    <button type="button" data-cookie-settings>Gérer les cookies</button>
   </p>
 </footer>
 
@@ -36,13 +36,27 @@ const base = import.meta.env.BASE_URL;
     justify-content: center;
     gap: 0.5rem 1.5rem;
   }
-  .footer-legal a {
+  .footer-legal a,
+  .footer-legal button {
     color: rgba(255, 255, 255, 0.55);
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     transition: color 0.2s ease;
   }
-  .footer-legal a:hover {
+  /* Le déclencheur « Gérer les cookies » est un <button> (action JS, pas un lien)
+     remis au même rendu visuel que les liens voisins. */
+  .footer-legal button {
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 0;
+    font: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+  }
+  .footer-legal a:hover,
+  .footer-legal button:hover {
     color: var(--sage-light);
   }
 </style>

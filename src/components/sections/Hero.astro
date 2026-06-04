@@ -1,10 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import CalendarButton from '../shared/CalendarButton.astro';
 import content from '../../data/content.json';
+import logo from '../../assets/images/logo.svg';
 
 const hero = content.hero;
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <section id="accueil" class="hero">
@@ -15,7 +15,7 @@ const base = import.meta.env.BASE_URL;
   <div class="hero-circle-1"></div>
   <div class="hero-circle-2"></div>
 
-  <img class="hero-logo" src={`${base}logo.svg`} alt="Logo Élodie Bedon" width="80" />
+  <Image class="hero-logo" src={logo} alt="Logo Élodie Bedon" width={80} height={82} loading="eager" />
 
   <div class="hero-content">
     <p class="hero-tag">{hero.tag}</p>

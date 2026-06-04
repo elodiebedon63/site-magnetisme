@@ -37,12 +37,7 @@ const total = slides.length;
             aria-label={`${i + 1} sur ${total}`}
             aria-hidden={i === 0 ? 'false' : 'true'}
           >
-            <Image
-              src={slide.image}
-              alt={slide.alt}
-              width={900}
-              loading={i === 0 ? 'eager' : 'lazy'}
-            />
+            <Image src={slide.image} alt={slide.alt} width={900} loading="lazy" />
           </div>
         ))
       }

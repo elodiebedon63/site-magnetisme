@@ -66,8 +66,10 @@ import TextSection from '../components/sections/TextSection.astro';
     <p>
       Votre choix est conservé dans le stockage local de votre navigateur afin de ne pas vous
       représenter la bannière à chaque visite. Vous pouvez modifier ou retirer votre consentement à
-      tout moment via le lien <a href="#" data-cookie-settings>Gérer les cookies</a> (également
-      présent en pied de page), ou en effaçant les données de navigation de votre navigateur.
+      tout moment via le bouton <button type="button" class="cookie-settings-link" data-cookie-settings
+        >Gérer les cookies</button
+      > (également présent en pied de page), ou en effaçant les données de navigation de votre
+      navigateur.
     </p>
     <p>
       Les autres services tiers mentionnés ci-dessus (Google Calendar, YouTube, Google Fonts)
@@ -106,3 +108,18 @@ import TextSection from '../components/sections/TextSection.astro';
     </p>
   </TextSection>
 </BaseLayout>
+
+<style>
+  /* Déclencheur « Gérer les cookies » : un <button> (action JS) rendu comme un
+     lien en ligne dans le texte. */
+  .cookie-settings-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: var(--sage-dark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+</style>
