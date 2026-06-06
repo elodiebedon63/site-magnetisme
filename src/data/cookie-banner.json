@@ -3,8 +3,10 @@
   "link": "En savoir plus",
   "accept": "Accepter",
   "refuse": "Refuser",
+  "delete": "Supprimer les cookies",
   "status": {
     "granted": "✓ État actuel : cookies de mesure d’audience acceptés.",
-    "denied": "✕ État actuel : cookies de mesure d’audience refusés."
+    "denied": "✕ État actuel : cookies de mesure d’audience refusés.",
+    "deleted": "Cookies de mesure supprimés et choix réinitialisé."
   }
 }

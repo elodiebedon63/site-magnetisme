@@ -24,6 +24,9 @@ const gaId = business.analytics.googleTagId;
     </p>
     <p id="cookie-status" class="cookie-banner-status" hidden></p>
     <div class="cookie-banner-actions">
+      <button id="cookie-delete" class="cookie-delete-link" type="button" hidden>
+        {texts.delete}
+      </button>
       <button id="cookie-refuse" class="cookie-btn cookie-btn-secondary" type="button">
         {texts.refuse}
       </button>
@@ -125,6 +128,30 @@ const gaId = business.analytics.googleTagId;
     border-color: var(--sage-dark);
   }
 
+  /* Lien discret « Supprimer les cookies » : aligné à gauche des boutons. */
+  .cookie-delete-link {
+    margin-right: auto;
+    align-self: center;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .cookie-delete-link:hover {
+    color: var(--sage-dark);
+  }
+
+  .cookie-delete-link[hidden] {
+    display: none;
+  }
+
   /* Choix actuellement enregistré : bouton mis en évidence. */
   .cookie-btn.is-active {
     box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--sage);
@@ -168,6 +195,25 @@ const gaId = business.analytics.googleTagId;
   const status = document.getElementById('cookie-status');
   const acceptBtn = document.getElementById('cookie-accept');
   const refuseBtn = document.getElementById('cookie-refuse');
+  const deleteBtn = document.getElementById('cookie-delete');
+
+  // Supprime les cookies de mesure déposés par Google Analytics (_ga, _gid,
+  // _ga_<id>…) sur le domaine courant et son domaine parent.
+  function deleteAnalyticsCookies() {
+    const past = 'Thu, 01 Jan 1970 00:00:00 GMT';
+    const hostParts = location.hostname.split('.');
+    const domains = ['', location.hostname];
+    if (hostParts.length > 1) domains.push('.' + hostParts.slice(-2).join('.'));
+
+    document.cookie.split(';').forEach((cookie) => {
+      const name = cookie.split('=')[0].trim();
+      if (!/^_ga|^_gid/.test(name)) return;
+      domains.forEach((domain) => {
+        document.cookie =
+          `${name}=; expires=${past}; path=/` + (domain ? `; domain=${domain}` : '');
+      });
+    });
+  }
 
   // Reflète le choix enregistré : libellé d'état + bouton correspondant mis en
   // évidence. Sans choix (1re visite), l'état reste masqué pour une bannière nette.
@@ -182,6 +228,8 @@ const gaId = business.analytics.googleTagId;
       status.textContent = statusText.denied;
     }
     status.hidden = !choice;
+    // Le lien de suppression n'a de sens que si un choix a déjà été enregistré.
+    deleteBtn.hidden = !choice;
   }
 
   const consent = localStorage.getItem(STORAGE_KEY);
@@ -214,5 +262,17 @@ const gaId = business.analytics.googleTagId;
     localStorage.setItem(STORAGE_KEY, 'denied');
     banner.hidden = true;
     // Aucun script Google Analytics n'est chargé.
+  });
+
+  // Efface le choix mémorisé et les cookies de mesure déjà déposés. La bannière
+  // revient alors à son état initial (aucun choix), prête pour une nouvelle décision.
+  deleteBtn?.addEventListener('click', () => {
+    deleteAnalyticsCookies();
+    localStorage.removeItem(STORAGE_KEY);
+    acceptBtn.classList.remove('is-active');
+    refuseBtn.classList.remove('is-active');
+    status.textContent = statusText.deleted;
+    status.hidden = false;
+    deleteBtn.hidden = true;
   });
 </script>
