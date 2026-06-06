@@ -1,5 +1,6 @@
 node_modules
 dist
+public/CNAME
 .astro
 .ai/report
 debug

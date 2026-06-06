@@ -10,6 +10,7 @@
   "scripts": {
     "start": "astro dev",
     "dev": "astro dev",
+    "prebuild": "node scripts/copy-cname.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "lint": "eslint .",
