@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TextSection from '../components/sections/TextSection.astro';
+import business from '../data/business.json';
+import { emailHref } from '../lib/business.ts';
 ---
 
 <BaseLayout
-  title="Politique de confidentialité — Élodie Bedon, Magnétiseuse à Clermont-Ferrand"
-  description="Politique de confidentialité du site d'Élodie Bedon : données collectées, services tiers et exercice de vos droits."
+  title={`Politique de confidentialité — ${business.name}, ${business.short}`}
+  description={`Politique de confidentialité du site d'${business.name} : données collectées, services tiers et exercice de vos droits, ${business.description}`}
 >
   <TextSection title="Politique de confidentialité">
     <p>
@@ -15,7 +17,7 @@ import TextSection from '../components/sections/TextSection.astro';
 
     <h2>Responsable du traitement</h2>
     <p>
-      Le responsable du traitement des données est Elodie Bedon, entrepreneur individuel.<br />
+      Le responsable du traitement des données est {business.name}, entrepreneur individuel.<br />
       Pour plus d'informations, consultez les <a href={`${import.meta.env.BASE_URL}mentions-legals`}>mentions légales</a>.
     </p>
 
@@ -26,8 +28,7 @@ import TextSection from '../components/sections/TextSection.astro';
     </p>
     <p>
       La seule collecte de données personnelles intervient lors de la prise de rendez-vous, via le
-      formulaire Google Calendar intégré.<br />
-      Les informations suivantes sont alors recueillies :
+      formulaire Google Calendar intégré. Les informations suivantes sont alors recueillies :
       <strong>nom, prénom, adresse email et numéro de téléphone</strong>. Ces données sont
       collectées uniquement à des fins de confirmation et de gestion de votre rendez-vous, et ne
       sont utilisées à aucune autre fin (ni démarchage, ni revente).<br />
@@ -111,7 +112,7 @@ import TextSection from '../components/sections/TextSection.astro';
     <p>
       S'agissant des données traitées via les services Google (Calendar, YouTube, Fonts), vous
       pouvez exercer vos droits directement auprès de Google sur myaccount.google.com.<br />
-      Pour toute autre question : <a href="mailto:elodie.bedon@hotmail.fr">elodie.bedon@hotmail.fr</a>.
+      Pour toute autre question : <a href={emailHref()}>{business.email}</a>.
     </p>
     <p>
       Vous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr) si vous

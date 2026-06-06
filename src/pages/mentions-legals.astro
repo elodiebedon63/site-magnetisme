@@ -1,28 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TextSection from '../components/sections/TextSection.astro';
+import business from '../data/business.json';
+import { emailHref, phoneHref, phoneDisplay } from '../lib/business.ts';
 ---
 
 <BaseLayout
-  title="Mentions légales — Élodie Bedon, Magnétiseuse à Clermont-Ferrand"
-  description="Mentions légales du site d'Élodie Bedon, magnétiseuse à Clermont-Ferrand."
+  title={`Mentions légales — ${business.name}, ${business.short}`}
+  description={`Mentions légales du site d'${business.name}, ${business.description}`}
 >
   <TextSection title="Mentions légales">
     <h2>Éditeur du site</h2>
     <p>Ce site est édité par :</p>
     <p>
-      Elodie Bedon<br />
+      {business.name}<br />
       Entrepreneur individuel<br />
       SIRET : 831 670 369 00030<br />
       Code APE : 96.09Z - Autres services personnels n.c.a<br />
-      Adresse : 22 Avenue Vercingetorix 63000 Clermont-Ferrand<br />
-      Email : <a href="mailto:elodie.bedon@hotmail.fr">elodie.bedon@hotmail.fr</a><br />
-      Téléphone : <a href="tel:0768485414">07 68 48 54 14</a>
+      Adresse : {business.address.street} {business.address.postalCode} {business.address.locality}<br />
+      Email : <a href={emailHref()}>{business.email}</a><br />
+      Téléphone : <a href={phoneHref()}>{phoneDisplay()}</a>
     </p>
 
     <h2>Hébergement</h2>
     <p>
-      Ce site est hébergé par : GitHub, Inc.<br />
+      Ce site est hébergé par :<br />
+      GitHub, Inc.<br />
       88 Colin P. Kelly Jr. Street San Francisco, CA 94107 États-Unis<br />
       Téléphone : +1 (877) 448-4820<br />
       Site web : https://github.com
@@ -30,7 +33,7 @@ import TextSection from '../components/sections/TextSection.astro';
 
     <h2>Activité</h2>
     <p>
-      Elodie Bedon exerce en tant qu' Entrepreneur individuel dans le domaine de praticienne en magnétisme et massages énergétiques,
+      {business.name} exerce en tant qu' Entrepreneur individuel dans le domaine de praticienne en magnétisme et massages énergétiques,
       non assujetti à la TVA en vertu de l'article 293 B du CGI.
     </p>
 
@@ -59,7 +62,7 @@ import TextSection from '../components/sections/TextSection.astro';
     <h2>Propriété intellectuelle</h2>
     <p>
       L'ensemble du contenu de ce site (textes, visuels, structure) est la propriété de
-      Elodie Bedon, sauf contenus tiers expressément mentionnés. Toute reproduction sans
+      {business.name}, sauf contenus tiers expressément mentionnés. Toute reproduction sans
       autorisation est interdite.
     </p>
 
@@ -72,7 +75,7 @@ import TextSection from '../components/sections/TextSection.astro';
 
     <h2>Responsabilité</h2>
     <p>
-      Elodie Bedon s'efforce de maintenir les informations de ce site à jour mais ne saurait être
+      {business.name} s'efforce de maintenir les informations de ce site à jour mais ne saurait être
       tenu responsable d'erreurs, d'omissions ou des contenus des sites tiers vers lesquels ce
       site renvoie.
     </p>

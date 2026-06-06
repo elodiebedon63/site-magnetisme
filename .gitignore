@@ -3,6 +3,4 @@ dist
 .astro
 .ai/report
 debug
-trash
-_doc
-utils
+TODO.md

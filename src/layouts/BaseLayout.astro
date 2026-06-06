@@ -4,6 +4,7 @@ import MobileMenu from '../components/layout/MobileMenu.astro';
 import Footer from '../components/layout/Footer.astro';
 import CookieBanner from '../components/layout/CookieBanner.astro';
 import JsonLd from '../components/meta/JsonLd.astro';
+import business from '../data/business.json';
 import '../styles/global.css';
 
 type Schema = Record<string, unknown>;
@@ -27,8 +28,8 @@ export interface Props {
 }
 
 const {
-  title = 'Élodie Bedon — Magnétisme, Rééquilibrage énergétique, Lithothérapie, État élargi de conscience, Tarologie, Massage énergétique · Magnétiseuse à Clermont-Ferrand',
-  description = 'Magnétisme, soins et rééquilibrage énergétique, lithothérapie, état élargi de conscience — Clermont-Ferrand',
+  title = `${business.name} — ${business.short}`,
+  description = business.description,
   ogImage = 'elodie-bedon-cabinet.jpg',
   jsonLd,
 } = Astro.props;
@@ -55,12 +56,12 @@ const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Élodie Bedon — Magnétiseuse" />
-    <meta property="og:title" content="Élodie Bedon — Magnétiseuse · Clermont-Ferrand" />
+    <meta property="og:site_name" content={`${business.name} — Magnétiseuse`} />
+    <meta property="og:title" content={`${business.name} — Magnétiseuse · Clermont-Ferrand`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content="Élodie Bedon dans son cabinet à Clermont-Ferrand" />
+    <meta property="og:image:alt" content={`${business.name} dans son cabinet à Clermont-Ferrand`} />
     <meta property="og:locale" content="fr_FR" />
 
     <!-- Twitter Card -->

@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import CalendarButton from '../shared/CalendarButton.astro';
 import logoCercle from '../../assets/images/logo-cercle.png';
+import business from '../../data/business.json';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -10,14 +11,14 @@ const base = import.meta.env.BASE_URL;
   <a href={`${base}#accueil`} class="nav-logo">
     <Image
       src={logoCercle}
-      alt="Logo Élodie Bedon"
+      alt="logo"
       width={32}
       height={32}
       densities={[2]}
       loading="eager"
     />
     <div class="nav-logo-text">
-      Élodie Bedon
+      {business.name}
       <span>Magnétiseuse · Clermont-Ferrand</span>
     </div>
   </a>
