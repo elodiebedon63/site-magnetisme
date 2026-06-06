@@ -2,17 +2,18 @@
 /**
  * Bannière de consentement aux cookies (RGPD).
  *
- * Google Analytics n'est chargé QUE si l'utilisateur accepte explicitement.
- * Le choix (« granted » / « denied ») est mémorisé dans localStorage : la
- * bannière ne réapparaît plus tant que ce choix n'est pas effacé.
+ * Le conteneur Google Tag Manager (qui déclenche Google Analytics et les autres
+ * tags) n'est chargé QUE si l'utilisateur accepte explicitement. Le choix
+ * (« granted » / « denied ») est mémorisé dans localStorage : la bannière ne
+ * réapparaît plus tant que ce choix n'est pas effacé.
  *
- * L'identifiant de mesure provient de la source unique src/data/business.json.
+ * L'identifiant du conteneur provient de la source unique src/data/business.json.
  */
 import business from '../../data/business.json';
 import texts from '../../data/cookie-banner.json';
 
 const base = import.meta.env.BASE_URL;
-const gaId = business.analytics.googleTagId;
+const gtmId = business.analytics.googleTagManagerId;
 ---
 
 <div
@@ -179,26 +180,23 @@ const gaId = business.analytics.googleTagId;
   }
 </style>
 
-<script define:vars={{ gaId, statusText: texts.status }}>
+<script define:vars={{ gtmId, statusText: texts.status }}>
   const STORAGE_KEY = 'cookie-consent';
 
-  // Charge Google Analytics (gtag.js) — appelé uniquement après acceptation.
-  function loadAnalytics() {
-    if (window.__gaLoaded) return;
-    window.__gaLoaded = true;
+  // Charge le conteneur Google Tag Manager — appelé uniquement après acceptation.
+  // Reproduit le snippet GTM officiel, mais injecté dynamiquement pour qu'aucune
+  // donnée ne parte tant que l'utilisateur n'a pas consenti.
+  function loadGtm() {
+    if (window.__gtmLoaded) return;
+    window.__gtmLoaded = true;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
 
     const s = document.createElement('script');
     s.async = true;
-    s.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    s.src = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
     document.head.appendChild(s);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', gaId);
   }
 
   const banner = document.getElementById('cookie-banner');
@@ -246,7 +244,7 @@ const gaId = business.analytics.googleTagId;
 
   if (consent === 'granted') {
     // Choix déjà donné lors d'une visite précédente : on active sans bannière.
-    loadAnalytics();
+    loadGtm();
   } else if (consent !== 'denied') {
     // Aucun choix mémorisé : on présente la bannière.
     banner.hidden = false;
@@ -265,13 +263,13 @@ const gaId = business.analytics.googleTagId;
   acceptBtn?.addEventListener('click', () => {
     localStorage.setItem(STORAGE_KEY, 'granted');
     banner.hidden = true;
-    loadAnalytics();
+    loadGtm();
   });
 
   refuseBtn?.addEventListener('click', () => {
     localStorage.setItem(STORAGE_KEY, 'denied');
     banner.hidden = true;
-    // Aucun script Google Analytics n'est chargé.
+    // Aucun conteneur Google Tag Manager n'est chargé.
   });
 
   // Efface le choix mémorisé et les cookies de mesure déjà déposés. La bannière
