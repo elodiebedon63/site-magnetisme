@@ -24,107 +24,87 @@
       {
         "img": "cabinet.jpg",
         "alt": "Salle de soin du cabinet partagé Psy'Jaude à Clermont-Ferrand",
-        "blocks": [
-          {
-            "tag": "À propos du <em>cabinet</em>",
-            "title": "Découvrez le <em>cabinet</em>",
-            "content": [
-              "La salle de soin est située dans le cabinet Psy'Jaude au 2 avenue Julien, à proximité de la place Jaude.",
-              "C'est un espace dédié chaleureux, sécurisant et apaisant qui vous invite à une expérience de soin particulière. Cet instant hors temps activera vos sens et vous déconnectera du quotidien, vous permettant ainsi de vous recentrer et de vous reconnecter à votre corps, à vos sensations et à ce qui vous est essentiel."
-            ]
-          }
+        "tag": "À propos du <em>cabinet</em>",
+        "title": "Découvrez le <em>cabinet</em>",
+        "content": [
+          "La salle de soin est située dans le cabinet Psy'Jaude au 2 avenue Julien, à proximité de la place Jaude.",
+          "C'est un espace dédié chaleureux, sécurisant et apaisant qui vous invite à une expérience de soin particulière. Cet instant hors temps activera vos sens et vous déconnectera du quotidien, vous permettant ainsi de vous recentrer et de vous reconnecter à votre corps, à vos sensations et à ce qui vous est essentiel."
         ]
       },
       {
         "img": "magnetisation.jpg",
         "alt": "Séance de magnétisme par imposition des mains",
-        "blocks": [
-          {
-            "tag": "À propos du <em>magnétisme</em>",
-            "title": "Le soin en <em>magnétisme</em> - C'est quoi ?",
-            "content": [
-              "Il existe le corps physique (votre squelette, vos organes...), le corps mental (votre psyché, vos mémoires, vos croyances, vos pensées) et le corps énergétique. Dans le monde qui nous entoure il existe trois grands types d'énergie, l'énergie cosmique (positive, ciel, rayons cosmiques), l'énergie tellurique (négative, terre, magnétisme telluriques) et l'énergie animale, celle du vivant.",
-              "Le champ d'énergie humaine est défini en physique comme la somme des radiations et des émanations du corps. Ce sont différents corps subtils qui se superposent, liés aux 7 chakras. Les chakras (roue) sont des vortex qui permettent au champ énergétique universel (cosmique et tellurique) de circuler dans le corps humain qui est à la fois canal, émetteur et récepteur d'énergie. L'énergie circule correctement et harmonieusement dans un corps sain.",
-              "Le.a magnétiseur.se perçoit cette énergie et peut agir sur les douleurs, les fuites, les blocages, les structures auriques... en harmonisant la circulation énergétique dans le corps et permettre ainsi la guérison. Lors des séances j'utilise le magnétisme par apposition des mains et mon souffle ainsi que les prières pour soigner, rééquilibrer et faire circuler l'énergie, les pierres (lithothérapie) et le bol tibétain (sonothérapie)."
-            ]
-          }
+        "tag": "À propos du <em>magnétisme</em>",
+        "title": "Le soin en <em>magnétisme</em> - C'est quoi ?",
+        "content": [
+          "Il existe le corps physique (votre squelette, vos organes...), le corps mental (votre psyché, vos mémoires, vos croyances, vos pensées) et le corps énergétique. Dans le monde qui nous entoure il existe trois grands types d'énergie, l'énergie cosmique (positive, ciel, rayons cosmiques), l'énergie tellurique (négative, terre, magnétisme telluriques) et l'énergie animale, celle du vivant.",
+          "Le champ d'énergie humaine est défini en physique comme la somme des radiations et des émanations du corps. Ce sont différents corps subtils qui se superposent, liés aux 7 chakras. Les chakras (roue) sont des vortex qui permettent au champ énergétique universel (cosmique et tellurique) de circuler dans le corps humain qui est à la fois canal, émetteur et récepteur d'énergie. L'énergie circule correctement et harmonieusement dans un corps sain.",
+          "Le.a magnétiseur.se perçoit cette énergie et peut agir sur les douleurs, les fuites, les blocages, les structures auriques... en harmonisant la circulation énergétique dans le corps et permettre ainsi la guérison. Lors des séances j'utilise le magnétisme par apposition des mains et mon souffle ainsi que les prières pour soigner, rééquilibrer et faire circuler l'énergie, les pierres (lithothérapie) et le bol tibétain (sonothérapie)."
         ]
       },
       {
-        "img": "bol-et-cristaux.jpg",
-        "alt": "Bol tibétain et cristaux utilisés en séance énergétique",
-        "blocks": [
-          {
-            "tag": "À propos de la <em>lithothérapie</em>",
-            "title": "La <em>Lithothérapie</em> - C'est quoi ?",
-            "content": [
-              "Du grec litho = pierre<br>La lithothérapie est un soin par les pierres et cristaux.<br>Par leur champ énergétique, leur couleur, leurs oligoéléments... les pierres sont un excellent outil pour amplifier et faciliter les résultats d'un soin énergétiques.<br>Déposé dans un espace ou porté sur soi, les pierres ont des vertus subtiles mais réelles qui améliorent votre quotidien."
-            ]
-          },
-          {
-            "tag": "À propos du <em>Bol Tibétain</em>",
-            "title": "Le <em>Bol Tibétain</em> - C'est quoi ?",
-            "content": [
-              "Aussi nommé bol chantant, c'est un instrument qui émet un son vibratoire d'une grande intensité.<br>Il est utilisé depuis les temps anciens au Tibet pour accéder à une relaxation profonde.<br>Il est composé de 7 métaux symbolisant les planètes.<br>Activé à proximité du corps ou directement au contact de celui-ci, la vibration du bol résonne avec les fréquences internes pour une relaxation profonde et méditative."
-            ]
-          }
+        "img": "pierres.jpg",
+        "alt": "Pierres et cristaux utilisés en lithothérapie",
+        "tag": "À propos de la <em>lithothérapie</em>",
+        "title": "La <em>Lithothérapie</em> - C'est quoi ?",
+        "content": [
+          "Du grec litho = pierre<br>La lithothérapie est un soin par les pierres et cristaux.<br>Par leur champ énergétique, leur couleur, leurs oligoéléments... les pierres sont un excellent outil pour amplifier et faciliter les résultats d'un soin énergétiques.<br>Déposé dans un espace ou porté sur soi, les pierres ont des vertus subtiles mais réelles qui améliorent votre quotidien."
+        ]
+      },
+      {
+        "img": "bol.jpg",
+        "alt": "Bol tibétain (bol chantant) utilisé en sonothérapie",
+        "tag": "À propos du <em>Bol Tibétain</em>",
+        "title": "Le <em>Bol Tibétain</em> - C'est quoi ?",
+        "content": [
+          "Aussi nommé bol chantant, c'est un instrument qui émet un son vibratoire d'une grande intensité.<br>Il est utilisé depuis les temps anciens au Tibet pour accéder à une relaxation profonde.<br>Il est composé de 7 métaux symbolisant les planètes.<br>Activé à proximité du corps ou directement au contact de celui-ci, la vibration du bol résonne avec les fréquences internes pour une relaxation profonde et méditative."
+        ]
+      },
+      {
+        "alt": "État élargi de conscience — photo à venir",
+        "tag": "À propos de l'<em>état élargi de conscience</em>",
+        "title": "L'<em>état élargi de conscience</em> - C'est quoi ?",
+        "content": [
+          "C'est comme un rêve éveillé, où l'on voyage. Vous êtes mis en hypnose légère afin d'accéder à votre inconscient. Tout y est symbolique et métaphorique, et dans ce voyage dont vous êtes le guide, je vous accompagne pour braver les obstacles et ancrer les sensations et expériences clés dont vous avez besoin. Il arrive que ces voyages nous emmènent dans des incarnations animales ou dans des vies antérieures."
         ]
       },
       {
         "img": "tarot.jpg",
         "alt": "Cartes du Tarot de Marseille pour une lecture en tarologie",
-        "blocks": [
-          {
-            "tag": "À propos de l'<em>état élargi de conscience</em>",
-            "title": "L'<em>état élargi de conscience</em> - C'est quoi ?",
-            "content": [
-              "C'est comme un rêve éveillé, où l'on voyage. Vous êtes mis en hypnose légère afin d'accéder à votre inconscient. Tout y est symbolique et métaphorique, et dans ce voyage dont vous êtes le guide, je vous accompagne pour braver les obstacles et ancrer les sensations et expériences clés dont vous avez besoin. Il arrive que ces voyages nous emmènent dans des incarnations animales ou dans des vies antérieures."
-            ]
-          },
-          {
-            "tag": "À propos de la <em>tarologie</em>",
-            "title": "La <em>tarologie</em> - C'est quoi ?",
-            "content": [
-              "Rien à voir avec la divination ou la cartomancie, ici il s'agit d'offrir à l'inconscient une voix, une parole métaphorique. Son langage est le Tarot de Marseille.<br />Par votre tirage, vous révélez un message codé.<br>Je suis là pour le traduire et vous aider à le comprendre."
-            ]
-          }
+        "tag": "À propos de la <em>tarologie</em>",
+        "title": "La <em>tarologie</em> - C'est quoi ?",
+        "content": [
+          "Rien à voir avec la divination ou la cartomancie, ici il s'agit d'offrir à l'inconscient une voix, une parole métaphorique. Son langage est le Tarot de Marseille.<br />Par votre tirage, vous révélez un message codé.<br>Je suis là pour le traduire et vous aider à le comprendre."
         ]
       },
       {
         "img": "massage.jpg",
         "alt": "Massage énergétique à l'huile tiède",
-        "blocks": [
-          {
-            "tag": "À propos du <em>Massage énergétique</em>",
-            "title": "<em>Massage</em> Energétique - C'est quoi ?",
-            "list": [
-              "ACHANGER à l'huile tiède bio et aux huiles essentielles",
-              "ACHANGER Parties du corps massées : dos, buste, jambes, pieds, mains et visage",
-              "Le dos pour évacuer les tensions, détendre les muscles et stimuler le système nerveux par le massage des ganglions le long de la colonne vertébrale.",
-              "Le buste et le ventre pour ouvrir la cage thoracique et améliorer le fonctionnement du système digestif.",
-              "Les jambes pour améliorer la circulation sanguine et lymphatique.",
-              "Le visage et la nuque pour évacuer les tensions, détendre et ouvrir l'esprit, redonner de la souplesse à la peau.",
-              "Les mains et les pieds pour agir directement sur le squelette et les organes grâce à la réflexologie."
-            ],
-            "content": [
-              "Un massage énergétique dure en moyenne 1h20, plusieurs magnétisations sont effectuées pendant le massage et le soin se termine par une harmonisation avec les cristaux. Le chant du bol tibétain clôture le massage.",
-              "❗️ Le massage énergétique est spécifique, il est proposé aux consultants dans un contexte de soin préétabli ensemble ❗️"
-            ]
-          }
-        ]
+        "tag": "À propos du <em>Massage énergétique</em>",
+        "title": "<em>Massage</em> Energétique - C'est quoi ?",
+        "precontent": [
+          "Massage énergetiques à l'huile tiède bio et aux huiles essentielles. Les parties du corps massées sont: le dos, le buste, les jambes, les pieds, les mains et visage."
+        ],
+        "list": [
+          "Le dos pour évacuer les tensions, détendre les muscles et stimuler le système nerveux par le massage des ganglions le long de la colonne vertébrale.",
+          "Le buste et le ventre pour ouvrir la cage thoracique et améliorer le fonctionnement du système digestif.",
+          "Les jambes pour améliorer la circulation sanguine et lymphatique.",
+          "Les mains et les pieds pour agir directement sur le squelette et les organes grâce à la réflexologie.",
+          "Le visage et la nuque pour évacuer les tensions, détendre et ouvrir l'esprit, redonner de la souplesse à la peau."
+        ],
+        "content": [
+          "Un massage énergétique dure en moyenne 1h20, plusieurs magnétisations sont effectuées pendant le massage et le soin se termine par une harmonisation avec les cristaux. Le chant du bol tibétain clôture le massage."
+        ],
+        "alert": "Le massage énergétique est spécifique, il est proposé aux consultants dans un contexte de soin préétabli."
       },
       {
         "img": "biblio.jpg",
         "alt": "Bibliothèque du cabinet — ouvrages de référence en énergétique et lithothérapie",
-        "blocks": [
-          {
-            "tag": "À propos de <em>moi</em>",
-            "title": "Certifications & Références",
-            "content": [
-              "Après une formation avec Pascal Quesne, je poursuis mon apprentissage du Magnétisme avec l'enseignement de Barbara Ann Brennan (guérisseuse, psychothérapeute et physicienne). J'utilise les cristaux et je suis surtout l'enseignement en Lithothérapie de Reynald Georges Boschiero. J'ai suivi une formation d'Hypnose Spirituelle sur l'Autoguérison par Mario Beauregard et Jean-Charles Chabot et j'entame une formation en Hypnose Humaniste à l'institut d'Olivier Lockert. Concernant la relation d'aide, c'est l'enseignement de Colette Portelance que je suis, avec son approche non directrice créative. En matière de Tarologie, j'utilise le Tarot de Marseille du XIIIème siècle et l'enseignement d'Alejandro Jodorowsky.",
-              "J'enrichis mes connaissances en m'intéressant à d'autres disciplines complémentaires comme : la Psychoénergétique de Michel Odoul, qui base son savoir sur les fondements de la médecine chinoise ; l'aromathérapie ; la naturopathie ; l'art-thérapie..."
-            ]
-          }
+        "tag": "À propos de <em>moi</em>",
+        "title": "Certifications & Références",
+        "content": [
+          "Après une formation avec Pascal Quesne, je poursuis mon apprentissage du Magnétisme avec l'enseignement de Barbara Ann Brennan (guérisseuse, psychothérapeute et physicienne). J'utilise les cristaux et je suis surtout l'enseignement en Lithothérapie de Reynald Georges Boschiero. J'ai suivi une formation d'Hypnose Spirituelle sur l'Autoguérison par Mario Beauregard et Jean-Charles Chabot et j'entame une formation en Hypnose Humaniste à l'institut d'Olivier Lockert. Concernant la relation d'aide, c'est l'enseignement de Colette Portelance que je suis, avec son approche non directrice créative. En matière de Tarologie, j'utilise le Tarot de Marseille du XIIIème siècle et l'enseignement d'Alejandro Jodorowsky.",
+          "J'enrichis mes connaissances en m'intéressant à d'autres disciplines complémentaires comme : la Psychoénergétique de Michel Odoul, qui base son savoir sur les fondements de la médecine chinoise ; l'aromathérapie ; la naturopathie ; l'art-thérapie..."
         ]
       }
     ]
@@ -135,7 +115,7 @@
     "description": "Chaque soin est une expérience unique, adaptée à votre situation du moment. La première séance permet de nous découvrir et de définir ensemble le protocole le plus adapté.",
     "services": [
       {
-        "order": 1,
+        "order": 2,
         "title": "Rééquilibrage énergétique",
         "description": "Magnétisme par imposition des mains, rééquilibrage aux pierres et conseil en lithothérapie.",
         "domains": [
@@ -149,7 +129,7 @@
         "duration": "/ 45 min"
       },
       {
-        "order": 2,
+        "order": 3,
         "title": "Soin en magnétisme - soin ciblé, holistique et aurique",
         "description": "Imposition des mains, souffle et prières, lithothérapie — soin ciblé ou global sur tout le corps.",
         "domains": [
@@ -164,19 +144,21 @@
         "duration": "/ 1h à 1h15"
       },
       {
-        "order": 3,
-        "title": "État élargi de conscience & Tarologie",
-        "description": "Rêve éveillé, état modifié de conscience, lecture de Tarot comme message de l'inconscient. Changer de point de vue pour sortir d'une impasse.",
+        "order": 4,
+        "title": "État élargi de conscience",
+        "description": "Rêve éveillé, état modifié de conscience. Changer de point de vue pour sortir d'une impasse.",
         "domains": [
-          "Deuil d'un être ou d'une situation, burn-out",
+          "Deuil (d'un être ou d'une situation)",
+          "Crise existentielle, changement de vie",
           "Maladies et douleurs chroniques",
-          "Crise existentielle, blocage, mal-être"
+          "Burn out, blocage et mal-être",
+          "Difficultés relationnelles"
         ],
-        "price": "80 €",
-        "duration": "/ 1h30 à 2h30"
+        "price": "70 €",
+        "duration": "/ 1h30 à 2h00"
       },
       {
-        "order": 4,
+        "order": 6,
         "title": "Massage énergétique: dos, buste, jambes, pieds, mains et visage",
         "description": "Massages à l'huile tiède, magnétisme par imposition des mains et rééquilibrage aux pierres.",
         "domains": [
@@ -190,18 +172,31 @@
         "duration": "/ 1h15"
       },
       {
-        "order": 0,
-        "title": "toto",
-        "description": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "order": 5,
+        "title": "Lecture de Tarot",
+        "description": "Ceci n'est pas de la voyance, mais une voix donnée à votre inconscient.",
         "domains": [
-          "Fatigue, stress, insomnie",
-          "Raffermissement de la peau",
-          "Douleurs, tensions",
-          "Circulation sanguine et digestion",
-          "Conscientisation du corps"
+          "Impasse et blocages mentaux, relationnels...",
+          "Doute, besoin de clarifier une situation",
+          "Crise existentielle",
+          "Besoin de se connecter à son inconscient",
+          "Connaissance de soi"
         ],
-        "price": "90 €",
-        "duration": "/ 1h15"
+        "price": "80 €",
+        "duration": "/ 1h30 à 2h00"
+      },
+      {
+        "order": 1,
+        "title": "Passe magnétique sur zone",
+        "description": "Apposition des mains, souffle et prières sur zone.",
+        "domains": [
+            "Douleurs passagères",
+            "Foulures, contractures...",
+            "Brûlures",
+            "Zona, psoriasis, eczéma..."
+        ],
+        "price": "30 €",
+        "duration": "/ 30min"
       }
     ],
     "outils": {
@@ -233,12 +228,12 @@
         "title": "Sur rendez-vous au cabinet",
         "items": [
           {
-            "icon": "📍",
+            "icon": "map-pin.svg",
             "source": "address",
             "note": "Tram / Bus A-B-C-E4 — Arrêt Jaude<br>Parkings payants Jaude 1 et Jaude 2"
           },
           {
-            "icon": "🕐",
+            "icon": "clock.svg",
             "label": "Horaires",
             "source": "hours"
           }
@@ -248,19 +243,19 @@
         "title": "Comment prendre rendez-vous",
         "items": [
           {
-            "icon": "📋",
+            "icon": "clipboard.svg",
             "label": "Via le bouton Prendre rendez-vous",
             "text": "",
             "note": "Si vous avez un doute ou des questions sur les prestations, n'hésitez pas à me contacter par mail ou téléphone pour que je puisse vous conseiller au mieux."
           },
           {
-            "icon": "✉️",
+            "icon": "mail.svg",
             "label": "Par mail",
             "source": "email",
             "note": ""
           },
           {
-            "icon": "📞",
+            "icon": "phone.svg",
             "label": "Par téléphone",
             "source": "phone",
             "note": "Laissez un message, je vous rappelle"

@@ -11,6 +11,7 @@ type Hour = { day: string; time: string };
 type Link = { href: string; text: string };
 
 interface Props {
+  /** Nom de fichier SVG dans src/assets/svg (ex. « phone.svg »). */
   icon: string;
   label?: string;
   text?: string;
@@ -20,10 +21,18 @@ interface Props {
 }
 
 const { icon, label, text, note, link, hours } = Astro.props;
+
+// Contenu brut des SVG d'icônes (rendus inline pour hériter de `currentColor`).
+const icons = import.meta.glob<string>('../../assets/svg/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const iconSvg = icons[`../../assets/svg/${icon}`];
 ---
 
 <div class="info-item">
-  <div class="info-icon">{icon}</div>
+  <div class="info-icon" set:html={iconSvg} />
   <div>
     {label && <strong>{label}</strong>}
     {link && <a href={link.href}>{link.text}</a>}
@@ -60,7 +69,10 @@ const { icon, label, text, note, link, hours } = Astro.props;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 0.95rem;
+    color: var(--sage-dark);
+  }
+  .info-icon :global(svg) {
+    display: block;
   }
   .info-item div {
     font-size: 1rem;

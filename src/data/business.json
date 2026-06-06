@@ -45,6 +45,11 @@
       "network": "X (ex-Twitter)",
       "url": "https://www.x.com/ebmagnetisme",
       "icon": "x.svg"
+    },
+    {
+      "network": "Google Maps",
+      "url": "https://share.google/XEB0AxWITa7WWOsF9",
+      "icon": "maps.svg"
     }
   ]
 }

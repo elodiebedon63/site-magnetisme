@@ -95,11 +95,32 @@ const seancesList = [...services.services].sort((a, b) => a.order - b.order);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    cursor: default;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      color 0.25s ease;
   }
   .outil-pill::before {
     content: '¤';
     color: var(--sage);
     font-size: 0.9rem;
+    transition: transform 0.25s ease;
+  }
+  .outil-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11, 98, 129, 0.1);
+    color: var(--text);
+  }
+  .outil-pill:hover::before {
+    transform: rotate(90deg) scale(1.15);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .outil-pill,
+    .outil-pill::before {
+      transition: none;
+    }
   }
 
   /* ─── RESPONSIVE ─── */

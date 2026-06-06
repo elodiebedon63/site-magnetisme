@@ -1,46 +1,58 @@
 ---
 /**
  * Panneau de texte d'une slide du carrousel « À propos ».
- * Affiche un ou plusieurs blocs : surtitre (.section-tag), titre (h2), liste
- * optionnelle puis paragraphes. Le contenu peut contenir du HTML (<em>, <br>),
- * d'où set:html — les données proviennent du projet (apropos.json), de confiance.
+ * Affiche : surtitre (.section-tag), titre (h2), paragraphes d'intro optionnels
+ * (precontent), liste optionnelle, paragraphes (content) puis un encart d'alerte
+ * optionnel (alert), introduit par une icône d'avertissement. Le contenu peut
+ * contenir du HTML (<em>, <br>), d'où set:html — les données proviennent du
+ * projet (content.json), de confiance.
  *
  * La visibilité (classe `.active`) est pilotée par le script du carrousel dans
  * Apropos.astro ; `active` initialise la première slide.
  */
-type Block = {
+interface Props {
   tag: string;
   title: string;
+  precontent?: string[];
   list?: string[];
   content: string[];
-};
-
-interface Props {
-  blocks: Block[];
+  alert?: string;
   active?: boolean;
 }
 
-const { blocks, active = false } = Astro.props;
+const { tag, title, precontent, list, content, alert, active = false } = Astro.props;
+
+// Icône d'avertissement (rendue inline pour hériter de `currentColor`), affichée
+// en tête de l'encart d'alerte.
+const icons = import.meta.glob<string>('../../assets/svg/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const alertIcon = icons['../../assets/svg/alert.svg'];
 ---
 
 <div class:list={['slide-text', { active }]}>
+  <p class="section-tag" set:html={tag} />
+  <h2 set:html={title} />
+  {precontent?.map((paragraph) => <p set:html={paragraph} />)}
   {
-    blocks.map((block) => (
-      <div class="slide-block">
-        <p class="section-tag" set:html={block.tag} />
-        <h2 set:html={block.title} />
-        {block.list && (
-          <ul class="slide-list">
-            {block.list.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        )}
-        {block.content.map((paragraph) => (
-          <p set:html={paragraph} />
+    list && (
+      <ul class="slide-list">
+        {list.map((item) => (
+          <li>{item}</li>
         ))}
-      </div>
-    ))
+      </ul>
+    )
+  }
+  {content.map((paragraph) => <p set:html={paragraph} />)}
+  {
+    alert && (
+      <p class="slide-alert">
+        <Fragment set:html={alertIcon} />
+        <span set:html={alert} />
+      </p>
+    )
   }
 </div>
 
@@ -62,11 +74,6 @@ const { blocks, active = false } = Astro.props;
     transform: translateY(0);
     position: relative;
     pointer-events: auto;
-  }
-
-  /* Espace entre deux blocs d'une même slide (ex. Lithothérapie + Bol tibétain). */
-  .slide-block + .slide-block {
-    margin-top: 2.5rem;
   }
 
   .slide-text .section-tag {
@@ -99,5 +106,26 @@ const { blocks, active = false } = Astro.props;
     position: absolute;
     left: 0;
     color: var(--sage);
+  }
+
+  /* Encart d'alerte optionnel, introduit par l'icône d'avertissement. */
+  .slide-text .slide-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-top: 1.4rem;
+    margin-bottom: 0;
+    padding: 0.9rem 1.1rem;
+    border-left: 3px solid var(--terre);
+    background: var(--beige);
+    border-radius: 2px;
+    color: var(--text);
+  }
+  .slide-alert :global(.inline-alert) {
+    flex-shrink: 0;
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0.15em;
+    color: var(--terre);
   }
 </style>

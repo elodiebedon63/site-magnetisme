@@ -4,17 +4,30 @@ import type { ImageMetadata } from 'astro';
 import CarrouselSlide from '../shared/CarrouselSlide.astro';
 import content from '../../data/content.json';
 
-const apropos = content.apropos;
+// Une slide du carrousel « À propos ». `img` est optionnel : sans image, un
+// placeholder est affiché (ex. état élargi de conscience, photo à venir).
+type SlideData = {
+  img?: string;
+  alt: string;
+  tag: string;
+  title: string;
+  precontent?: string[];
+  list?: string[];
+  content: string[];
+  alert?: string;
+};
+
+const aproposSlides = content.apropos.slides as SlideData[];
 
 // Images du carrousel — Astro génère automatiquement des WebP optimisés et
-// dimensionnés. Chargées par nom de fichier (depuis apropos.json) via glob.
+// dimensionnés. Chargées par nom de fichier (depuis content.json) via glob.
 const imageModules = import.meta.glob<{ default: ImageMetadata }>(
   '../../assets/images/*.{jpg,jpeg,png}',
   { eager: true },
 );
-const slides = apropos.slides.map((slide) => ({
+const slides = aproposSlides.map((slide) => ({
   ...slide,
-  image: imageModules[`../../assets/images/${slide.img}`].default,
+  image: slide.img ? imageModules[`../../assets/images/${slide.img}`].default : null,
 }));
 const total = slides.length;
 ---
@@ -37,7 +50,13 @@ const total = slides.length;
             aria-label={`${i + 1} sur ${total}`}
             aria-hidden={i === 0 ? 'false' : 'true'}
           >
-            <Image src={slide.image} alt={slide.alt} width={900} loading="lazy" />
+            {slide.image ? (
+              <Image src={slide.image} alt={slide.alt} width={900} loading="lazy" />
+            ) : (
+              <div class="slide-placeholder">
+                <span>Photo à venir</span>
+              </div>
+            )}
           </div>
         ))
       }
@@ -87,7 +106,19 @@ const total = slides.length;
 
   <!-- DROITE : textes liés aux slides (une CarrouselSlide par slide) -->
   <div class="apropos-text reveal reveal-delay-1">
-    {slides.map((slide, i) => <CarrouselSlide blocks={slide.blocks} active={i === 0} />)}
+    {
+      slides.map((slide, i) => (
+        <CarrouselSlide
+          tag={slide.tag}
+          title={slide.title}
+          precontent={slide.precontent}
+          list={slide.list}
+          content={slide.content}
+          alert={slide.alert}
+          active={i === 0}
+        />
+      ))
+    }
   </div>
 </section>
 
@@ -131,8 +162,21 @@ const total = slides.length;
     height: 100%;
     object-fit: cover;
   }
+  /* Placeholder affiché pour une slide sans image (photo à venir). */
+  .slide-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--beige-dark);
+  }
   .slide-placeholder span {
     opacity: 0.45;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
   }
 
   /* Flèches */
