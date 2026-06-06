@@ -61,6 +61,7 @@
         ]
       },
       {
+        "img": "Dryade.jpg",
         "alt": "État élargi de conscience — photo à venir",
         "tag": "À propos de l'<em>état élargi de conscience</em>",
         "title": "L'<em>état élargi de conscience</em> - C'est quoi ?",
@@ -98,7 +99,7 @@
         "alert": "Le massage énergétique est spécifique, il est proposé aux consultants dans un contexte de soin préétabli."
       },
       {
-        "img": "biblio.jpg",
+        "img": "livres.jpg",
         "alt": "Bibliothèque du cabinet — ouvrages de référence en énergétique et lithothérapie",
         "tag": "À propos de <em>moi</em>",
         "title": "Certifications & Références",
@@ -217,7 +218,7 @@
     }
   },
   "quote": {
-    "quote": "« Le soin est une invitation à se reconnecter à soi, à son corps, à son environnement. »",
+    "quote": "« Le soin est une invitation à se reconnecter à soi, à son corps et à son environnement. »",
     "cite": "Élodie Bedon"
   },
   "infos": {

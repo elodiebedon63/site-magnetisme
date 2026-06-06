@@ -17,6 +17,12 @@ type Schema = Record<string, unknown>;
 export interface Props {
   title?: string;
   description?: string;
+  /**
+   * Titre court pour le partage social (Open Graph / Twitter). Distinct du
+   * <title> (qui est long et riche en mots-clés pour le SEO). Surchargeable
+   * par page.
+   */
+  ogTitle?: string;
   /** Image Open Graph (chemin absolu sous le domaine de prod). */
   ogImage?: string;
   /**
@@ -30,7 +36,8 @@ export interface Props {
 const {
   title = `${business.name} — ${business.short}`,
   description = business.description,
-  ogImage = 'elodie-bedon-cabinet.jpg',
+  ogTitle = `${business.name} — Magnétiseuse · Clermont-Ferrand`,
+  ogImage = 'og-image.jpg',
   jsonLd,
 } = Astro.props;
 
@@ -57,15 +64,19 @@ const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={`${business.name} — Magnétiseuse`} />
-    <meta property="og:title" content={`${business.name} — Magnétiseuse · Clermont-Ferrand`} />
+    <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content={`${business.name} dans son cabinet à Clermont-Ferrand`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content={`Logo ${business.name} — Magnétiseuse à Clermont-Ferrand`} />
     <meta property="og:locale" content="fr_FR" />
 
-    <!-- Twitter Card -->
+    <!-- Twitter Card (reprend les balises og:* en repli) -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:alt" content={`Logo ${business.name} — Magnétiseuse à Clermont-Ferrand`} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
