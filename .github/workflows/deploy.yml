@@ -21,6 +21,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Historique complet requis : la date « Dernière mise à jour » des pages
+          # légales est déduite du dernier commit de chaque fichier (cf. lib/date.ts).
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4

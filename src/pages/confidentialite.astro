@@ -3,6 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TextSection from '../components/sections/TextSection.astro';
 import business from '../data/business.json';
 import { emailHref } from '../lib/business.ts';
+import { lastModified } from '../lib/date.ts';
+
+const lastUpdated = lastModified(import.meta.url);
 ---
 
 <BaseLayout
@@ -13,7 +16,7 @@ import { emailHref } from '../lib/business.ts';
   <TextSection title="Politique de confidentialité">
     <p>
       La présente politique de confidentialité décrit la manière dont les données des visiteurs
-      sont traitées sur ce site. Dernière mise à jour : 01/06/2026.
+      sont traitées sur ce site. Dernière mise à jour : {lastUpdated}.
     </p>
 
     <h2>Responsable du traitement</h2>

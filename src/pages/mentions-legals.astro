@@ -3,6 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TextSection from '../components/sections/TextSection.astro';
 import business from '../data/business.json';
 import { emailHref, phoneHref, phoneDisplay } from '../lib/business.ts';
+import { lastModified } from '../lib/date.ts';
+
+const lastUpdated = lastModified(import.meta.url);
 ---
 
 <BaseLayout
@@ -11,6 +14,10 @@ import { emailHref, phoneHref, phoneDisplay } from '../lib/business.ts';
   description={`Mentions légales du site d'${business.name}, ${business.description}`}
 >
   <TextSection title="Mentions légales">
+    <p>
+      Dernière mise à jour : {lastUpdated}.
+    </p>
+
     <h2>Éditeur du site</h2>
     <p>Ce site est édité par :</p>
     <p>
