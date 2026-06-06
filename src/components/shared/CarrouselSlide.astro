@@ -2,10 +2,11 @@
 /**
  * Panneau de texte d'une slide du carrousel « À propos ».
  * Affiche : surtitre (.section-tag), titre (h2), paragraphes d'intro optionnels
- * (precontent), liste optionnelle, paragraphes (content) puis un encart d'alerte
- * optionnel (alert), introduit par une icône d'avertissement. Le contenu peut
- * contenir du HTML (<em>, <br>), d'où set:html — les données proviennent du
- * projet (content.json), de confiance.
+ * (precontent), liste optionnelle, paragraphes (content), un encart d'alerte
+ * optionnel (alert) introduit par une icône d'avertissement, puis un lien
+ * optionnel (link, ouvert dans un nouvel onglet). Le contenu peut contenir du
+ * HTML (<em>, <br>), d'où set:html — les données proviennent du projet
+ * (content.json), de confiance.
  *
  * La visibilité (classe `.active`) est pilotée par le script du carrousel dans
  * Apropos.astro ; `active` initialise la première slide.
@@ -17,10 +18,11 @@ interface Props {
   list?: string[];
   content: string[];
   alert?: string;
+  link?: { href: string; label: string };
   active?: boolean;
 }
 
-const { tag, title, precontent, list, content, alert, active = false } = Astro.props;
+const { tag, title, precontent, list, content, alert, link, active = false } = Astro.props;
 
 // Icône d'avertissement (rendue inline pour hériter de `currentColor`), affichée
 // en tête de l'encart d'alerte.
@@ -52,6 +54,22 @@ const alertIcon = icons['../../assets/svg/alert.svg'];
         <Fragment set:html={alertIcon} />
         <span set:html={alert} />
       </p>
+    )
+  }
+  {
+    link && (
+      <a class="slide-link" href={link.href} target="_blank" rel="noopener noreferrer">
+        {link.label}
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M6 3h7v7M13 3L5 11"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
     )
   }
 </div>
@@ -127,5 +145,32 @@ const alertIcon = icons['../../assets/svg/alert.svg'];
     height: 1.2em;
     margin-top: 0.15em;
     color: var(--terre);
+  }
+
+  /* Lien optionnel (ex. vidéo de présentation), ouvert dans un nouvel onglet. */
+  .slide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--sage);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition:
+      color 0.25s,
+      border-color 0.25s;
+  }
+  .slide-link:hover {
+    color: var(--terre);
+    border-bottom-color: currentColor;
+  }
+  .slide-link svg {
+    flex-shrink: 0;
+    transition: transform 0.25s;
+  }
+  .slide-link:hover svg {
+    transform: translate(2px, -2px);
   }
 </style>

@@ -36,6 +36,14 @@ jobs:
 
       - name: Build (Astro)
         run: npm run build
+        env:
+          # Domaine dédié, par ordre de priorité (cf. astro.config.mjs) :
+          #  1. fichier CNAME à la racine (créé par GitHub quand un domaine est configuré
+          #     dans Settings → Pages) ;
+          #  2. sinon cette variable CUSTOM_DOMAIN (Settings → Secrets and variables →
+          #     Actions → Variables, ex : elodie-magnetisme.fr).
+          # Absente et pas de CNAME → site sur github.io/site-magnetisme/.
+          CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

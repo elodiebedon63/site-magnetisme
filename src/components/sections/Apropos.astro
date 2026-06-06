@@ -15,6 +15,7 @@ type SlideData = {
   list?: string[];
   content: string[];
   alert?: string;
+  link?: { href: string; label: string };
 };
 
 const aproposSlides = content.apropos.slides as SlideData[];
@@ -115,6 +116,7 @@ const total = slides.length;
           list={slide.list}
           content={slide.content}
           alert={slide.alert}
+          link={slide.link}
           active={i === 0}
         />
       ))

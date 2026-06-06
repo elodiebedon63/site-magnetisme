@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "tagline": "Soin en magnétisme · Clermont-Ferrand",
+    "links": [
+      { "href": "#apropos", "label": "À propos" },
+      { "href": "#seances", "label": "Séances & tarifs" },
+      { "href": "#infos", "label": "Infos pratiques" }
+    ]
+  },
   "hero": {
     "tag": "Magnétisme · Lithothérapie · État élargi de conscience",
     "title": "Vous êtes au cœur <br>de votre <em>guérison</em>",
@@ -29,7 +37,11 @@
         "content": [
           "La salle de soin est située dans le cabinet Psy'Jaude au 2 avenue Julien, à proximité de la place Jaude.",
           "C'est un espace dédié chaleureux, sécurisant et apaisant qui vous invite à une expérience de soin particulière. Cet instant hors temps activera vos sens et vous déconnectera du quotidien, vous permettant ainsi de vous recentrer et de vous reconnecter à votre corps, à vos sensations et à ce qui vous est essentiel."
-        ]
+        ],
+        "link": {
+          "href": "https://www.youtube.com/shorts/iwn5A3OsGkE",
+          "label": "En savoir plus sur moi en vidéo."
+        }
       },
       {
         "img": "magnetisation.jpg",

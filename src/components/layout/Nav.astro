@@ -3,8 +3,10 @@ import { Image } from 'astro:assets';
 import CalendarButton from '../shared/CalendarButton.astro';
 import logoCercle from '../../assets/images/logo-cercle.png';
 import business from '../../data/business.json';
+import content from '../../data/content.json';
 
 const base = import.meta.env.BASE_URL;
+const { nav } = content;
 ---
 
 <nav id="navbar">
@@ -19,13 +21,13 @@ const base = import.meta.env.BASE_URL;
     />
     <div class="nav-logo-text">
       {business.name}
-      <span>Soin en magnétisme · Clermont-Ferrand</span>
+      <span>{nav.tagline}</span>
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href={`${base}#apropos`}>À propos</a></li>
-    <li><a href={`${base}#seances`}>Séances & tarifs</a></li>
-    <li><a href={`${base}#infos`}>Infos pratiques</a></li>
+    {nav.links.map((link) => (
+      <li><a href={`${base}${link.href}`}>{link.label}</a></li>
+    ))}
     <li><CalendarButton id="calendarBtnNav" /></li>
   </ul>
   <button
