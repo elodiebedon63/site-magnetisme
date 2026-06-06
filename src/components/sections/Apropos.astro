@@ -142,7 +142,10 @@ const total = slides.length;
     position: relative;
     margin: 0 auto;
     width: 65%;
-    aspect-ratio: 3/4;
+    /* 3/4 dont la hauteur est réduite de ~9,75 % (deux fois −5 % : 3 / (4 × 0,95²)) :
+       le contenu reste centré, seul le haut et le bas sont rognés à parts égales
+       (object-fit: cover). */
+    aspect-ratio: 300 / 361;
     border-radius: 3px;
     overflow: hidden;
     background: var(--beige-dark);

@@ -71,12 +71,18 @@ const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content={`Logo ${business.name} — Magnétiseuse à Clermont-Ferrand`} />
+    <meta
+      property="og:image:alt"
+      content={`Logo ${business.name} — Magnétiseuse à Clermont-Ferrand`}
+    />
     <meta property="og:locale" content="fr_FR" />
 
     <!-- Twitter Card (reprend les balises og:* en repli) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image:alt" content={`Logo ${business.name} — Magnétiseuse à Clermont-Ferrand`} />
+    <meta
+      name="twitter:image:alt"
+      content={`Logo ${business.name} — Magnétiseuse à Clermont-Ferrand`}
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

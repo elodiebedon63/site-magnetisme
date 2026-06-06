@@ -15,8 +15,14 @@ const base = import.meta.env.BASE_URL;
 const gaId = business.analytics.googleTagId;
 ---
 
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite"
-     aria-label="Gestion des cookies" hidden>
+<div
+  id="cookie-banner"
+  class="cookie-banner"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Gestion des cookies"
+  hidden
+>
   <div class="cookie-banner-inner">
     <p class="cookie-banner-text">
       {texts.text}
@@ -154,7 +160,9 @@ const gaId = business.analytics.googleTagId;
 
   /* Choix actuellement enregistré : bouton mis en évidence. */
   .cookie-btn.is-active {
-    box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--sage);
+    box-shadow:
+      0 0 0 2px var(--white),
+      0 0 0 4px var(--sage);
   }
 
   @media (max-width: 480px) {
@@ -185,7 +193,9 @@ const gaId = business.analytics.googleTagId;
     document.head.appendChild(s);
 
     window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', gaId);

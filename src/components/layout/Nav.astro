@@ -11,23 +11,20 @@ const { nav } = content;
 
 <nav id="navbar">
   <a href={`${base}#accueil`} class="nav-logo">
-    <Image
-      src={logoCercle}
-      alt="logo"
-      width={32}
-      height={32}
-      densities={[2]}
-      loading="eager"
-    />
+    <Image src={logoCercle} alt="logo" width={32} height={32} densities={[2]} loading="eager" />
     <div class="nav-logo-text">
       {business.name}
       <span>{nav.tagline}</span>
     </div>
   </a>
   <ul class="nav-links">
-    {nav.links.map((link) => (
-      <li><a href={`${base}${link.href}`}>{link.label}</a></li>
-    ))}
+    {
+      nav.links.map((link) => (
+        <li>
+          <a href={`${base}${link.href}`}>{link.label}</a>
+        </li>
+      ))
+    }
     <li><CalendarButton id="calendarBtnNav" /></li>
   </ul>
   <button

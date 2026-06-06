@@ -6,7 +6,6 @@ const services = content.seances;
 
 // Affichage des séances selon le champ `order` (copie pour ne pas muter l'import).
 const seancesList = [...services.services].sort((a, b) => a.order - b.order);
-
 ---
 
 <section id="seances">

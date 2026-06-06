@@ -25,7 +25,9 @@ const lastUpdated = lastModified(import.meta.url);
       Entrepreneur individuel<br />
       SIRET : 831 670 369 00030<br />
       Code APE : 96.09Z - Autres services personnels n.c.a<br />
-      Adresse : {business.address.street} {business.address.postalCode} {business.address.locality}<br />
+      Adresse : {business.address.street}
+      {business.address.postalCode}
+      {business.address.locality}<br />
       Email : <a href={emailHref()}>{business.email}</a><br />
       Téléphone : <a href={phoneHref()}>{phoneDisplay()}</a>
     </p>
@@ -41,20 +43,20 @@ const lastUpdated = lastModified(import.meta.url);
 
     <h2>Activité</h2>
     <p>
-      {business.name} exerce en tant qu' Entrepreneur individuel dans le domaine de praticienne en magnétisme et massages énergétiques,
-      non assujetti à la TVA en vertu de l'article 293 B du CGI.
+      {business.name} exerce en tant qu' Entrepreneur individuel dans le domaine de praticienne en magnétisme
+      et massages énergétiques, non assujetti à la TVA en vertu de l'article 293 B du CGI.
     </p>
 
     <h2>Contenu tiers</h2>
     <p>Ce site intègre des services tiers :</p>
     <p>
-      YouTube (Google LLC) : une vidéo est diffusée via le lecteur YouTube intégré. Son
-      utilisation est soumise aux conditions d'utilisation de YouTube et à la politique de
-      confidentialité de Google.
+      YouTube (Google LLC) : une vidéo est diffusée via le lecteur YouTube intégré. Son utilisation
+      est soumise aux conditions d'utilisation de YouTube et à la politique de confidentialité de
+      Google.
     </p>
     <p>
-      Google Calendar (Google LLC) : le système de réservation utilise Google Calendar intégré
-      en iframe. Son utilisation est soumise à la politique de confidentialité de Google.
+      Google Calendar (Google LLC) : le système de réservation utilise Google Calendar intégré en
+      iframe. Son utilisation est soumise à la politique de confidentialité de Google.
     </p>
     <p>
       Google Tag Manager &amp; Google Analytics (Google LLC) : sous réserve de votre consentement,
@@ -76,16 +78,15 @@ const lastUpdated = lastModified(import.meta.url);
 
     <h2>Données personnelles & Cookies</h2>
     <p>
-      Le traitement des données personnelles et des cookies (services tiers, exercice de vos
-      droits) est détaillé dans notre
+      Le traitement des données personnelles et des cookies (services tiers, exercice de vos droits)
+      est détaillé dans notre
       <a href={`${import.meta.env.BASE_URL}confidentialite`}>politique de confidentialité</a>.
     </p>
 
     <h2>Responsabilité</h2>
     <p>
-      {business.name} s'efforce de maintenir les informations de ce site à jour mais ne saurait être
-      tenu responsable d'erreurs, d'omissions ou des contenus des sites tiers vers lesquels ce
-      site renvoie.
+      {business.name} s'efforce de maintenir les informations de ce site à jour mais ne saurait être tenu
+      responsable d'erreurs, d'omissions ou des contenus des sites tiers vers lesquels ce site renvoie.
     </p>
   </TextSection>
 </BaseLayout>
