@@ -22,7 +22,7 @@
     { "day": "wednesday", "ranges": [["09:00", "12:00"], ["13:30", "18:00"]] },
     { "day": "thursday", "ranges": [["09:00", "12:00"], ["13:30", "18:00"]] },
     { "day": "friday", "ranges": [["09:00", "12:00"], ["13:30", "18:00"]] },
-    { "day": "saturday", "ranges": [["09:00", "12:00"]] },
+    { "day": "saturday", "ranges": [["09:30", "12:00"]] },
     { "day": "sunday", "ranges": [] }
   ],
   "social": [
@@ -40,6 +40,11 @@
       "network": "LinkedIn",
       "url": "https://www.linkedin.com/in/elodie-bedon-156a45184/",
       "icon": "linkedin.svg"
+    },
+    {
+      "network": "X (ex-Twitter)",
+      "url": "https://www.x.com/ebmagnetisme",
+      "icon": "x.svg"
     }
   ]
 }
