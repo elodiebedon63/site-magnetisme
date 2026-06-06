@@ -85,14 +85,18 @@ section {
   text-transform: uppercase;
   color: var(--sage-dark);
   margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  /* Pas de `display: flex` : le contenu peut être du HTML inline (ex. <em> dans
+     les tags du carrousel injectés via set:html). En flex, le nœud texte et le
+     <em> deviendraient deux items distincts retournant à la ligne séparément
+     (effet « 2 colonnes » illisible). On reste donc en flux inline normal. */
 }
 .section-tag::before {
   content: '';
+  display: inline-block;
   width: 25px;
   height: 1px;
+  margin-right: 10px;
+  vertical-align: middle;
   background: var(--sage);
 }
 h2 {
