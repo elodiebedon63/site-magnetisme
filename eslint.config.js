@@ -9,6 +9,16 @@ export default [
   },
   js.configs.recommended,
   {
+    // Fichiers exécutés côté Node (config Astro, scripts de build) : globales Node
+    // (process, URL, console…).
+    files: ['*.config.{js,mjs}', 'scripts/**/*.{js,mjs}'],
+    languageOptions: {
+      ecmaVersion: 2024,
+      sourceType: 'module',
+      globals: { ...globals.node },
+    },
+  },
+  {
     files: ['src/**/*.js'],
     languageOptions: {
       ecmaVersion: 2024,
