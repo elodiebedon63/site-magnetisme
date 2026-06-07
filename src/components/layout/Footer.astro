@@ -1,5 +1,6 @@
 ---
 import business from '../../data/business.json';
+import content from '../../data/content.json';
 
 // L'année est figée au moment du build (régénérée à chaque déploiement).
 const year = new Date().getFullYear();
@@ -9,7 +10,7 @@ const base = import.meta.env.BASE_URL;
 <footer>
   <p>
     © {year}
-    <span>{business.name}</span> — Magnétiseuse · Clermont-Ferrand
+    <span>{business.name}</span> — {content.nav.tagline}
   </p>
   <p class="footer-legal">
     <a href={`${base}mentions-legals`}>Mentions légales</a>
