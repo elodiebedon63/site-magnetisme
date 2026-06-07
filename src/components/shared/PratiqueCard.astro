@@ -11,17 +11,28 @@ interface Props {
   duration: string;
   /** Position dans la grille — pilote le délai d'apparition au scroll. */
   index?: number;
+  /**
+   * Fiche tarifaire (/tarifs) : titre + description + prix + durée, sans la
+   * liste des domaines d'application.
+   */
+  compact?: boolean;
 }
-const { title, description, domains, price, duration, index = 0 } = Astro.props;
+const { title, description, domains, price, duration, index = 0, compact = false } = Astro.props;
 const revealDelay = index > 0 ? `reveal-delay-${index}` : '';
 ---
 
-<div class:list={['pratique-card', 'reveal', revealDelay]}>
+<div class:list={['pratique-card', 'reveal', revealDelay, { compact }]}>
   <div class="pratique-title">{title}</div>
   <p class="pratique-desc">{description}</p>
-  <ul class="pratique-domains">
-    {domains.map((d) => <li>{d}</li>)}
-  </ul>
+  {
+    !compact && (
+      <ul class="pratique-domains">
+        {domains.map((d) => (
+          <li>{d}</li>
+        ))}
+      </ul>
+    )
+  }
   <div class="pratique-price">
     <strong>{price}</strong>
     <span>{duration}</span>

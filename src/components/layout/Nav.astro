@@ -7,6 +7,15 @@ import content from '../../data/content.json';
 
 const base = import.meta.env.BASE_URL;
 const { nav } = content;
+
+/**
+ * `minimal` : barre réduite au logo seul (sans liens de navigation, bouton de
+ * réservation ni burger). Utilisée par les pages autonomes (ex. /tarifs).
+ */
+interface Props {
+  minimal?: boolean;
+}
+const { minimal = false } = Astro.props;
 ---
 
 <nav id="navbar">
@@ -17,26 +26,34 @@ const { nav } = content;
       <span>{nav.tagline}</span>
     </div>
   </a>
-  <ul class="nav-links">
-    {
-      nav.links.map((link) => (
-        <li>
-          <a href={`${base}${link.href}`}>{link.label}</a>
-        </li>
-      ))
-    }
-    <li><CalendarButton id="calendarBtnNav" /></li>
-  </ul>
-  <button
-    class="burger"
-    id="burgerBtn"
-    type="button"
-    aria-label="Ouvrir le menu"
-    aria-expanded="false"
-    aria-controls="mobileMenu"
-  >
-    <span></span><span></span><span></span>
-  </button>
+  {
+    !minimal && (
+      <>
+        <ul class="nav-links">
+          {nav.links.map((link) => (
+            <li>
+              <a href={`${base}${link.href}`}>{link.label}</a>
+            </li>
+          ))}
+          <li>
+            <CalendarButton id="calendarBtnNav" />
+          </li>
+        </ul>
+        <button
+          class="burger"
+          id="burgerBtn"
+          type="button"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </>
+    )
+  }
 </nav>
 
 <style>

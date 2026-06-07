@@ -39,7 +39,12 @@ const customDomainCNAME = {
 export default defineConfig({
   // Génère sitemap-index.xml + sitemap-0.xml au build (toutes les pages de src/pages/).
   // Les URLs reprennent automatiquement `site` + `base`.
-  integrations: [sitemap(), customDomainCNAME],
+  // La page /tarifs est volontairement exclue : accessible uniquement via son URL
+  // (voir aussi la balise noindex posée par BaseLayout).
+  integrations: [
+    sitemap({ filter: (page) => !page.endsWith('/tarifs') && !page.endsWith('/tarifs/') }),
+    customDomainCNAME,
+  ],
   // URL de production (sert au sitemap, aux URLs canoniques, aux balises Open Graph).
   site,
   // Sous-chemin GitHub Pages. Toujours accéder à un asset de `public/` via

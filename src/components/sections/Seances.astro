@@ -4,13 +4,26 @@ import PratiqueCard from '../shared/PratiqueCard.astro';
 
 const services = content.seances;
 
+/**
+ * `showOutils` : affiche le bloc « outils utilisés lors des soins ». Masqué sur
+ * la page /tarifs (fiche tarifaire imprimable).
+ * `compact` : cartes réduites au titre + prix + durée (idem /tarifs).
+ * `showTag` : affiche le surtitre (« Mes accompagnements »). Masqué sur /tarifs.
+ */
+interface Props {
+  showOutils?: boolean;
+  compact?: boolean;
+  showTag?: boolean;
+}
+const { showOutils = true, compact = false, showTag = true } = Astro.props;
+
 // Affichage des séances selon le champ `order` (copie pour ne pas muter l'import).
 const seancesList = [...services.services].sort((a, b) => a.order - b.order);
 ---
 
 <section id="seances">
   <div class="seances-intro">
-    <p class="section-tag reveal">{services.tag}</p>
+    {showTag && <p class="section-tag reveal">{services.tag}</p>}
     <h2 class="reveal" set:html={services.title} />
     <p class="reveal reveal-delay-1">
       {services.description}
@@ -18,16 +31,22 @@ const seancesList = [...services.services].sort((a, b) => a.order - b.order);
   </div>
 
   <div class="pratiques-grid">
-    {seancesList.map((seances, i) => <PratiqueCard {...seances} index={i} />)}
+    {seancesList.map((seances, i) => <PratiqueCard {...seances} index={i} compact={compact} />)}
   </div>
 
   <!-- Outils -->
-  <div class="outils-section reveal">
-    <h3>{services.outils.title}</h3>
-    <div class="outils-grid">
-      {services.outils.list.map((outil) => <div class="outil-pill">{outil}</div>)}
-    </div>
-  </div>
+  {
+    showOutils && (
+      <div class="outils-section reveal">
+        <h3>{services.outils.title}</h3>
+        <div class="outils-grid">
+          {services.outils.list.map((outil) => (
+            <div class="outil-pill">{outil}</div>
+          ))}
+        </div>
+      </div>
+    )
+  }
 </section>
 
 <style>

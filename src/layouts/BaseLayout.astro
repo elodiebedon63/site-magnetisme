@@ -31,6 +31,18 @@ export interface Props {
    * toujours émis automatiquement en plus.
    */
   jsonLd?: Schema | Schema[];
+  /**
+   * Barre de navigation réduite au logo (sans liens ni menu mobile). Pour les
+   * pages autonomes accessibles uniquement par leur URL (ex. /tarifs).
+   */
+  minimalNav?: boolean;
+  /**
+   * Empêche l'indexation par les moteurs (balise robots noindex). À combiner
+   * avec une exclusion du sitemap (astro.config.mjs) pour une page « cachée ».
+   */
+  noindex?: boolean;
+  /** Masque le pied de page (ex. fiche tarifaire imprimable /tarifs). */
+  noFooter?: boolean;
 }
 
 const {
@@ -39,6 +51,9 @@ const {
   ogTitle = `${business.name} — Magnétiseuse · Clermont-Ferrand`,
   ogImage = 'og-image.jpg',
   jsonLd,
+  minimalNav = false,
+  noindex = false,
+  noFooter = false,
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
@@ -52,6 +67,7 @@ const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <title>{title}</title>
 
     <link rel="canonical" href={canonical} />
@@ -105,14 +121,14 @@ const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu</a>
 
-    <Nav />
-    <MobileMenu />
+    <Nav minimal={minimalNav} />
+    {!minimalNav && <MobileMenu />}
 
     <main id="main-content">
       <slot />
     </main>
 
-    <Footer />
+    {!noFooter && <Footer />}
 
     <CookieBanner />
 

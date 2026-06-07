@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Seances from '../components/sections/Seances.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title={`Tarifs — ${business.name}`}
+  description={`Séances et tarifs — ${business.name}`}
+  minimalNav
+  noindex
+  noFooter
+>
+  <!-- Fiche tarifaire : pensée pour l'impression (tout tient sur une page A4).
+       Le bloc « outils » et le pied de page sont masqués ; les styles @media
+       print compactent la section pour tenir sur une seule page. -->
+  <div class="tarifs-sheet">
+    <button class="print-btn" type="button" onclick="window.print()">Imprimer les tarifs</button>
+    <Seances showOutils={false} compact showTag={false} />
+  </div>
+</BaseLayout>
+
+<style>
+  /* Bouton d'impression (écran uniquement, masqué dans le rendu imprimé). */
+  .print-btn {
+    position: fixed;
+    top: 1.4rem;
+    right: 4rem;
+    z-index: 100;
+    padding: 0.6rem 1.2rem;
+    background: var(--sage-dark);
+    color: var(--white);
+    border: none;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .print-btn:hover {
+    background: var(--brown);
+  }
+  @media (max-width: 960px) {
+    .print-btn {
+      right: 2rem;
+    }
+  }
+</style>
+
+<!-- Styles d'impression : globaux car ils ciblent des classes scopées des
+     composants (Seances / PratiqueCard). Tout est borné à @media print (aucun
+     effet à l'écran) et préfixé par .tarifs-sheet (aucun effet sur d'autres
+     pages même si le bundle CSS est partagé). -->
+<style is:global>
+  @media print {
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+    /* Conserve les couleurs de la charte (prix en terre, en-tête, etc.). */
+    .tarifs-sheet,
+    .tarifs-sheet *,
+    #navbar,
+    #navbar * {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    /* Masque ce qui n'appartient pas à la fiche (bouton imprimer, lien d'évitement). */
+    .print-btn,
+    .skip-link {
+      display: none !important;
+    }
+    /* En-tête imprimé : logo + nom + slogan, en tête de page (nav non fixe). */
+    #navbar {
+      position: static;
+      padding: 0 0 0.8rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    /* Force l'affichage des éléments à apparition au scroll. */
+    .tarifs-sheet .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    /* Compacte la section pour tenir sur une seule page A4. */
+    .tarifs-sheet #seances {
+      padding: 0;
+      background: #fff;
+    }
+    .tarifs-sheet #seances::before {
+      display: none;
+    }
+    .tarifs-sheet .seances-intro {
+      max-width: none;
+      margin-bottom: 0.6rem;
+    }
+    .tarifs-sheet .seances-intro h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.2rem;
+    }
+    .tarifs-sheet .seances-intro p {
+      font-size: 0.72rem;
+      line-height: 1.4;
+      margin-top: 0.25rem;
+    }
+    .tarifs-sheet .pratiques-grid {
+      gap: 0.5rem;
+      margin-bottom: 0;
+    }
+    .tarifs-sheet .pratique-card {
+      padding: 0.7rem 0.9rem;
+      box-shadow: none !important;
+      border: 1px solid #e6e6e6;
+      transform: none !important;
+      break-inside: avoid;
+    }
+    .tarifs-sheet .pratique-title {
+      font-size: 1.15rem;
+      margin-bottom: 0.3rem;
+    }
+    .tarifs-sheet .pratique-desc {
+      font-size: 0.72rem;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .tarifs-sheet .pratique-price {
+      padding-top: 0.4rem;
+    }
+    .tarifs-sheet .pratique-price strong {
+      font-size: 1.3rem;
+    }
+  }
+</style>
