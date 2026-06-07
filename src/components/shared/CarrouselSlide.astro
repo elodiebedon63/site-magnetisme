@@ -13,7 +13,6 @@
  */
 interface Props {
   tag: string;
-  title: string;
   precontent?: string[];
   list?: string[];
   content: string[];
@@ -22,7 +21,7 @@ interface Props {
   active?: boolean;
 }
 
-const { tag, title, precontent, list, content, alert, link, active = false } = Astro.props;
+const { tag, precontent, list, content, alert, link, active = false } = Astro.props;
 
 // Icône d'avertissement (rendue inline pour hériter de `currentColor`), affichée
 // en tête de l'encart d'alerte.
@@ -36,7 +35,6 @@ const alertIcon = icons['../../assets/svg/alert.svg'];
 
 <div class:list={['slide-text', { active }]}>
   <p class="section-tag" set:html={tag} />
-  <h2 set:html={title} />
   {precontent?.map((paragraph) => <p set:html={paragraph} />)}
   {
     list && (
@@ -95,7 +93,17 @@ const alertIcon = icons['../../assets/svg/alert.svg'];
   }
 
   .slide-text .section-tag {
+    font-size: 1.5rem;
     margin-bottom: 0.8rem;
+  }
+  /* Pas de petite barre décorative devant le surtitre dans le carrousel. */
+  .slide-text .section-tag::before {
+    display: none;
+  }
+  /* `em` provient de set:html (pas d'attribut de scope Astro) → :global() borné. */
+  .slide-text .section-tag :global(em) {
+    color: var(--sage);
+    font-style: normal;
   }
   .slide-text h2 {
     margin-bottom: 1.4rem;

@@ -10,7 +10,6 @@ type SlideData = {
   img?: string;
   alt: string;
   tag: string;
-  title: string;
   precontent?: string[];
   list?: string[];
   content: string[];
@@ -111,7 +110,6 @@ const total = slides.length;
       slides.map((slide, i) => (
         <CarrouselSlide
           tag={slide.tag}
-          title={slide.title}
           precontent={slide.precontent}
           list={slide.list}
           content={slide.content}
@@ -166,6 +164,10 @@ const total = slides.length;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Empêche la sélection et le glisser-déposer des images du carrousel. */
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
   }
   /* Placeholder affiché pour une slide sans image (photo à venir). */
   .slide-placeholder {
@@ -254,6 +256,7 @@ const total = slides.length;
     padding: 0.3rem 0.7rem;
     border-radius: 20px;
     backdrop-filter: blur(4px);
+    user-select: none;
   }
 
   /* Conteneur des slides de texte (droite). Contexte de positionnement pour les
