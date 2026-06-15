@@ -8,7 +8,7 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "start": "astro dev",
+    "start": "npm run prebuild && astro dev",
     "dev": "astro dev",
     "prebuild": "node scripts/copy-cname.mjs",
     "build": "astro build",

@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.href.replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout
-  title="QR Code — magnetisme.elodiebedon.com"
+  title={`QR Code — ${siteUrl}`}
   description="QR Code du site de magnétisme d'Élodie Bedon"
   noindex
   minimalNav
@@ -12,11 +14,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="qrcode-page">
     <img
       src={`${import.meta.env.BASE_URL}qrcode.png`}
-      alt="QR Code du site magnetisme.elodiebedon.com"
+      alt={`QR Code du site ${siteUrl}`}
       width="300"
       height="300"
     />
-    <p class="qrcode-url">magnetisme.elodiebedon.com</p>
+    <p class="qrcode-url">{siteUrl}</p>
     <a class="qrcode-download" href={`${import.meta.env.BASE_URL}qrcode.png`} download="qrcode.png">
       Télécharger le QR Code
     </a>
