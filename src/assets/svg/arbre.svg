@@ -1,107 +1,126 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="22" height="22">
+  <!-- Cercle cadre (arbre de vie) -->
+  <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="0.8"/>
+
   <g stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Trunk -->
-    <line x1="50" y1="97" x2="50" y2="62" stroke-width="4.5"/>
-    <!-- Roots -->
-    <line x1="50" y1="94" x2="36" y2="99" stroke-width="2.5"/>
-    <line x1="50" y1="94" x2="64" y2="99" stroke-width="2.5"/>
-    <line x1="50" y1="97" x2="28" y2="100" stroke-width="1.8"/>
-    <line x1="50" y1="97" x2="72" y2="100" stroke-width="1.8"/>
+    <!-- Tronc -->
+    <path d="M50 95 Q50 80 50 60" stroke-width="3.5"/>
 
-    <!-- Level 1 branches (5 branches from trunk top) -->
-    <line x1="50" y1="62" x2="26" y2="44" stroke-width="2.8"/>
-    <line x1="50" y1="62" x2="74" y2="44" stroke-width="2.8"/>
-    <line x1="50" y1="62" x2="40" y2="39" stroke-width="2.8"/>
-    <line x1="50" y1="62" x2="60" y2="39" stroke-width="2.8"/>
-    <line x1="50" y1="62" x2="50" y2="36" stroke-width="2.8"/>
+    <!-- Racines -->
+    <path d="M50 88 Q40 86 26 91" stroke-width="2"/>
+    <path d="M50 88 Q60 86 74 91" stroke-width="2"/>
+    <path d="M50 92 Q38 93 24 97" stroke-width="1.4"/>
+    <path d="M50 92 Q62 93 76 97" stroke-width="1.4"/>
 
-    <!-- Level 2 — from left (26,44) -->
-    <line x1="26" y1="44" x2="13" y2="30" stroke-width="1.8"/>
-    <line x1="26" y1="44" x2="22" y2="27" stroke-width="1.8"/>
-    <line x1="26" y1="44" x2="31" y2="27" stroke-width="1.8"/>
-    <!-- Level 2 — from right (74,44) -->
-    <line x1="74" y1="44" x2="87" y2="30" stroke-width="1.8"/>
-    <line x1="74" y1="44" x2="78" y2="27" stroke-width="1.8"/>
-    <line x1="74" y1="44" x2="69" y2="27" stroke-width="1.8"/>
-    <!-- Level 2 — from center-left (40,39) -->
-    <line x1="40" y1="39" x2="32" y2="23" stroke-width="1.8"/>
-    <line x1="40" y1="39" x2="41" y2="21" stroke-width="1.8"/>
-    <!-- Level 2 — from center-right (60,39) -->
-    <line x1="60" y1="39" x2="68" y2="23" stroke-width="1.8"/>
-    <line x1="60" y1="39" x2="59" y2="21" stroke-width="1.8"/>
-    <!-- Level 2 — from top-center (50,36) -->
-    <line x1="50" y1="36" x2="43" y2="21" stroke-width="1.8"/>
-    <line x1="50" y1="36" x2="50" y2="19" stroke-width="1.8"/>
-    <line x1="50" y1="36" x2="57" y2="21" stroke-width="1.8"/>
+    <!-- Branches principales (atteignent le cercle) -->
+    <path d="M50 68 Q28 65 4 50"   stroke-width="2"/>
+    <path d="M50 72 Q32 73 12 76"  stroke-width="1.8"/>
+    <path d="M50 65 Q30 52 9 27"   stroke-width="2"/>
+    <path d="M50 62 Q36 46 26 10"  stroke-width="2"/>
+    <path d="M50 60 Q44 38 35 5"   stroke-width="2"/>
+    <path d="M50 60 Q50 36 50 4"   stroke-width="2.2"/>
+    <path d="M50 60 Q56 38 65 5"   stroke-width="2"/>
+    <path d="M50 62 Q64 46 74 10"  stroke-width="2"/>
+    <path d="M50 65 Q70 52 91 27"  stroke-width="2"/>
+    <path d="M50 68 Q72 65 96 50"  stroke-width="2"/>
+    <path d="M50 72 Q68 73 88 76"  stroke-width="1.8"/>
 
-    <!-- Level 3 — from (13,30) -->
-    <line x1="13" y1="30" x2="8"  y2="20" stroke-width="1.1"/>
-    <line x1="13" y1="30" x2="16" y2="18" stroke-width="1.1"/>
-    <!-- Level 3 — from (22,27) -->
-    <line x1="22" y1="27" x2="18" y2="15" stroke-width="1.1"/>
-    <line x1="22" y1="27" x2="24" y2="13" stroke-width="1.1"/>
-    <!-- Level 3 — from (31,27) -->
-    <line x1="31" y1="27" x2="28" y2="14" stroke-width="1.1"/>
-    <line x1="31" y1="27" x2="34" y2="13" stroke-width="1.1"/>
-    <!-- Level 3 — from (87,30) -->
-    <line x1="87" y1="30" x2="92" y2="20" stroke-width="1.1"/>
-    <line x1="87" y1="30" x2="84" y2="18" stroke-width="1.1"/>
-    <!-- Level 3 — from (78,27) -->
-    <line x1="78" y1="27" x2="82" y2="15" stroke-width="1.1"/>
-    <line x1="78" y1="27" x2="76" y2="13" stroke-width="1.1"/>
-    <!-- Level 3 — from (69,27) -->
-    <line x1="69" y1="27" x2="72" y2="14" stroke-width="1.1"/>
-    <line x1="69" y1="27" x2="66" y2="13" stroke-width="1.1"/>
-    <!-- Level 3 — from (32,23) -->
-    <line x1="32" y1="23" x2="28" y2="12" stroke-width="1.1"/>
-    <line x1="32" y1="23" x2="34" y2="11" stroke-width="1.1"/>
-    <!-- Level 3 — from (41,21) -->
-    <line x1="41" y1="21" x2="38" y2="10" stroke-width="1.1"/>
-    <line x1="41" y1="21" x2="43" y2="9"  stroke-width="1.1"/>
-    <!-- Level 3 — from (68,23) -->
-    <line x1="68" y1="23" x2="72" y2="12" stroke-width="1.1"/>
-    <line x1="68" y1="23" x2="66" y2="11" stroke-width="1.1"/>
-    <!-- Level 3 — from (59,21) -->
-    <line x1="59" y1="21" x2="62" y2="10" stroke-width="1.1"/>
-    <line x1="59" y1="21" x2="57" y2="9"  stroke-width="1.1"/>
-    <!-- Level 3 — from (43,21) -->
-    <line x1="43" y1="21" x2="40" y2="11" stroke-width="1.1"/>
-    <line x1="43" y1="21" x2="45" y2="9"  stroke-width="1.1"/>
-    <!-- Level 3 — from (50,19) -->
-    <line x1="50" y1="19" x2="47" y2="7"  stroke-width="1.1"/>
-    <line x1="50" y1="19" x2="53" y2="7"  stroke-width="1.1"/>
-    <!-- Level 3 — from (57,21) -->
-    <line x1="57" y1="21" x2="55" y2="9"  stroke-width="1.1"/>
-    <line x1="57" y1="21" x2="60" y2="11" stroke-width="1.1"/>
+    <!-- Sous-branches gauche -->
+    <path d="M27 59 Q16 52 6 56"   stroke-width="1.1"/>
+    <path d="M27 59 Q18 50 8 42"   stroke-width="1.1"/>
+    <path d="M30 46 Q18 38 8 38"   stroke-width="1.1"/>
+    <path d="M30 46 Q22 36 16 24"  stroke-width="1.1"/>
+    <path d="M38 36 Q28 26 18 18"  stroke-width="1.1"/>
+    <path d="M38 36 Q42 22 36 10"  stroke-width="1.1"/>
+    <path d="M42 32 Q34 22 28 8"   stroke-width="1.1"/>
+    <path d="M42 32 Q46 20 44 8"   stroke-width="1.1"/>
+
+    <!-- Sous-branches centre haut -->
+    <path d="M50 32 Q43 22 40 12"  stroke-width="1.1"/>
+    <path d="M50 32 Q57 22 60 12"  stroke-width="1.1"/>
+
+    <!-- Sous-branches droite -->
+    <path d="M58 32 Q54 20 56 8"   stroke-width="1.1"/>
+    <path d="M58 32 Q66 22 72 8"   stroke-width="1.1"/>
+    <path d="M62 36 Q72 26 82 18"  stroke-width="1.1"/>
+    <path d="M62 36 Q58 22 64 10"  stroke-width="1.1"/>
+    <path d="M70 46 Q82 38 92 38"  stroke-width="1.1"/>
+    <path d="M70 46 Q78 36 84 24"  stroke-width="1.1"/>
+    <path d="M73 59 Q84 52 94 56"  stroke-width="1.1"/>
+    <path d="M73 59 Q82 50 92 42"  stroke-width="1.1"/>
   </g>
 
-  <!-- Leaves at all level-3 tips -->
+  <!-- Feuilles -->
   <g fill="currentColor">
-    <circle cx="8"  cy="20" r="3.2"/>
-    <circle cx="16" cy="18" r="3.2"/>
-    <circle cx="18" cy="15" r="3.2"/>
-    <circle cx="24" cy="13" r="3.2"/>
-    <circle cx="28" cy="14" r="3.2"/>
-    <circle cx="34" cy="13" r="3.2"/>
-    <circle cx="92" cy="20" r="3.2"/>
-    <circle cx="84" cy="18" r="3.2"/>
-    <circle cx="82" cy="15" r="3.2"/>
-    <circle cx="76" cy="13" r="3.2"/>
-    <circle cx="72" cy="14" r="3.2"/>
-    <circle cx="66" cy="13" r="3.2"/>
-    <circle cx="28" cy="12" r="3.2"/>
-    <circle cx="34" cy="11" r="3.2"/>
-    <circle cx="38" cy="10" r="3.2"/>
-    <circle cx="43" cy="9"  r="3.2"/>
-    <circle cx="72" cy="12" r="3.2"/>
-    <circle cx="66" cy="11" r="3.2"/>
-    <circle cx="62" cy="10" r="3.2"/>
-    <circle cx="57" cy="9"  r="3.2"/>
-    <circle cx="40" cy="11" r="3.2"/>
-    <circle cx="45" cy="9"  r="3.2"/>
-    <circle cx="47" cy="7"  r="3.2"/>
-    <circle cx="53" cy="7"  r="3.2"/>
-    <circle cx="55" cy="9"  r="3.2"/>
-    <circle cx="60" cy="11" r="3.2"/>
+    <!-- Sommet -->
+    <circle cx="50" cy="4"  r="2.8"/>
+    <circle cx="45" cy="8"  r="2.4"/>
+    <circle cx="55" cy="8"  r="2.4"/>
+    <circle cx="40" cy="12" r="2.2"/>
+    <circle cx="60" cy="12" r="2.2"/>
+
+    <!-- Haut gauche -->
+    <circle cx="35" cy="5"  r="2.8"/>
+    <circle cx="30" cy="9"  r="2.4"/>
+    <circle cx="28" cy="8"  r="2.2"/>
+    <circle cx="24" cy="13" r="2.4"/>
+    <circle cx="44" cy="8"  r="2.2"/>
+
+    <!-- Haut droite -->
+    <circle cx="65" cy="5"  r="2.8"/>
+    <circle cx="70" cy="9"  r="2.4"/>
+    <circle cx="72" cy="8"  r="2.2"/>
+    <circle cx="76" cy="13" r="2.4"/>
+    <circle cx="56" cy="8"  r="2.2"/>
+
+    <!-- Haut loin gauche -->
+    <circle cx="26" cy="10" r="2.8"/>
+    <circle cx="20" cy="14" r="2.4"/>
+    <circle cx="18" cy="18" r="2.6"/>
+    <circle cx="14" cy="14" r="2.2"/>
+    <circle cx="36" cy="10" r="2.2"/>
+
+    <!-- Haut loin droite -->
+    <circle cx="74" cy="10" r="2.8"/>
+    <circle cx="80" cy="14" r="2.4"/>
+    <circle cx="82" cy="18" r="2.6"/>
+    <circle cx="86" cy="14" r="2.2"/>
+    <circle cx="64" cy="10" r="2.2"/>
+
+    <!-- Côté gauche haut -->
+    <circle cx="9"  cy="27" r="2.8"/>
+    <circle cx="12" cy="22" r="2.4"/>
+    <circle cx="8"  cy="38" r="2.4"/>
+    <circle cx="14" cy="32" r="2.4"/>
+    <circle cx="16" cy="24" r="2.4"/>
+
+    <!-- Côté droit haut -->
+    <circle cx="91" cy="27" r="2.8"/>
+    <circle cx="88" cy="22" r="2.4"/>
+    <circle cx="92" cy="38" r="2.4"/>
+    <circle cx="86" cy="32" r="2.4"/>
+    <circle cx="84" cy="24" r="2.4"/>
+
+    <!-- Côté gauche -->
+    <circle cx="4"  cy="50" r="2.8"/>
+    <circle cx="6"  cy="44" r="2.4"/>
+    <circle cx="6"  cy="56" r="2.4"/>
+    <circle cx="8"  cy="42" r="2.2"/>
+    <circle cx="6"  cy="58" r="2.2"/>
+
+    <!-- Côté droit -->
+    <circle cx="96" cy="50" r="2.8"/>
+    <circle cx="94" cy="44" r="2.4"/>
+    <circle cx="94" cy="56" r="2.4"/>
+    <circle cx="92" cy="42" r="2.2"/>
+    <circle cx="94" cy="58" r="2.2"/>
+
+    <!-- Bas gauche -->
+    <circle cx="12" cy="76" r="2.4"/>
+    <circle cx="18" cy="75" r="2.2"/>
+
+    <!-- Bas droit -->
+    <circle cx="88" cy="76" r="2.4"/>
+    <circle cx="82" cy="75" r="2.2"/>
   </g>
 </svg>
