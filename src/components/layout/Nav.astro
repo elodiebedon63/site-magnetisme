@@ -47,9 +47,18 @@ const { minimal = false } = Astro.props;
           aria-expanded="false"
           aria-controls="mobileMenu"
         >
-          <span />
-          <span />
-          <span />
+          <span class="burger-icon">
+            <!-- Icône ouverture : deux traits inégaux -->
+            <svg class="icon-open" width="24" height="20" viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-linecap="round">
+              <line x1="0" y1="5" x2="24" y2="5" stroke-width="1.2"/>
+              <line x1="4" y1="15" x2="24" y2="15" stroke-width="1.2"/>
+            </svg>
+            <!-- Icône fermeture : × asymétrique -->
+            <svg class="icon-close" width="24" height="20" viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-linecap="round">
+              <line x1="3" y1="2" x2="21" y2="18" stroke-width="1.2"/>
+              <line x1="7" y1="18" x2="21" y2="4" stroke-width="1.2"/>
+            </svg>
+          </span>
         </button>
       </>
     )
@@ -163,23 +172,32 @@ const { minimal = false } = Astro.props;
 
   .burger {
     display: none;
-    flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     padding: 4px;
     background: transparent;
     border: none;
+    color: var(--text);
   }
-  .burger span {
+  .burger-icon {
+    position: relative;
+    width: 24px;
+    height: 20px;
     display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--text);
-    transition: all 0.3s;
   }
-  .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-  .burger.open span:nth-child(2) { opacity: 0; }
-  .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .icon-open,
+  .icon-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.28s ease, transform 0.28s ease;
+  }
+  .icon-open  { opacity: 1; transform: rotate(0deg)   scale(1);   }
+  .icon-close { opacity: 0; transform: rotate(-30deg) scale(0.7); }
+
+  .burger.open .icon-open  { opacity: 0; transform: rotate(30deg)  scale(0.7); }
+  .burger.open .icon-close { opacity: 1; transform: rotate(0deg)   scale(1);   }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 960px) {

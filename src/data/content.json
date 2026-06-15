@@ -8,7 +8,11 @@
     ]
   },
   "hero": {
-    "tag": "Magnétisme · Lithothérapie · État élargi de conscience",
+    "tag": [
+      "Magnétisme", 
+      "Lithothérapie", 
+      "État élargi de conscience"
+    ],
     "title": "Vous êtes au cœur <br>de votre <em>guérison</em>",
     "subtitle": "Je vous accompagne sur le chemin de votre guérison en fluidifiant et augmentant votre champ énergétique, je vous invite à développer vos sensations et la conscientisation de votre énergie afin de pouvoir, par vous-même, vous recharger.",
     "disciplines": [

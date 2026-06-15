@@ -24,7 +24,16 @@ const videoIconSvg = icons[`../../assets/svg/${hero.video.icon}`];
   <Image class="hero-logo" src={logo} alt="logo" width={80} height={82} loading="eager" />
 
   <div class="hero-content">
-    <p class="hero-tag">{hero.tag}</p>
+    <p class="hero-tag">
+      {hero.tag.map((t, i) => (
+        <>
+          {i > 0 && i % 2 !== 0 && <span class="tag-sep"> · </span>}
+          {i > 0 && i % 2 === 0 && <span class="tag-sep-desktop"> · </span>}
+          {i > 0 && i % 2 === 0 && <br class="tag-sep-mobile" />}
+          {t}
+        </>
+      ))}
+    </p>
     <h1 set:html={hero.title} />
     <p class="hero-sub" set:html={hero.subtitle} />
     <div class="hero-disciplines">
@@ -114,10 +123,12 @@ const videoIconSvg = icons[`../../assets/svg/${hero.video.icon}`];
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--sage-dark);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.2rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.2s forwards;
   }
+  .tag-sep-mobile { display: none; }
+
   .hero-tag::before {
     content: '';
     display: inline-block;
@@ -207,6 +218,12 @@ const videoIconSvg = icons[`../../assets/svg/${hero.video.icon}`];
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 960px) {
+    .tag-sep-desktop { display: none; }
+    .tag-sep-mobile  { display: inline; }
+    .hero-tag {
+      padding-left: 40px;
+      text-indent: -40px;
+    }
     .hero-disciplines {
       display: none;
     }
