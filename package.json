@@ -17,14 +17,17 @@
     "format": "prettier --write \"src/**/*.{js,css,astro,json}\"",
     "format:check": "prettier --check \"src/**/*.{js,css,astro,json}\"",
     "debug:jsonld": "node scripts/generate-jsonld.mjs",
+    "debug:qrcode": "node scripts/generate-qrcode.mjs",
     "ci": "npm ci && npm run lint && npm run build"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
+    "@types/qrcode": "^1.5.6",
     "eslint": "^9.18.0",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "qrcode": "^1.5.4"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
 // --- Déploiement : github.io par défaut, ou domaine dédié (DNS custom) ---
 // Le domaine dédié est résolu dans cet ordre de priorité :
@@ -22,6 +23,23 @@ const customDomain = resolveCustomDomain();
 const site = customDomain ? `https://${customDomain}` : 'https://elodiebedon63.github.io';
 const base = customDomain ? '/' : '/site-magnetisme/';
 
+// Génère dist/qrcode.png après le build (URL déduite du domaine résolu ci-dessus).
+const customQRCode = {
+  name: 'custom-qrcode',
+  hooks: {
+    'astro:build:done': async ({ dir }) => {
+      const { default: QRCode } = await import('qrcode');
+      const url = customDomain ? `https://${customDomain}` : 'https://elodiebedon63.github.io/site-magnetisme';
+      await QRCode.toFile(fileURLToPath(new URL('qrcode.png', dir)), url, {
+        width: 600,
+        margin: 2,
+        color: { dark: '#000000', light: '#ffffff' },
+      });
+      console.log(`[QR Code] généré dans dist/qrcode.png → ${url}`);
+    },
+  },
+};
+
 // Recopie le domaine dédié dans dist/CNAME pour que l'artefact publié (déploiement
 // via GitHub Actions) conserve le rattachement au domaine custom.
 const customDomainCNAME = {
@@ -42,8 +60,15 @@ export default defineConfig({
   // La page /tarifs est volontairement exclue : accessible uniquement via son URL
   // (voir aussi la balise noindex posée par BaseLayout).
   integrations: [
-    sitemap({ filter: (page) => !page.endsWith('/tarifs') && !page.endsWith('/tarifs/') }),
+    sitemap({
+      filter: (page) =>
+        !page.endsWith('/tarifs') &&
+        !page.endsWith('/tarifs/') &&
+        !page.endsWith('/qrcode') &&
+        !page.endsWith('/qrcode/'),
+    }),
     customDomainCNAME,
+    customQRCode,
   ],
   // URL de production (sert au sitemap, aux URLs canoniques, aux balises Open Graph).
   site,

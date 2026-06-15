@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="QR Code — magnetisme.elodiebedon.com"
+  description="QR Code du site de magnétisme d'Élodie Bedon"
+  noindex
+  minimalNav
+  noFooter
+>
+  <div class="qrcode-page">
+    <img
+      src={`${import.meta.env.BASE_URL}qrcode.png`}
+      alt="QR Code du site magnetisme.elodiebedon.com"
+      width="300"
+      height="300"
+    />
+    <p class="qrcode-url">magnetisme.elodiebedon.com</p>
+    <a class="qrcode-download" href={`${import.meta.env.BASE_URL}qrcode.png`} download="qrcode.png">
+      Télécharger le QR Code
+    </a>
+  </div>
+</BaseLayout>
+
+<style>
+  .qrcode-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80dvh;
+    gap: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .qrcode-page img {
+    display: block;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+  }
+
+  .qrcode-url {
+    font-size: 1.1rem;
+    color: #374151;
+    margin: 0;
+  }
+
+  .qrcode-download {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background: #111;
+    color: #fff;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.15s;
+  }
+
+  .qrcode-download:hover {
+    background: #374151;
+  }
+</style>

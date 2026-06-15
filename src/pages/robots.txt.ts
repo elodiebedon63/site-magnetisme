@@ -4,6 +4,7 @@ import type { APIRoute } from 'astro';
 // (astro.config.mjs) : pas besoin de la maintenir à la main.
 const getRobotsTxt = (sitemapURL: URL) => `User-agent: *
 Allow: /
+Disallow: /qrcode
 
 Sitemap: ${sitemapURL.href}
 `;
