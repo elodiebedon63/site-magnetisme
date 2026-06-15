@@ -262,7 +262,7 @@
             "icon": "mail.svg",
             "label": "Par mail",
             "source": "email",
-            "note": ""
+            "note": "Précisez si c'est une première séance, vous pouvez exposer votre problématique ou posez vos questions."
           },
           {
             "icon": "phone.svg",
