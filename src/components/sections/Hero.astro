@@ -177,10 +177,22 @@ const videoIconSvg = icons[`../../assets/svg/${hero.video.icon}`];
     font-size: 0.7rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-
     color: var(--sage-dark);
     background: rgba(255, 255, 255, 0.12);
     font-weight: 500;
+    cursor: default;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+  .disc-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(11, 98, 129, 0.15);
+    background: rgba(255, 255, 255, 0.35);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .disc-pill { transition: none; }
   }
 
   .hero-ctas {
