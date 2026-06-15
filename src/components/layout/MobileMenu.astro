@@ -1,115 +1,117 @@
 ---
+import content from '../../data/content.json';
 const base = import.meta.env.BASE_URL;
+const { nav } = content;
+const count = nav.links.length;
 ---
 
 <div
-  class="mobile-menu"
+  class="pill-menu"
   id="mobileMenu"
   role="dialog"
   aria-modal="true"
   aria-label="Menu de navigation"
+  hidden
 >
-  <button class="mobile-close" id="closeMenu" aria-label="Fermer le menu">✕</button>
-  <a href={`${base}#apropos`}>À propos</a>
-  <a href={`${base}#seances`}>Séances & tarifs</a>
-  <a href={`${base}#infos`}>Infos pratiques</a>
+  {nav.links.map((link, i) => (
+    <a
+      href={`${base}${link.href}`}
+      class="pill-item"
+      style={`--open-delay: ${i * 70}ms; --close-delay: ${(count - 1 - i) * 70}ms`}
+    >
+      {link.label}
+    </a>
+  ))}
 </div>
 
 <style>
-  /* Menu plein écran mobile */
-  .mobile-menu {
-    display: none;
+  .pill-menu {
     position: fixed;
-    inset: 0;
-    background: var(--beige);
-    /* Au-dessus de la nav (z-index 100) : le fond plein écran masque le burger
-       quand le menu est ouvert, seul le bouton X reste visible. */
-    z-index: 200;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-  }
-  .mobile-menu.open {
+    top: 0;
+    right: 0;
+    z-index: 300;
     display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: #fff;
+    border-radius: 0 0 0 12px;
+    padding: 0.6rem 1.2rem;
+    box-shadow: -4px 4px 20px rgba(11, 98, 129, 0.1);
   }
-  .mobile-menu a {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    color: var(--text);
+
+  .pill-menu[hidden] {
+    display: none;
+  }
+
+  .pill-item {
+    display: block;
+    width: 160px;
+    padding: 0.5rem 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
     text-decoration: none;
+    text-align: right;
+    border-bottom: 1px solid var(--sage-dark);
+    background: transparent;
+    opacity: 0;
+    animation: pillIn 0.22s ease forwards var(--open-delay, 0ms);
+    transition: color 0.2s;
   }
-  .mobile-close {
-    position: absolute;
-    top: 1.6rem;
-    right: 2rem;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: var(--text-light);
-    background: none;
-    border: none;
+
+  .pill-item:active {
+    color: var(--brown);
   }
+
+  @keyframes pillIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+
 </style>
 
 <script>
-  // Menu mobile : ouverture/fermeture via le burger (rendu par Nav), piège de
-  // focus, fermeture au clic sur un lien et à la touche Échap.
-  const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
-
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
 
   if (burgerBtn && mobileMenu) {
-    let mobileLastFocused: Element | null = null;
-
-    const openMobile = () => {
-      mobileLastFocused = document.activeElement;
-      mobileMenu.classList.add('open');
+    const navbar = document.getElementById('navbar');
+    const open = () => {
+      if (navbar) mobileMenu.style.top = navbar.offsetHeight + 'px';
+      mobileMenu.hidden = false;
       burgerBtn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-      mobileMenu.querySelector<HTMLElement>(FOCUSABLE)?.focus();
+      burgerBtn.classList.add('open');
     };
 
-    const closeMobile = () => {
-      mobileMenu.classList.remove('open');
+    const close = () => {
+      mobileMenu.hidden = true;
       burgerBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-      if (mobileLastFocused instanceof HTMLElement) {
-        mobileLastFocused.focus();
-      }
+      burgerBtn.classList.remove('open');
     };
 
-    burgerBtn.addEventListener('click', openMobile);
-    document.getElementById('closeMenu')?.addEventListener('click', closeMobile);
+    burgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileMenu.hidden ? open() : close();
+    });
 
-    // Le menu se ferme dès qu'un lien (ou le slot calendrier) est activé.
     mobileMenu.querySelectorAll('a').forEach((el) => {
-      el.addEventListener('click', closeMobile);
+      el.addEventListener('click', close);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.hidden && !mobileMenu.contains(e.target as Node)) {
+        close();
+      }
     });
 
     document.addEventListener('keydown', (e) => {
-      if (!mobileMenu.classList.contains('open')) return;
-
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        closeMobile();
-        return;
-      }
-
-      if (e.key === 'Tab') {
-        const focusables = mobileMenu.querySelectorAll<HTMLElement>(FOCUSABLE);
-        if (focusables.length === 0) return;
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
-
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
+      if (e.key === 'Escape' && !mobileMenu.hidden) close();
     });
+
+    window.addEventListener('scroll', () => {
+      if (!mobileMenu.hidden) close();
+    }, { passive: true });
   }
 </script>

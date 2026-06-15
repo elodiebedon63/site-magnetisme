@@ -140,24 +140,6 @@ const { minimal = false } = Astro.props;
     width: 100%;
   }
 
-  .burger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: transparent;
-    border: none;
-    color: inherit;
-  }
-  .burger span {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--text);
-    transition: all 0.3s;
-  }
-
   /* Bouton Google Agenda injecté dans la nav (style discret, type lien).
      :global car le <button> est ajouté au runtime par le script Google et
      n'aurait donc pas l'attribut de scope d'Astro. */
@@ -179,13 +161,31 @@ const { minimal = false } = Astro.props;
     color: var(--sage-dark);
   }
 
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: transparent;
+    border: none;
+  }
+  .burger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text);
+    transition: all 0.3s;
+  }
+  .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 960px) {
-    nav {
-      padding: 1.2rem 2rem;
-    }
+    nav,
     nav.scrolled {
-      padding: 0.9rem 2rem;
+      padding: 1.2rem 2rem;
     }
     .nav-links {
       display: none;
