@@ -88,13 +88,25 @@ const iconSvg = icons[`../../assets/svg/${icon}`];
   .info-item a {
     color: var(--text);
     text-decoration: none;
-    border-bottom: 1px solid var(--sage);
-    padding-bottom: 1px;
-    transition: color 0.2s, border-color 0.2s;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .info-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--sage);
+    transition: width 0.3s ease, background 0.3s;
   }
   .info-item a:hover {
     color: var(--sage-dark);
-    border-bottom-color: var(--sage-dark);
+  }
+  .info-item a:hover::after {
+    width: 100%;
+    background: var(--sage-dark);
   }
 
   /* Mention secondaire (ancien <em> à style inline). */
