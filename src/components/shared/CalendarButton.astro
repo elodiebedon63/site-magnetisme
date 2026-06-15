@@ -25,9 +25,7 @@ const { id } = Astro.props;
     const gcal = (window as any).calendar;
 
     const targets = [
-      document.getElementById('calendarBtn'),
       document.getElementById('calendarBtnNav'),
-      document.getElementById('calendarBtnMobile'),
     ].filter((el): el is HTMLElement => el !== null);
 
     if (targets.length === 0) return;

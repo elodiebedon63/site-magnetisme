@@ -1,0 +1,116 @@
+---
+import calendarSvg from '../../assets/svg/calendar.svg?raw';
+---
+
+<button id="calendarFab" type="button" aria-label="Prendre rendez-vous" class="calendar-fab">
+  <Fragment set:html={calendarSvg} />
+</button>
+
+<script>
+  const SCHEDULING_URL =
+    'https://calendar.google.com/calendar/appointments/schedules/AcZssZ16iinafw-9OpOMxmRSyT2MBK7xkPyoqgdx8vp7mH2tLkiVEgGKk23ZOHJq_tL7j6KuMOb-cYLf?gv=true';
+
+  const fab = document.getElementById('calendarFab');
+  const accroche = document.getElementById('accroche');
+
+  // Inversion des couleurs quand la FAB chevauche la section #accroche.
+  function checkOverlap() {
+    if (!fab || !accroche || getComputedStyle(fab).display === 'none') return;
+    const f = fab.getBoundingClientRect();
+    const s = accroche.getBoundingClientRect();
+    fab.classList.toggle('inverted', f.top < s.bottom && f.bottom > s.top);
+  }
+
+  window.addEventListener('scroll', checkOverlap, { passive: true });
+  checkOverlap();
+
+  fab?.addEventListener('click', () => {
+    window.open(SCHEDULING_URL, '_blank', 'noopener,noreferrer');
+  });
+</script>
+
+<style>
+  /* Masqué sur desktop, FAB fixe sur mobile. */
+  .calendar-fab {
+    display: none;
+  }
+
+  @media (max-width: 960px) {
+    .calendar-fab {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: var(--sage-dark);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(11, 98, 129, 0.35);
+      cursor: pointer;
+      transition:
+        background 0.3s,
+        transform 0.3s;
+    }
+
+    .calendar-fab:hover {
+      background: var(--brown);
+      transform: translateY(-2px);
+    }
+
+    /* Bulle de texte au-dessus du bouton. */
+    .calendar-fab::before {
+      content: 'Prendre rdv';
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      background: var(--sage-dark);
+      color: var(--white);
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    /* Petite flèche reliant la bulle au bouton. */
+    .calendar-fab::after {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--sage-dark);
+      pointer-events: none;
+    }
+
+    /* Couleurs inversées quand la FAB chevauche la section #accroche. */
+    .calendar-fab.inverted {
+      background: var(--white);
+      color: var(--sage-dark);
+      box-shadow: 0 4px 20px rgba(11, 98, 129, 0.2);
+    }
+
+    .calendar-fab.inverted:hover {
+      background: var(--beige);
+      color: var(--sage-dark);
+    }
+
+    .calendar-fab.inverted::before {
+      background: var(--white);
+      color: var(--sage-dark);
+    }
+
+    .calendar-fab.inverted::after {
+      border-top-color: var(--white);
+    }
+  }
+</style>

@@ -21,7 +21,8 @@
     ],
     "video": {
       "src": "https://www.youtube.com/watch?v=pqkXfC8QDU4",
-      "title": "Visualisation de l'arbre"
+      "title": "Visualisation de l'arbre",
+      "icon": "arbre.svg"
     }
   },
   "accroche": {
@@ -135,7 +136,7 @@
       },
       {
         "order": 3,
-        "title": "Soin en magnétisme - soin ciblé, holistique et aurique",
+        "title": "Soin en magnétisme holistique et aurique",
         "description": "Imposition des mains, souffle et prières, lithothérapie — soin ciblé ou global sur tout le corps.",
         "domains": [
           "Fatigue, stress, insomnie, angoisse",

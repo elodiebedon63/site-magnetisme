@@ -1,10 +1,16 @@
 ---
 import { Image } from 'astro:assets';
-import CalendarButton from '../shared/CalendarButton.astro';
 import content from '../../data/content.json';
 import logo from '../../assets/images/logo.svg';
 
 const hero = content.hero;
+
+const icons = import.meta.glob<string>('../../assets/svg/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const videoIconSvg = icons[`../../assets/svg/${hero.video.icon}`];
 ---
 
 <section id="accueil" class="hero">
@@ -33,12 +39,8 @@ const hero = content.hero;
         rel="noopener noreferrer"
       >
         {hero.video.title}
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M8 3v10M5 6l3-3 3 3" stroke="currentColor" stroke-width="1.5"></path>
-        </svg>
+        <Fragment set:html={videoIconSvg} />
       </a>
-
-      <CalendarButton id="calendarBtn" />
     </div>
   </div>
 
@@ -203,37 +205,11 @@ const hero = content.hero;
     animation: scrollPulse 2s infinite;
   }
 
-  /* Bouton Google Agenda injecté dans le hero (style plein, type CTA).
-     :global car le <button> est ajouté au runtime par le script Google et
-     n'aurait donc pas l'attribut de scope d'Astro. */
-  :global(#calendarBtn button) {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-
-    padding: 1rem 2.2rem;
-    background: var(--sage-dark);
-    color: var(--white);
-
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-
-    transition:
-      background 0.3s,
-      transform 0.3s;
-  }
-  :global(#calendarBtn button:hover) {
-    background: var(--brown);
-    transform: translateY(-2px);
-  }
-
   /* ─── RESPONSIVE ─── */
   @media (max-width: 960px) {
+    .hero-disciplines {
+      display: none;
+    }
     #accueil {
       /* hauteur souple : le hero grandit si le contenu dépasse l'écran (plus de
          découpe des CTA) ; le padding-top dégage la barre de nav fixe. */
