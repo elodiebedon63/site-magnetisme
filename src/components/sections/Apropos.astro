@@ -51,7 +51,14 @@ const total = slides.length;
             aria-hidden={i === 0 ? 'false' : 'true'}
           >
             {slide.image ? (
-              <Image src={slide.image} alt={slide.alt} width={900} loading="lazy" />
+              <Image
+                src={slide.image}
+                alt={slide.alt}
+                width={900}
+                widths={[370, 500, 740, 900]}
+                sizes="(max-width: 960px) 90vw, 33vw"
+                loading="lazy"
+              />
             ) : (
               <div class="slide-placeholder">
                 <span>Photo à venir</span>
@@ -61,7 +68,7 @@ const total = slides.length;
         ))
       }
 
-      <div class="carousel-counter" aria-hidden="true"><span id="slideNum">1</span> / {total}</div>
+      <div class="carousel-counter" aria-live="polite" aria-atomic="true"><span id="slideNum">1</span> / {total}</div>
     </div>
 
     <!-- Flèches -->
@@ -95,9 +102,10 @@ const total = slides.length;
           <button
             class:list={['carousel-dot', { active: i === 0 }]}
             type="button"
+            role="tab"
             data-index={i}
             aria-label={`Aller à la slide ${i + 1}`}
-            aria-current={i === 0 ? 'true' : undefined}
+            aria-selected={i === 0 ? 'true' : 'false'}
           />
         ))
       }
@@ -289,7 +297,7 @@ const total = slides.length;
       slides[current].setAttribute('aria-hidden', 'true');
       texts[current].classList.remove('active');
       dots[current].classList.remove('active');
-      dots[current].removeAttribute('aria-current');
+      dots[current].setAttribute('aria-selected', 'false');
 
       current = (index + slides.length) % slides.length;
 
@@ -297,7 +305,7 @@ const total = slides.length;
       slides[current].setAttribute('aria-hidden', 'false');
       texts[current].classList.add('active');
       dots[current].classList.add('active');
-      dots[current].setAttribute('aria-current', 'true');
+      dots[current].setAttribute('aria-selected', 'true');
       if (slideNum) slideNum.textContent = String(current + 1);
     };
 

@@ -17,7 +17,7 @@ const { compact = false, showTag = true } = Astro.props;
 const seancesList = services.services;
 ---
 
-<section id="seances">
+<section id="seances" aria-label="Séances et tarifs">
   <div class="seances-intro">
     {showTag && <p class="section-tag reveal">{services.tag}</p>}
     <h2 class="reveal" set:html={services.title} />

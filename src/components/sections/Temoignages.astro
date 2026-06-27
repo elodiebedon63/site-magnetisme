@@ -4,7 +4,7 @@ import content from '../../data/content.json';
 const { tag, title, items } = content.temoignages;
 ---
 
-<section id="temoignages">
+<section id="temoignages" aria-label="Témoignages clients">
   <p class="section-tag reveal">{tag}</p>
   <h2 class="reveal" set:html={title} />
 
@@ -134,7 +134,7 @@ const { tag, title, items } = content.temoignages;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--white);
-    background: var(--sage);
+    background: var(--sage-dark);
     padding: 0.2rem 0.6rem;
     border-radius: 2px;
   }
@@ -176,6 +176,12 @@ const { tag, title, items } = content.temoignages;
     cursor: pointer;
     transition: background 0.25s, transform 0.25s;
     padding: 0;
+    position: relative;
+  }
+  .temo-dot::after {
+    content: '';
+    position: absolute;
+    inset: -8.5px;
   }
 
   .temo-dot.active {

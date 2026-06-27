@@ -4,7 +4,7 @@ import content from '../../data/content.json';
 const { intro, list, outro } = content.accroche;
 ---
 
-<div id="accroche">
+<section id="accroche" aria-label="Présentation de l'approche">
   <div class="accroche-inner reveal">
     <p set:html={intro.join('<br>')} />
     <p set:html={list.intro} />
@@ -13,7 +13,7 @@ const { intro, list, outro } = content.accroche;
     </ul>
     <p set:html={outro} />
   </div>
-</div>
+</section>
 
 <style>
   /* Bandeau d'accroche */

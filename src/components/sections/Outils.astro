@@ -4,9 +4,9 @@ import content from '../../data/content.json';
 const outils = content.outils;
 ---
 
-<section id="outils">
+<section id="outils" aria-label="Outils utilisés lors des soins">
   <div class="outils-section reveal">
-    <h3>{outils.title}</h3>
+    <h2>{outils.title}</h2>
     <div class="outils-grid">
       {outils.list.map((outil) => <div class="outil-pill">{outil}</div>)}
     </div>
@@ -26,7 +26,7 @@ const outils = content.outils;
     padding: 3rem;
     border-radius: 3px;
   }
-  .outils-section h3 {
+  .outils-section h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
     font-weight: 400;
