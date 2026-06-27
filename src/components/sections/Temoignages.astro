@@ -163,28 +163,36 @@ const { tag, title, items } = content.temoignages;
   .temo-dots {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
     margin-top: 2rem;
   }
 
+  /* Bouton 24×24px (seuil Lighthouse) + espacement 1.5rem (24px) entre boutons.
+     Le point visuel (7px) est rendu via ::before pour ne pas grossir l'aspect. */
   .temo-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .temo-dot::before {
+    content: '';
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    border: none;
     background: var(--beige-dark);
-    cursor: pointer;
     transition: background 0.25s, transform 0.25s;
-    padding: 0;
-    position: relative;
-  }
-  .temo-dot::after {
-    content: '';
-    position: absolute;
-    inset: -8.5px;
+    flex-shrink: 0;
   }
 
-  .temo-dot.active {
+  .temo-dot.active::before {
     background: var(--sage);
     transform: scale(1.3);
   }
