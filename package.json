@@ -31,6 +31,8 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/cormorant-garamond": "^5.2.11",
+    "@fontsource/jost": "^5.2.8",
     "astro": "^5.18.2",
     "sharp": "^0.34.5"
   }

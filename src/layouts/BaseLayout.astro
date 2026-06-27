@@ -7,6 +7,12 @@ import JsonLd from '../components/meta/JsonLd.astro';
 import FloatingCalendarButton from '../components/shared/FloatingCalendarButton.astro';
 import business from '../data/business.json';
 import '../styles/global.css';
+import "@fontsource/cormorant-garamond/300.css";
+import "@fontsource/cormorant-garamond/400.css";
+import "@fontsource/cormorant-garamond/300-italic.css";
+import "@fontsource/jost/300.css";
+import "@fontsource/jost/400.css";
+import "@fontsource/jost/500.css";
 
 type Schema = Record<string, unknown>;
 
@@ -99,13 +105,6 @@ const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
     <meta
       name="twitter:image:alt"
       content={`Logo ${business.name} — Magnétiseuse à Clermont-Ferrand`}
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap"
-      rel="stylesheet"
     />
 
     <!-- Google Calendar (bouton de prise de rendez-vous) -->
