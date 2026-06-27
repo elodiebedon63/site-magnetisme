@@ -47,24 +47,24 @@
   "accroche": {
     "intro": [
       "Vous êtes <em>(hyper)sensible</em>, en surcharge mentale ou émotionnelle, en quête de sens ou de <em>transformation</em>,",
-      "vous sentez que votre <em>corps</em> cherche s’exprime ou ressentez le besoin de retrouver un <em>équilibre</em> et une <em>harmonie</em> ?",
+      "vous sentez que votre corps cherche s’exprime ou ressentez le besoin de retrouver un <em>équilibre</em> et une <em>harmonie</em> ?",
       "C’est que votre <em>corps</em> vous appelle à revenir à vous.",
-      "Ce que vous traversez n’est pas un hasard : ce sont des <em>signaux</em>, des messages, une invitation à vous recentrer.",
-      "Je vous propose des soins profonds et sécurisants pour vous aider à : apaiser le trop-plein, comprendre ce que votre <em>corps</em> exprime, rééquilibrer votre énergie, ouvrir un espace intérieur plus clair, plus vaste, plus juste pour vous."
+      "Ce que vous traversez n’est pas un hasard : ce sont des signaux, des <em>messages</em>, une invitation à vous recentrer.",
+      "Je vous propose des soins <em>profonds</em> et <em>sécurisants</em> pour vous aider à : apaiser le trop-plein, comprendre ce que votre corps exprime, rééquilibrer votre <em>énergie</em>, ouvrir un espace intérieur plus clair, plus <em>vaste</em>, plus <em>juste</em> pour vous."
     ],
     "list": {
       "intro": "Selon votre besoin, nous travaillons ensemble à travers :",
       "items": [
-        "un Rééquilibrage Énergétique, pour restaurer l’harmonie et l’ancrage,",
-        "un Soin original: le Rééquilibrage Énergétique & Expansion de Conscience®, pour explorer votre espace intérieur, libérer des mémoires et vous réaligner en profondeur,",
-        "un soin en Magnétisme, pour apaiser, fluidifier et soutenir la guérison du <em>corps</em>."
+        "un <em>Rééquilibrage Énergétique</em>, pour restaurer l’harmonie et l’<em>ancrage</em>,",
+        "un Soin original: le Rééquilibrage Énergétique & <em>Expansion de Conscience®</em>, pour explorer votre espace intérieur, libérer des <em>mémoires</em> et vous réaligner en profondeur,",
+        "un soin en <em>Magnétisme</em>, pour apaiser, fluidifier et soutenir la <em>guérison</em> du corps."
       ]
     },
-    "outro": "Si vous sentez que c’est le moment pour vous, je vous accueille avec douceur, présence et bienveillance."
+    "outro": "Si vous sentez que c’est le moment pour vous, je vous accueille avec <em>douceur</em>, présence et <em>bienveillance</em>."
   },
   "apropos": [
       {
-        "img": "cabinet.jpg",
+        "img": "A_propos_du_cabinet_1.jpg",
         "alt": "Salle de soin du cabinet partagé Psy'Jaude à Clermont-Ferrand",
         "tag": "À propos du <em>cabinet</em>",
         "content": [
@@ -81,9 +81,9 @@
         }
       },
       {
-        "img": "Dryade.jpg",
-        "alt": "État élargi de conscience & Expansion de Conscience® — voyage intérieur en rêve éveillé",
-        "tag": "À propos de l’<em>état élargi de conscience</em> & <em>Expansion de Conscience®</em>",
+        "img": "A_propos_état_élargi_de_conscience.jpg",
+        "alt": "Rééquilibrage énergétique & Expansion de Conscience® — voyage intérieur en rêve éveillé",
+        "tag": "À propos du <em>Rééquilibrage énergétique</em> & <em>Expansion de Conscience®</em>",
         "content": [
           "<i>L’alliance du rééquilibrage énergétique et de l’expansion de conscience : un soin signature qui ouvre, réaligne et révèle.</i>",
           "Je vous propose un soin unique qui harmonise votre énergie et ouvre votre espace intérieur.",
@@ -97,7 +97,7 @@
         ]
       },
       {
-        "img": "magnetisation.jpg",
+        "img": "A_propos_magnetisme.jpg",
         "alt": "Séance de magnétisme par imposition des mains, du souffle, des prières et le bol tibétain.",
         "tag": "À propos du <em>magnétisme</em>",
         "content": [
@@ -138,11 +138,11 @@
         ]
       },
       {
-        "img": "massage.jpg",
+        "img": "A_propos_massage_1.jpg",
         "alt": "Massage énergétique à l'huile tiède",
         "tag": "À propos du <em>Massage énergétique</em>",
         "precontent": [
-          "Reconnexion & Harmonie du Corps",
+          "<i>Reconnexion & Harmonie du Corps</i>",
           "Le massage énergétique est un soin profond qui vous invite à revenir dans votre corps, à en ressentir les limites, les appuis, les sensations… et à retrouver une détente physique et émotionnelle durable.",
           "Pratiqué à l’huile tiède bio et aux huiles essentielles, il enveloppe l’ensemble du corps : le dos, le buste, le ventre, les jambes, les pieds, les mains, le visage.",
           "Chaque zone est travaillée avec une intention précise :"
@@ -160,7 +160,7 @@
         ]
       },
       {
-        "img": "livres.jpg",
+        "img": "A_propos_de_moi.jpg",
         "alt": "Bibliothèque du cabinet — ouvrages de référence en énergétique et lithothérapie",
         "tag": "À propos de <em>moi</em>",
         "content": [
@@ -190,6 +190,12 @@
         ],
         "price": "50 € / séances",
         "duration": "4 à 10 séances, selon votre rythme et vos besoins"
+      },
+      {
+        "title": "Soins à la carte",
+        "description": [
+          "Au choix selon vos besoins et vos affinités, dans la liste des soins ci-après."
+        ]
       }
     ],
     "soins": "Les Soins",
@@ -213,7 +219,7 @@
         },
         "bienfaits": "Un soin global et profond pour apaiser, dynamiser et réharmoniser votre énergie et retrouver stabilité, clarté et vitalité.",
         "price": "50 €",
-        "duration": "/ 45 min"
+        "duration": "/ 1h"
       },
       {
         "title": "Rééquilibrage Énergétique & Expansion de Conscience®",
@@ -230,7 +236,7 @@
         },
         "bienfaits": "Un soin pour changer de perspective, retrouver du sens et ouvrir une nouvelle voie.",
         "price": "70 €",
-        "duration": "/ 45 min"
+        "duration": "/ 1h30min"
       },
       {
         "title": "Lecture de Tarot",
@@ -247,7 +253,7 @@
         },
         "bienfaits": "Une lecture pour changer de perspective et retrouver un chemin clair et avancer avec plus de lucidité et de justesse.",
         "price": "80 €",
-        "duration": "/ 45 min"
+        "duration": "/ 1h30min"
       },
       {
         "title": "Massage énergétique — Reconnexion & Harmonie du Corps",
@@ -264,7 +270,7 @@
         },
         "bienfaits": "Un soin global pour détendre, réharmoniser et revitaliser tout votre corps.",
         "price": "90 €",
-        "duration": "/ 45 min"
+        "duration": "/ 1h20min"
       }
     ]
   },
@@ -318,7 +324,7 @@
   },
   "temoignages": {
     "tag": "Ils/Elles témoignent",
-    "title": "Ce qu'ils <em>vivent</em>",
+    "title": "Ce qu'ils/elles <em>vivent</em>",
     "items": [
       {
         "author": "Valentine D.",

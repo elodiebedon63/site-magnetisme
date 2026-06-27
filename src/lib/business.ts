@@ -53,14 +53,16 @@ export const addressLabel = () => business.address.name;
 export const addressLines = () =>
   `${business.address.street}<br>${business.address.postalCode} ${business.address.locality}`;
 
-/** Horaires formatés pour l'affichage : [{ day: "Lundi", time: "9h–12h et 13h30–18h" | "Fermé" }]. */
+/** Horaires formatés pour l'affichage. Chaque plage horaire est une entrée séparée ;
+ *  les jours avec 2 plages génèrent 2 lignes, la seconde avec un jour vide pour l'alignement. */
 export function hoursDisplay(): { day: string; time: string }[] {
-  return business.hours.map(({ day, ranges }) => ({
-    day: FR[day],
-    time: ranges.length
-      ? ranges.map(([o, c]) => `${formatTime(o)}–${formatTime(c)}`).join(' et ')
-      : 'Fermé',
-  }));
+  return business.hours.flatMap(({ day, ranges }) => {
+    if (!ranges.length) return [{ day: FR[day], time: 'Fermé' }];
+    return ranges.map(([o, c], i) => ({
+      day: i === 0 ? FR[day] : '',
+      time: `${formatTime(o)}–${formatTime(c)}`,
+    }));
+  });
 }
 
 /** Fourchette de prix dérivée des séances : "50 € – 90 €". */
