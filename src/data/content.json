@@ -56,7 +56,7 @@
       "intro": "Selon votre besoin, nous travaillons ensemble à travers :",
       "items": [
         "un <em>Rééquilibrage Énergétique</em>, pour restaurer l’harmonie et l’<em>ancrage</em>,",
-        "un Soin original: le Rééquilibrage Énergétique & <em>Expansion de Conscience®</em>, pour explorer votre espace intérieur, libérer des <em>mémoires</em> et vous réaligner en profondeur,",
+        "un Soin original: le Rééquilibrage Énergétique & <em>Expansion de Conscience</em>, pour explorer votre espace intérieur, libérer des <em>mémoires</em> et vous réaligner en profondeur,",
         "un soin en <em>Magnétisme</em>, pour apaiser, fluidifier et soutenir la <em>guérison</em> du corps."
       ]
     },
@@ -82,8 +82,8 @@
       },
       {
         "img": "A_propos_état_élargi_de_conscience.jpg",
-        "alt": "Rééquilibrage énergétique & Expansion de Conscience® — voyage intérieur en rêve éveillé",
-        "tag": "À propos du <em>Rééquilibrage énergétique</em> & <em>Expansion de Conscience®</em>",
+        "alt": "Expansion de Conscience — voyage intérieur en rêve éveillé",
+        "tag": "À propos de l'<em>Expansion de Conscience</em>",
         "content": [
           "<i>L’alliance du rééquilibrage énergétique et de l’expansion de conscience : un soin signature qui ouvre, réaligne et révèle.</i>",
           "Je vous propose un soin unique qui harmonise votre énergie et ouvre votre espace intérieur.",
@@ -222,7 +222,7 @@
         "duration": "/ 1h"
       },
       {
-        "title": "Rééquilibrage Énergétique & Expansion de Conscience®",
+        "title": "Rééquilibrage Énergétique & Expansion de Conscience",
         "description": "Un soin profond qui combine réalignement énergétique et état modifié de conscience. Dans ce rêve éveillé guidé, vous accédez à un espace intérieur où les symboles, les images et les sensations vous permettent de comprendre, libérer et transformer ce qui vous bloque.",
         "ideal": {
           "text": "Idéal pour:",
@@ -275,7 +275,7 @@
     ]
   },
   "quote": {
-    "quote": "« Les douleurs, les maux et le mal-être ne sont jamais anodins : ce sont souvent des mots du corps, une manière pour lui de s’exprimer lorsque le mental est submergé, dépassé ou dans l’erreur. Quand l’esprit ne parvient plus à comprendre, le corps prend le relais. Il parle à travers les tensions, les blocages, les inflammations, les troubles du sommeil, les émotions qui débordent… Ces manifestations ne sont pas des ennemies, mais des signaux. Elles nous invitent à revoir notre manière d’être au monde, à réajuster notre posture intérieure, nos relations, notre rythme, notre façon d’habiter notre environnement. Écouter ces messages, c’est déjà entrer sur le chemin d’une vie plus juste pour soi — une vie où l’on se reconnecte à son être profond, à son énergie, à son corps, et à ce qui nous entoure. Je vous aide à comprendre ce que le corps dit, rétablir l’alignement, et ouvrir la voie d’une guérison durable »",
+    "quote": "« Les \"maux\" du corps et le mal-être ne sont jamais anodins : ce sont souvent des \"mots\" du corps, une manière pour lui de s’exprimer lorsque le mental est dépassé ou dans l’erreur. Ces manifestations ne sont pas des ennemies, mais des signaux. Elles nous invitent à revoir notre manière d’être au monde, à réajuster notre posture intérieure, nos relations, notre rythme, notre façon d’habiter notre environnement. Écouter ces messages, c’est déjà entrer sur le chemin d’une vie plus juste pour soi — une vie où l’on se reconnecte à soi, à son énergie, à son corps, et à son environnement. Je vous aide à rétablir l’alignement, et ouvrir la voie d’une guérison durable. »",
     "cite": "Élodie Bedon"
   },
   "infos": {
