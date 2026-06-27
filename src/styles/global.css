@@ -163,16 +163,6 @@ h2 em {
     transform: translateY(0);
   }
 }
-@keyframes scrollPulse {
-  0%,
-  100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
 /* Apparition au défilement (classe basculée par main.js) */
 .reveal {
   opacity: 0;
@@ -219,16 +209,11 @@ h2 em {
   }
   .hero-tag,
   h1,
+  .hero-presub,
   .hero-sub,
-  .hero-disciplines,
-  .hero-ctas,
-  .hero-scroll {
+  .hero-ctas {
     opacity: 1 !important;
     animation: none !important;
-  }
-  .scroll-line {
-    animation: none !important;
-    opacity: 0.5 !important;
   }
   .hero-bg,
   .parallax-bg {

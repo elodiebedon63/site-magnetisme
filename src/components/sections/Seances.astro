@@ -5,48 +5,39 @@ import PratiqueCard from '../shared/PratiqueCard.astro';
 const services = content.seances;
 
 /**
- * `showOutils` : affiche le bloc « outils utilisés lors des soins ». Masqué sur
- * la page /tarifs (fiche tarifaire imprimable).
  * `compact` : cartes réduites au titre + prix + durée (idem /tarifs).
  * `showTag` : affiche le surtitre (« Mes accompagnements »). Masqué sur /tarifs.
  */
 interface Props {
-  showOutils?: boolean;
   compact?: boolean;
   showTag?: boolean;
 }
-const { showOutils = true, compact = false, showTag = true } = Astro.props;
+const { compact = false, showTag = true } = Astro.props;
 
-// Affichage des séances selon le champ `order` (copie pour ne pas muter l'import).
-const seancesList = [...services.services].sort((a, b) => a.order - b.order);
+const seancesList = services.services;
 ---
 
 <section id="seances">
   <div class="seances-intro">
     {showTag && <p class="section-tag reveal">{services.tag}</p>}
     <h2 class="reveal" set:html={services.title} />
-    <p class="reveal reveal-delay-1">
-      {services.description}
-    </p>
+    <p class="reveal reveal-delay-1" set:html={services.description.join('<br>')} />
   </div>
 
   <div class="pratiques-grid">
-    {seancesList.map((seances, i) => <PratiqueCard {...seances} index={i} compact={compact} />)}
-  </div>
-
-  <!-- Outils -->
-  {
-    showOutils && (
-      <div class="outils-section reveal">
-        <h3>{services.outils.title}</h3>
-        <div class="outils-grid">
-          {services.outils.list.map((outil) => (
-            <div class="outil-pill">{outil}</div>
-          ))}
+    {services.forfait.map((f) => (
+      <div class="pratique-card forfait-card reveal">
+        <div class="pratique-title">{f.title}</div>
+        {f.description.map((line: string) => <p class="pratique-desc" set:html={line} />)}
+        <div class="pratique-price">
+          <strong>{f.price}</strong>
+          <span>{f.duration}</span>
         </div>
       </div>
-    )
-  }
+    ))}
+    <p class="soins-label reveal">{services.soins}</p>
+    {seancesList.map((seances, i) => <PratiqueCard {...seances} index={i} compact={compact} />)}
+  </div>
 </section>
 
 <style>
@@ -69,7 +60,7 @@ const seancesList = [...services.services].sort((a, b) => a.order - b.order);
     pointer-events: none;
   }
   .seances-intro {
-    max-width: 620px;
+    max-width: 1000px;
     margin-bottom: 4rem;
   }
   .seances-intro p {
@@ -86,59 +77,72 @@ const seancesList = [...services.services].sort((a, b) => a.order - b.order);
     margin-bottom: 4rem;
   }
 
-  /* Outils */
-  .outils-section {
-    background: var(--beige-dark);
-    padding: 3rem;
-    border-radius: 3px;
-  }
-  .outils-section h3 {
+  .soins-label {
+    grid-column: 1 / -1;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
     font-weight: 400;
     color: var(--text);
-    margin-bottom: 1.5rem;
-  }
-  .outils-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 0.8rem;
-  }
-  .outil-pill {
-    background: var(--white);
-    padding: 0.6rem 1rem;
-    border-radius: 2px;
-    font-size: 1rem;
-    color: var(--text-light);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: default;
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease,
-      color 0.25s ease;
-  }
-  .outil-pill::before {
-    content: '¤';
-    color: var(--sage);
-    font-size: 0.9rem;
-    transition: transform 0.25s ease;
-  }
-  .outil-pill:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(11, 98, 129, 0.1);
-    color: var(--text);
-  }
-  .outil-pill:hover::before {
-    transform: rotate(90deg) scale(1.15);
+    margin-top: 1rem;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .outil-pill,
-    .outil-pill::before {
-      transition: none;
-    }
+  /* Carte forfait — reprend le style de PratiqueCard, s'étend sur 2 colonnes */
+  .forfait-card {
+    grid-column: 1 / -1;
+    background: var(--white);
+    padding: 2.2rem 2.5rem;
+    border-radius: 3px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+  }
+  .forfait-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--sage);
+    transition: height 0.4s;
+  }
+  .forfait-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(11, 98, 129, 0.12);
+  }
+  .forfait-card:hover::before {
+    height: 100%;
+  }
+  .forfait-card .pratique-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .forfait-card .pratique-desc {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text-light);
+    margin-bottom: 0.6rem;
+  }
+  .forfait-card .pratique-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    border-top: 1px solid var(--beige-dark);
+    padding-top: 1.2rem;
+    margin-top: 0.6rem;
+  }
+  .forfait-card .pratique-price strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--terre);
+  }
+  .forfait-card .pratique-price span {
+    font-size: 0.8rem;
+    color: var(--text-light);
   }
 
   /* ─── RESPONSIVE ─── */

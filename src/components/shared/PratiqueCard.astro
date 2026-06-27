@@ -1,38 +1,34 @@
 ---
-/**
- * Carte d'une séance / pratique. Les données proviennent de
- * src/data/services.json (voir _doc/organisation.md → « Ajouter un service »).
- */
 interface Props {
   title: string;
   description: string;
-  domains: string[];
+  ideal?: { text: string; list: string[] };
+  bienfaits?: string;
   price: string;
   duration: string;
-  /** Position dans la grille — pilote le délai d'apparition au scroll. */
   index?: number;
-  /**
-   * Fiche tarifaire (/tarifs) : titre + description + prix + durée, sans la
-   * liste des domaines d'application.
-   */
   compact?: boolean;
 }
-const { title, description, domains, price, duration, index = 0, compact = false } = Astro.props;
+const { title, description, ideal, bienfaits, price, duration, index = 0, compact = false } = Astro.props;
 const revealDelay = index > 0 ? `reveal-delay-${index}` : '';
 ---
 
 <div class:list={['pratique-card', 'reveal', revealDelay, { compact }]}>
   <div class="pratique-title">{title}</div>
-  <p class="pratique-desc">{description}</p>
+  <p class="pratique-desc" set:html={description} />
   {
-    !compact && (
-      <ul class="pratique-domains">
-        {domains.map((d) => (
-          <li>{d}</li>
-        ))}
-      </ul>
+    !compact && ideal && ideal.list.length > 0 && (
+      <>
+        <p class="pratique-desc pratique-ideal-intro">{ideal.text}</p>
+        <ul class="pratique-domains">
+          {ideal.list.map((d: string) => (
+            <li>{d}</li>
+          ))}
+        </ul>
+      </>
     )
   }
+  {bienfaits && !compact && <p class="pratique-bienfaits" set:html={bienfaits} />}
   <div class="pratique-price">
     <strong>{price}</strong>
     <span>{duration}</span>
@@ -109,6 +105,9 @@ const revealDelay = index > 0 ? `reveal-delay-${index}` : '';
     color: var(--text-light);
     margin-bottom: 1.2rem;
   }
+  .pratique-ideal-intro {
+    margin-bottom: 0.3rem;
+  }
   .pratique-domains {
     list-style: none;
     margin-bottom: 1.5rem;
@@ -130,6 +129,13 @@ const revealDelay = index > 0 ? `reveal-delay-${index}` : '';
     border-radius: 50%;
     background: var(--sage);
     flex-shrink: 0;
+  }
+  .pratique-bienfaits {
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
   }
   .pratique-price {
     display: flex;

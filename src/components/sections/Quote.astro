@@ -17,7 +17,7 @@ const quote = content.quote;
 <style>
   /* Bandeau citation avec parallaxe */
   .quote-container {
-    height: 300px;
+    height: 460px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -41,12 +41,14 @@ const quote = content.quote;
   }
   .quote blockquote {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
     font-weight: 300;
     font-style: italic;
     color: var(--text);
     line-height: 1.45;
-    max-width: 680px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
   }
   .quote cite {
     display: block;

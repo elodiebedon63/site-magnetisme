@@ -1,16 +1,17 @@
 ---
 import content from '../../data/content.json';
 
-const accroche = content.accroche;
-
-// `text` est un tableau de lignes (pour la lisibilité du JSON) assemblé en un
-// seul paragraphe. set:html pour interpréter le balisage (<em>…) du contenu.
-const text = Array.isArray(accroche.text) ? accroche.text.join(' ') : accroche.text;
+const { intro, list, outro } = content.accroche;
 ---
 
 <div id="accroche">
   <div class="accroche-inner reveal">
-    <p set:html={text} />
+    <p set:html={intro.join('<br>')} />
+    <p set:html={list.intro} />
+    <ul>
+      {list.items.map((item) => <li set:html={item} />)}
+    </ul>
+    <p set:html={outro} />
   </div>
 </div>
 
@@ -18,22 +19,37 @@ const text = Array.isArray(accroche.text) ? accroche.text.join(' ') : accroche.t
   /* Bandeau d'accroche */
   #accroche {
     background: var(--sage-dark);
-    padding: 5rem 4rem;
+    padding: 3rem 3rem;
     text-align: center;
   }
   .accroche-inner {
-    max-width: 760px;
+    max-width: 80%;
     margin: 0 auto;
   }
-  .accroche-inner p {
+  .accroche-inner p,
+  .accroche-inner li {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-size: 1.15rem;
     font-weight: 300;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.92);
   }
+  .accroche-inner p {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+  .accroche-inner p:last-child {
+    margin-bottom: 0;
+  }
+  .accroche-inner ul {
+    list-style: disc;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 1rem;
+    padding-left: 1.2rem;
+  }
   /* `em` provient de set:html (pas d'attribut de scope Astro) → :global() borné. */
-  .accroche-inner p :global(em) {
+  .accroche-inner :global(em) {
     font-style: italic;
     color: var(--sage-light);
   }

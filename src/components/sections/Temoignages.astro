@@ -1,0 +1,230 @@
+---
+import content from '../../data/content.json';
+
+const { tag, title, items } = content.temoignages;
+---
+
+<section id="temoignages">
+  <p class="section-tag reveal">{tag}</p>
+  <h2 class="reveal" set:html={title} />
+
+  <div class="temoignages-carousel" aria-label="Témoignages">
+    <button class="temo-nav temo-prev" aria-label="Témoignage précédent">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="temo-track">
+      {items.map((item, i) => (
+        <div class:list={['temo-slide', { active: i === 0 }]} aria-hidden={i !== 0 ? 'true' : undefined}>
+          <div class="temo-stars" aria-label={`${item.rating} étoiles sur 5`}>
+            {'★'.repeat(item.rating)}
+          </div>
+          <blockquote class="temo-quote">
+            <p>« {item.text} »</p>
+          </blockquote>
+          <footer class="temo-footer">
+            <span class="temo-author">{item.author}</span>
+            <span class="temo-source">{item.source}</span>
+          </footer>
+        </div>
+      ))}
+    </div>
+
+    <button class="temo-nav temo-next" aria-label="Témoignage suivant">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="temo-dots" role="tablist">
+    {items.map((item, i) => (
+      <button
+        class:list={['temo-dot', { active: i === 0 }]}
+        role="tab"
+        aria-selected={i === 0 ? 'true' : 'false'}
+        aria-label={`Témoignage de ${item.author}`}
+        data-index={i}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  #temoignages {
+    background: var(--beige);
+    text-align: center;
+  }
+
+  .section-tag,
+  h2 {
+    text-align: center;
+  }
+
+  .temoignages-carousel {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .temo-track {
+    flex: 1;
+    position: relative;
+    min-height: 200px;
+  }
+
+  .temo-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  .temo-slide.active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .temo-stars {
+    font-size: 1.3rem;
+    color: var(--sage);
+    letter-spacing: 0.15em;
+    margin-bottom: 1.4rem;
+  }
+
+  .temo-quote {
+    max-width: 680px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .temo-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .temo-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .temo-author {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: 0.03em;
+  }
+
+  .temo-source {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--sage);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  .temo-nav {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--beige-dark);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.25s, border-color 0.25s, background 0.25s;
+  }
+
+  .temo-nav:hover {
+    color: var(--sage-dark);
+    border-color: var(--sage);
+    background: var(--beige);
+  }
+
+  .temo-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .temo-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    background: var(--beige-dark);
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+    padding: 0;
+  }
+
+  .temo-dot.active {
+    background: var(--sage);
+    transform: scale(1.3);
+  }
+
+  @media (max-width: 960px) {
+    .temoignages-carousel {
+      gap: 0.8rem;
+    }
+    .temo-nav {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .temo-slide {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const slides = document.querySelectorAll<HTMLElement>('.temo-slide');
+  const dots = document.querySelectorAll<HTMLElement>('.temo-dot');
+  const prev = document.querySelector<HTMLButtonElement>('.temo-prev');
+  const next = document.querySelector<HTMLButtonElement>('.temo-next');
+
+  if (slides.length > 0) {
+    let current = 0;
+
+    const goTo = (index: number) => {
+      slides[current].classList.remove('active');
+      slides[current].setAttribute('aria-hidden', 'true');
+      dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-selected', 'false');
+
+      current = (index + slides.length) % slides.length;
+
+      slides[current].classList.add('active');
+      slides[current].removeAttribute('aria-hidden');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-selected', 'true');
+    };
+
+    prev?.addEventListener('click', () => goTo(current - 1));
+    next?.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+  }
+</script>

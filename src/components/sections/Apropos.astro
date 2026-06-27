@@ -17,7 +17,7 @@ type SlideData = {
   link?: { href: string; label: string };
 };
 
-const aproposSlides = content.apropos.slides as SlideData[];
+const aproposSlides = content.apropos as SlideData[];
 
 // Images du carrousel — Astro génère automatiquement des WebP optimisés et
 // dimensionnés. Chargées par nom de fichier (depuis content.json) via glob.

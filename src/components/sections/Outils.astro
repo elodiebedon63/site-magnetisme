@@ -1,0 +1,77 @@
+---
+import content from '../../data/content.json';
+
+const outils = content.outils;
+---
+
+<section id="outils">
+  <div class="outils-section reveal">
+    <h3>{outils.title}</h3>
+    <div class="outils-grid">
+      {outils.list.map((outil) => <div class="outil-pill">{outil}</div>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Section « outils utilisés lors des soins ». Externalisée de Seances.astro
+     pour être intégrable directement dans index.astro. */
+  #outils {
+    background: var(--beige);
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .outils-section {
+    background: var(--beige-dark);
+    padding: 3rem;
+    border-radius: 3px;
+  }
+  .outils-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .outils-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.8rem;
+  }
+  .outil-pill {
+    background: var(--white);
+    padding: 0.6rem 1rem;
+    border-radius: 2px;
+    font-size: 1rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: default;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      color 0.25s ease;
+  }
+  .outil-pill::before {
+    content: '¤';
+    color: var(--sage);
+    font-size: 0.9rem;
+    transition: transform 0.25s ease;
+  }
+  .outil-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11, 98, 129, 0.1);
+    color: var(--text);
+  }
+  .outil-pill:hover::before {
+    transform: rotate(90deg) scale(1.15);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .outil-pill,
+    .outil-pill::before {
+      transition: none;
+    }
+  }
+</style>

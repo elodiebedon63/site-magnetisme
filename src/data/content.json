@@ -1,27 +1,26 @@
 {
   "nav": {
-    "tagline": "Soin en magnétisme · Clermont-Ferrand",
+    "tagline": "Magnétiseuse · Clermont-Ferrand",
     "links": [
       { "href": "#apropos", "label": "À propos" },
       { "href": "#seances", "label": "Séances & tarifs" },
-      { "href": "#infos", "label": "Infos pratiques" }
+      { "href": "#infos", "label": "Infos pratiques" },
+      { "href": "#temoignages", "label": "Avis" }
     ]
   },
   "hero": {
     "tag": [
-      "Magnétisme", 
-      "Lithothérapie", 
-      "État élargi de conscience"
+      "Au-delà du mental"
     ],
-    "title": "Vous êtes au cœur <br>de votre <em>guérison</em>",
-    "subtitle": "Je vous accompagne sur le chemin de votre guérison en fluidifiant et augmentant votre champ énergétique, je vous invite à développer vos sensations et la conscientisation de votre énergie afin de pouvoir, par vous-même, vous recharger.",
-    "disciplines": [
-      "Magnétisme",
-      "Rééquilibrage énergétique",
-      "Lithothérapie",
-      "État élargi de conscience",
-      "Tarologie",
-      "Massage énergétique"
+    "title": [
+      "La précision d’un <em>soin</em>",
+      "La profondeur d’une <em>transformation</em>"
+    ],
+    "subtitle": "Quand le mental sature, le corps parle. Je vous accompagne à écouter ses messages, à rééquilibrer votre énergie et à ouvrir un espace intérieur où votre être peut enfin se réaligner",
+    "main": [
+      "Le soin est une expérience de reconnexion profonde, un retour à vous...",
+      "Au-delà du mental, votre corps et votre champ énergétique portent des messages essentiels, dans un langage subtil : celui des sensations, des vibrations, des mémoires et des mouvements énergétiques.",
+      "Grâce à l’apposition des mains, au souffle, aux cristaux, au bol tibétain, au massage énergétique et à la visualisation, nous travaillons ensemble à réharmoniser votre énergie, à restaurer votre ancrage et à vous réaligner dans votre environnement."
     ],
     "video": {
       "src": "https://www.youtube.com/watch?v=pqkXfC8QDU4",
@@ -29,18 +28,52 @@
       "icon": "arbre.svg"
     }
   },
-  "accroche": {
-    "text": "Le soin est une expérience qui vous permet de vous <em>reconnecter à votre corps</em>, à votre être intérieur et à votre environnement. J'utilise lors des soins l'apposition des mains, mon souffle, les cristaux, le pendule, le bol tibétain, les prières, le massage énergétique et vous invite à la visualisation."
+  "outils": {
+    "title": "Outils utilisés lors des soins",
+    "list": [
+      "Apposition des mains",
+      "Souffle et prières",
+      "Cristaux & pierres",
+      "Pendule",
+      "Bol tibétain",
+      "Massage énergétique",
+      "Visualisation",
+      "Rêve éveillé",
+      "Lecture de Tarot",
+      "Écoute active",
+      "Relation d'aide"
+    ]
   },
-  "apropos": {
-    "slides": [
+  "accroche": {
+    "intro": [
+      "Vous êtes <em>(hyper)sensible</em>, en surcharge mentale ou émotionnelle, en quête de sens ou de <em>transformation</em>,",
+      "vous sentez que votre <em>corps</em> cherche s’exprime ou ressentez le besoin de retrouver un <em>équilibre</em> et une <em>harmonie</em> ?",
+      "C’est que votre <em>corps</em> vous appelle à revenir à vous.",
+      "Ce que vous traversez n’est pas un hasard : ce sont des <em>signaux</em>, des messages, une invitation à vous recentrer.",
+      "Je vous propose des soins profonds et sécurisants pour vous aider à : apaiser le trop-plein, comprendre ce que votre <em>corps</em> exprime, rééquilibrer votre énergie, ouvrir un espace intérieur plus clair, plus vaste, plus juste pour vous."
+    ],
+    "list": {
+      "intro": "Selon votre besoin, nous travaillons ensemble à travers :",
+      "items": [
+        "un Rééquilibrage Énergétique, pour restaurer l’harmonie et l’ancrage,",
+        "un Soin original: le Rééquilibrage Énergétique & Expansion de Conscience®, pour explorer votre espace intérieur, libérer des mémoires et vous réaligner en profondeur,",
+        "un soin en Magnétisme, pour apaiser, fluidifier et soutenir la guérison du <em>corps</em>."
+      ]
+    },
+    "outro": "Si vous sentez que c’est le moment pour vous, je vous accueille avec douceur, présence et bienveillance."
+  },
+  "apropos": [
       {
         "img": "cabinet.jpg",
         "alt": "Salle de soin du cabinet partagé Psy'Jaude à Clermont-Ferrand",
         "tag": "À propos du <em>cabinet</em>",
         "content": [
-          "La salle de soin est située dans le cabinet Psy'Jaude au 2 avenue Julien, à proximité de la place Jaude.",
-          "C'est un espace dédié chaleureux, sécurisant et apaisant qui vous invite à une expérience de soin particulière. Cet instant hors temps activera vos sens et vous déconnectera du quotidien, vous permettant ainsi de vous recentrer et de vous reconnecter à votre corps, à vos sensations et à ce qui vous est essentiel."
+          "La salle de soin est située au cabinet Psy’Jaude, au 2 avenue Julien, tout près de la place Jaude.",
+          "C’est un espace chaleureux, sécurisant et apaisant, pensé pour vous offrir un véritable moment de retour à vous. Dès que vous entrez, le rythme ralentit. Le quotidien reste à la porte.",
+          "Vous êtes accueilli(e) dans un lieu où vous pouvez enfin respirer, déposer ce que vous portez et vous reconnecter à votre corps, à votre énergie et à votre être intérieur.",
+          "Cet espace hors du temps vous invite à ressentir, à écouter, à vous recentrer.",
+          "Il ouvre la voie à une expérience de soin profonde, où vos sens s’éveillent et où votre corps peut s’exprimer librement, loin du mental et des obligations extérieures.",
+          "Ici, tout est pensé pour vous accompagner vers plus de présence, d’alignement et de mieux-être, en lien avec vous-même, vos proches et votre environnement."
         ],
         "link": {
           "href": "https://www.youtube.com/shorts/iwn5A3OsGkE",
@@ -48,13 +81,28 @@
         }
       },
       {
+        "img": "Dryade.jpg",
+        "alt": "État élargi de conscience & Expansion de Conscience® — voyage intérieur en rêve éveillé",
+        "tag": "À propos de l’<em>état élargi de conscience</em> & <em>Expansion de Conscience®</em>",
+        "content": [
+          "<i>L’alliance du rééquilibrage énergétique et de l’expansion de conscience : un soin signature qui ouvre, réaligne et révèle.</i>",
+          "Je vous propose un soin unique qui harmonise votre énergie et ouvre votre espace intérieur.",
+          "Il commence par un rééquilibrage énergétique, puis se prolonge par une induction douce vous permettant d’entrer dans un état expansé de conscience.",
+          "Dans cet état proche du rêve éveillé, vous accédez à un espace intérieur nouveau, sécurisant et symbolique. Vous y voyagez pour rencontrer des ressources, des images et des expériences dont vous avez besoin dans votre présent.",
+          "Chaque élément de ce voyage est métaphorique : un langage subtil de votre inconscient.",
+          "Vous en êtes le guide.",
+          "Je vous accompagne pour traverser les obstacles, comprendre les messages, et ancrer dans le corps et l’esprit les sensations et les prises de conscience essentielles à votre cheminement.",
+          "Peu à peu, votre conscience s’ouvre : plus vaste, plus claire, plus lumineuse.",
+          "Il arrive que ces voyages prennent la forme d’incarnations animales ou de vies antérieures — qu’elles soient réelles ou issues de votre imaginaire, selon vos croyances."
+        ]
+      },
+      {
         "img": "magnetisation.jpg",
-        "alt": "Séance de magnétisme par imposition des mains",
+        "alt": "Séance de magnétisme par imposition des mains, du souffle, des prières et le bol tibétain.",
         "tag": "À propos du <em>magnétisme</em>",
         "content": [
-          "Il existe le corps physique (votre squelette, vos organes...), le corps mental (votre psyché, vos mémoires, vos croyances, vos pensées) et le corps énergétique. Dans le monde qui nous entoure il existe trois grands types d'énergie, l'énergie cosmique (positive, ciel, rayons cosmiques), l'énergie tellurique (négative, terre, magnétisme telluriques) et l'énergie animale, celle du vivant.",
-          "Le champ d'énergie humaine est défini en physique comme la somme des radiations et des émanations du corps. Ce sont différents corps subtils qui se superposent, liés aux 7 chakras. Les chakras (roue) sont des vortex qui permettent au champ énergétique universel (cosmique et tellurique) de circuler dans le corps humain qui est à la fois canal, émetteur et récepteur d'énergie. L'énergie circule correctement et harmonieusement dans un corps sain.",
-          "Le.a magnétiseur.se perçoit cette énergie et peut agir sur les douleurs, les fuites, les blocages, les structures auriques... en harmonisant la circulation énergétique dans le corps et permettre ainsi la guérison. Lors des séances j'utilise le magnétisme par apposition des mains et mon souffle ainsi que les prières pour soigner, rééquilibrer et faire circuler l'énergie, les pierres (lithothérapie) et le bol tibétain (sonothérapie)."
+          "Le magnétisme agit sur les différents plans du corps — physique, mental et énergétique — pour rétablir une circulation harmonieuse de l’énergie.",
+          "En percevant les blocages, les fuites ou les déséquilibres, j’utilise l’apposition des mains, le souffle, les prières, les pierres et le bol tibétain pour apaiser, rééquilibrer et soutenir la guérison."
         ]
       },
       {
@@ -62,7 +110,10 @@
         "alt": "Pierres et cristaux utilisés en lithothérapie",
         "tag": "À propos de la <em>lithothérapie</em>",
         "content": [
-          "Du grec litho = pierre<br>La lithothérapie est un soin par les pierres et cristaux.<br>Par leur champ énergétique, leur couleur, leurs oligoéléments... les pierres sont un excellent outil pour amplifier et faciliter les résultats d'un soin énergétiques.<br>Déposé dans un espace ou porté sur soi, les pierres ont des vertus subtiles mais réelles qui améliorent votre quotidien."
+          "Du grec litho = pierre",
+          "La lithothérapie est un soin par les pierres et cristaux.",
+          "Par leur champ énergétique, leur couleur, leurs oligo-éléments... les pierres sont un excellent outil que j’utilise pour amplifier et faciliter les résultats d’un soin énergétique.",
+          "Déposées dans un espace ou portées sur soi, les pierres ont des vertus subtiles qui améliorent votre quotidien."
         ]
       },
       {
@@ -70,15 +121,9 @@
         "alt": "Bol tibétain (bol chantant) utilisé en sonothérapie",
         "tag": "À propos du <em>Bol Tibétain</em>",
         "content": [
-          "Aussi nommé bol chantant, c'est un instrument qui émet un son vibratoire d'une grande intensité.<br>Il est utilisé depuis les temps anciens au Tibet pour accéder à une relaxation profonde.<br>Il est composé de 7 métaux symbolisant les planètes.<br>Activé à proximité du corps ou directement au contact de celui-ci, la vibration du bol résonne avec les fréquences internes pour une relaxation profonde et méditative."
-        ]
-      },
-      {
-        "img": "Dryade.jpg",
-        "alt": "État élargi de conscience — voyage intérieur en rêve éveillé",
-        "tag": "À propos de l'<em>état élargi de conscience</em>",
-        "content": [
-          "C'est comme un rêve éveillé, où l'on voyage. Vous êtes mis en hypnose légère afin d'accéder à votre inconscient. Tout y est symbolique et métaphorique, et dans ce voyage dont vous êtes le guide, je vous accompagne pour braver les obstacles et ancrer les sensations et expériences clés dont vous avez besoin. Il arrive que ces voyages nous emmènent dans des incarnations animales ou dans des vies antérieures."
+          "Aussi nommé bol chantant, c’est un instrument qui émet un son vibratoire d’une grande intensité.",
+          "Composé de 7 métaux symbolisant les planètes, cet instrument est utilisé depuis les temps anciens au Tibet pour accéder à une relaxation profonde.",
+          "En fin de soin je le fais chanter à proximité de votre corps ou directement au contact de celui-ci, la vibration du bol résonne avec vos fréquences internes pour une relaxation profonde et méditative."
         ]
       },
       {
@@ -86,7 +131,10 @@
         "alt": "Cartes du Tarot de Marseille pour une lecture en tarologie",
         "tag": "À propos de la <em>tarologie</em>",
         "content": [
-          "Rien à voir avec la divination ou la cartomancie, ici il s'agit d'offrir à l'inconscient une voix, une parole métaphorique. Son langage est le Tarot de Marseille.<br />Par votre tirage, vous révélez un message codé.<br>Je suis là pour le traduire et vous aider à le comprendre."
+          "Ici, pas de prédictions ni de cartomancie.",
+          "Le Tarot devient un miroir de votre inconscient, un langage métaphorique qui met en lumière ce qui se joue en vous.",
+          "Votre tirage dévoile un message symbolique.",
+          "Je vous accompagne pour le décoder, le comprendre et l’intégrer, afin d’avancer avec plus de clarté et de justesse."
         ]
       },
       {
@@ -94,140 +142,134 @@
         "alt": "Massage énergétique à l'huile tiède",
         "tag": "À propos du <em>Massage énergétique</em>",
         "precontent": [
-          "Massage énergetiques à l'huile tiède bio et aux huiles essentielles. Les parties du corps massées sont: le dos, le buste, les jambes, les pieds, les mains et visage."
+          "Reconnexion & Harmonie du Corps",
+          "Le massage énergétique est un soin profond qui vous invite à revenir dans votre corps, à en ressentir les limites, les appuis, les sensations… et à retrouver une détente physique et émotionnelle durable.",
+          "Pratiqué à l’huile tiède bio et aux huiles essentielles, il enveloppe l’ensemble du corps : le dos, le buste, le ventre, les jambes, les pieds, les mains, le visage.",
+          "Chaque zone est travaillée avec une intention précise :"
         ],
         "list": [
-          "Le dos pour évacuer les tensions, détendre les muscles et stimuler le système nerveux par le massage des ganglions le long de la colonne vertébrale.",
-          "Le buste et le ventre pour ouvrir la cage thoracique et améliorer le fonctionnement du système digestif.",
-          "Les jambes pour améliorer la circulation sanguine et lymphatique.",
-          "Les mains et les pieds pour agir directement sur le squelette et les organes grâce à la réflexologie.",
-          "Le visage et la nuque pour évacuer les tensions, détendre et ouvrir l'esprit, redonner de la souplesse à la peau."
+          "Le dos : libérer les tensions, détendre les muscles, apaiser le système nerveux.",
+          "Le buste et le ventre : ouvrir, relâcher, soutenir le système digestif.",
+          "Les jambes : activer la circulation sanguine et lymphatique.",
+          "Les mains et les pieds : agir sur les organes et le squelette grâce à la réflexologie.",
+          "Le visage : dénouer, lisser, éclaircir l’esprit, adoucir les traits."
         ],
         "content": [
-          "Un massage énergétique dure en moyenne 1h20, plusieurs magnétisations sont effectuées pendant le massage et le soin se termine par une harmonisation avec les cristaux. Le chant du bol tibétain clôture le massage."
-        ],
-        "alert": "Le massage énergétique est spécifique, il est proposé aux consultants dans un contexte de soin préétabli."
+          "Pendant environ 1h20, le massage est ponctué de magnétisations qui renforcent la libération énergétique.",
+          "Le soin se termine par le chant du bol tibétain, qui ancre et relaxe en profondeur."
+        ]
       },
       {
         "img": "livres.jpg",
         "alt": "Bibliothèque du cabinet — ouvrages de référence en énergétique et lithothérapie",
         "tag": "À propos de <em>moi</em>",
         "content": [
-          "Après une formation avec Pascal Quesne, je poursuis mon apprentissage du Magnétisme avec l'enseignement de Barbara Ann Brennan (guérisseuse, psychothérapeute et physicienne). J'utilise les cristaux et je suis surtout l'enseignement en Lithothérapie de Reynald Georges Boschiero. J'ai suivi une formation d'Hypnose Spirituelle sur l'Autoguérison par Mario Beauregard et Jean-Charles Chabot et j'entame une formation en Hypnose Humaniste à l'institut d'Olivier Lockert. Concernant la relation d'aide, c'est l'enseignement de Colette Portelance que je suis, avec son approche non directrice créative. En matière de Tarologie, j'utilise le Tarot de Marseille du XIIIème siècle et l'enseignement d'Alejandro Jodorowsky.",
-          "J'enrichis mes connaissances en m'intéressant à d'autres disciplines complémentaires comme : la Psychoénergétique de Michel Odoul, qui base son savoir sur les fondements de la médecine chinoise ; l'aromathérapie ; la naturopathie ; l'art-thérapie..."
+          "Naturellement sensible aux énergies, je me suis formée en magnétisme, lithothérapie, massage, autohypnose…",
+          "Mon chemin a débuté avec l’enseignement de Pascal Quesne, puis s’est ouvert à la vision de Barbara Ann Brennan, dont le travail relie corps, énergie et conscience. Diplômée en lithothérapie, j’utilise les cristaux selon l’approche de Reynald Georges Boschiero.",
+          "J’ai poursuivi avec une formation en Hypnose Spirituelle orientée Autoguérison (<i>Mario Beauregard</i>, <i>Jean-Charles Chabot</i>) et j’entame une certification en Hypnose Humaniste à l’Institut d’Olivier Lockert. Pour la relation d’aide, je m’appuie sur l’approche non directive créative de Colette Portelance. En tarologie, j’utilise le Tarot de Marseille du XIIIᵉ siècle dans la lignée symbolique d’Alejandro Jodorowsky.",
+          "J’enrichis ma pratique par des disciplines complémentaires : psychoénergétique (<i>Michel Odoul</i>), aromathérapie, art-thérapie…",
+          "À côté de mon activité thérapeutique, je suis artiste peintre et chanteuse, spécialisée dans le chant sacré et les polyphonies du monde. La vibration, la couleur, la voix et le souffle nourrissent ma manière d’accompagner, ouvrant des espaces de présence, de résonance et de transformation intérieure.",
+          "Mon intention est simple : vous accompagner avec sérieux, sensibilité et profondeur, en vous aidant à écouter ce qui se joue au-delà du mental pour avancer sur votre chemin de guérison."
         ]
       }
-    ]
-  },
+  ],
   "seances": {
     "tag": "Mes accompagnements",
     "title": "Séances <em>&</em> tarifs",
-    "description": "Chaque soin est une expérience unique, adaptée à votre situation du moment. La première séance permet de nous découvrir et de définir ensemble le protocole le plus adapté.",
+    "description": [
+      "Chaque soin est une expérience unique, adaptée à votre situation du moment.",
+      "La première séance permet de faire connaissance, de comprendre votre besoin et de définir ensemble l’approche la plus juste pour vous."
+    ],
+    "forfait": [
+      {
+        "title": "Accompagnement personnalisé",
+        "description": [
+          "Vous engager dans un accompagnement personnalisé, destiné à répondre à une problématique précise.",
+          "Cet accompagnement comprend 4 à 10 séances, selon votre rythme et vos besoins, et ramène chaque séance à 50 €, quel que soit le soin choisi, dans une logique de parcours thérapeutique.",
+          "Il débute toujours par un soin en magnétisme avec un entretien approfondi, pour une durée de 1h30 environ, afin de poser les bases de votre cheminement et d’ancrer le travail énergétique."
+        ],
+        "price": "50 € / séances",
+        "duration": "4 à 10 séances, selon votre rythme et vos besoins"
+      }
+    ],
+    "soins": "Les Soins",
     "services": [
       {
-        "order": 2,
-        "title": "Rééquilibrage énergétique",
-        "description": "Magnétisme par imposition des mains, rééquilibrage aux pierres et conseil en lithothérapie.",
-        "domains": [
-          "Fatigue passagère, sommeil difficile",
-          "Stress, surmenage",
-          "Tensions et gestion des émotions",
-          "Confiance en soi",
-          "Besoin de se recentrer et s'ancrer"
-        ],
+        "title": "Rééquilibrage énergétique & Magnétisme",
+        "description": "Un soin complet qui agit sur les corps subtils et l’aura grâce à l’imposition des mains, au souffle, aux prières et à la lithothérapie. Harmonisant, ce soin mêle magnétisme, rééquilibrage aux pierres et conseils en lithothérapie.",
+        "ideal": {
+          "text": "Idéal pour:",
+          "list": [
+            "fatigue passagère, sommeil perturbé, insomnie",
+            "stress, surmenage, angoisses",
+            "tensions émotionnelles, hypersensibilité",
+            "maladies de peau, brûlures",
+            "douleurs chroniques, psychosomatiques ou menstruelles",
+            "énergies négatives, mémoires traumatiques du corps",
+            "soutien à la cicatrisation osseuse et musculaire, post-opératoire",
+            "manque de confiance en soi, relation à soi, estime, expression",
+            "besoin d’ancrage et de recentrage"
+          ]
+        },
+        "bienfaits": "Un soin global et profond pour apaiser, dynamiser et réharmoniser votre énergie et retrouver stabilité, clarté et vitalité.",
         "price": "50 €",
         "duration": "/ 45 min"
       },
       {
-        "order": 3,
-        "title": "Soin en magnétisme - soin ciblé, holistique et aurique",
-        "description": "Imposition des mains, souffle et prières, lithothérapie — soin ciblé ou global sur tout le corps.",
-        "domains": [
-          "Fatigue, stress, insomnie, angoisse",
-          "Maladies de peau, brûlures",
-          "Douleurs chroniques, psychosomatiques et menstruelles",
-          "Aide à la cicatrisation osseuse et musculaire, accompagnement à la guérison post-opératoire",
-          "Energies négatives, mémoires traumatiques du corps",
-          "Relation aux autres, reconnaissance et estime de soi, expression"
-        ],
-        "price": "60 €",
-        "duration": "/ 1h à 1h15"
-      },
-      {
-        "order": 4,
-        "title": "État élargi de conscience",
-        "description": "Rêve éveillé, état modifié de conscience. Changer de point de vue pour sortir d'une impasse.",
-        "domains": [
-          "Deuil (d'un être ou d'une situation)",
-          "Crise existentielle, changement de vie",
-          "Maladies et douleurs chroniques",
-          "Burn out, blocage et mal-être",
-          "Difficultés relationnelles"
-        ],
+        "title": "Rééquilibrage Énergétique & Expansion de Conscience®",
+        "description": "Un soin profond qui combine réalignement énergétique et état modifié de conscience. Dans ce rêve éveillé guidé, vous accédez à un espace intérieur où les symboles, les images et les sensations vous permettent de comprendre, libérer et transformer ce qui vous bloque.",
+        "ideal": {
+          "text": "Idéal pour:",
+          "list": [
+            "traverser un deuil ou une rupture",
+            "sortir d’une crise existentielle ou d’un changement de vie difficile",
+            "apaiser des douleurs ou maladies chroniques",
+            "dépasser un burn-out, un blocage ou un mal-être persistant",
+            "améliorer vos relations et votre positionnement"
+          ]
+        },
+        "bienfaits": "Un soin pour changer de perspective, retrouver du sens et ouvrir une nouvelle voie.",
         "price": "70 €",
-        "duration": "/ 1h30 à 2h00"
+        "duration": "/ 45 min"
       },
       {
-        "order": 6,
-        "title": "Massage énergétique: dos, buste, jambes, pieds, mains et visage",
-        "description": "Massages à l'huile tiède, magnétisme par imposition des mains et rééquilibrage aux pierres.",
-        "domains": [
-          "Fatigue, stress, insomnie",
-          "Raffermissement de la peau",
-          "Douleurs, tensions",
-          "Circulation sanguine et digestion",
-          "Conscientisation du corps"
-        ],
-        "price": "90 €",
-        "duration": "/ 1h20"
-      },
-      {
-        "order": 5,
         "title": "Lecture de Tarot",
-        "description": "Ceci n'est pas de la voyance, mais une voix donnée à votre inconscient.",
-        "domains": [
-          "Impasse et blocages mentaux, relationnels...",
-          "Doute, besoin de clarifier une situation",
-          "Crise existentielle",
-          "Besoin de se connecter à son inconscient",
-          "Connaissance de soi"
-        ],
+        "description": "Le Tarot n’est pas ici un outil de prédiction, mais un langage symbolique qui permet à votre inconscient de se raconter. À travers les images et les archétypes, vous accédez à une compréhension plus profonde de ce que vous vivez.",
+        "ideal": {
+          "text": "Idéal pour:",
+          "list": [
+            "blocages, impasses, tensions relationnelles",
+            "doutes, questionnements, besoin de clarté",
+            "crises existentielles ou périodes de transition",
+            "envie de se relier à son monde intérieur",
+            "exploration de soi et de ses schémas"
+          ]
+        },
+        "bienfaits": "Une lecture pour changer de perspective et retrouver un chemin clair et avancer avec plus de lucidité et de justesse.",
         "price": "80 €",
-        "duration": "/ 1h30 à 2h00"
+        "duration": "/ 45 min"
       },
       {
-        "order": 1,
-        "title": "Passe magnétique sur zone",
-        "description": "Apposition des mains, souffle et prières sur zone.",
-        "domains": [
-          "Douleurs passagères",
-          "Foulures, contractures...",
-          "Brûlures",
-          "Zona, psoriasis, eczéma..."
-        ],
-        "price": "30 €",
-        "duration": "/ 30min"
+        "title": "Massage énergétique — Reconnexion & Harmonie du Corps",
+        "description": "Un massage complet du dos, du buste, des jambes, des pieds, des mains et du visage. Pratiqué à l’huile tiède, il est associé au magnétisme par imposition des mains et à un rééquilibrage aux pierres.",
+        "ideal": {
+          "text": "Idéal pour:",
+          "list": [
+            "fatigue, stress, troubles du sommeil",
+            "douleurs et tensions musculaires",
+            "amélioration de la circulation sanguine et de la digestion",
+            "raffermissement et tonicité de la peau",
+            "reconnexion au corps et à ses sensations"
+          ]
+        },
+        "bienfaits": "Un soin global pour détendre, réharmoniser et revitaliser tout votre corps.",
+        "price": "90 €",
+        "duration": "/ 45 min"
       }
-    ],
-    "outils": {
-      "title": "Outils utilisés lors des soins",
-      "list": [
-        "Apposition des mains",
-        "Souffle et prières",
-        "Cristaux & pierres",
-        "Pendule",
-        "Bol tibétain",
-        "Massage énergétique",
-        "Visualisation",
-        "Rêve éveillé",
-        "Lecture de Tarot",
-        "Écoute active",
-        "Relation d'aide"
-      ]
-    }
+    ]
   },
   "quote": {
-    "quote": "« Le soin est une invitation à se reconnecter à soi, à son corps et à son environnement. »",
+    "quote": "« Les douleurs, les maux et le mal-être ne sont jamais anodins : ce sont souvent des mots du corps, une manière pour lui de s’exprimer lorsque le mental est submergé, dépassé ou dans l’erreur. Quand l’esprit ne parvient plus à comprendre, le corps prend le relais. Il parle à travers les tensions, les blocages, les inflammations, les troubles du sommeil, les émotions qui débordent… Ces manifestations ne sont pas des ennemies, mais des signaux. Elles nous invitent à revoir notre manière d’être au monde, à réajuster notre posture intérieure, nos relations, notre rythme, notre façon d’habiter notre environnement. Écouter ces messages, c’est déjà entrer sur le chemin d’une vie plus juste pour soi — une vie où l’on se reconnecte à son être profond, à son énergie, à son corps, et à ce qui nous entoure. Je vous aide à comprendre ce que le corps dit, rétablir l’alignement, et ouvrir la voie d’une guérison durable »",
     "cite": "Élodie Bedon"
   },
   "infos": {
@@ -271,6 +313,30 @@
             "note": "Laissez un message, je vous rappelle"
           }
         ]
+      }
+    ]
+  },
+  "temoignages": {
+    "tag": "Ils/Elles témoignent",
+    "title": "Ce qu'ils <em>vivent</em>",
+    "items": [
+      {
+        "author": "Valentine D.",
+        "source": "Google",
+        "rating": 5,
+        "text": "Une expérience incroyable avec Elodie Bedon. Nous avons fait des soins énergétiques, un voyage dans le subconscient, le tirage du tarot, une transe chamanique et un voyage dans une vie antérieure. Ce furent des expériences intenses, et vraies, dans un but précis de projet personnel ; et avec Elodie, tout a été parfait : son accompagnement, sa maîtrise, sa bienveillance. Elle est riche de savoir et j’ai la chance d’avoir pu partager ça avec elle. Merci à toi."
+      },
+      {
+        "author": "Shivani D.",
+        "source": "Google",
+        "rating": 5,
+        "text": "Elodie Bedon est une excellente énergéticienne qui combine différentes pratiques très complémentaires, le magnétisme, l energie des pierres et la vibration des sons... Sa profonde écoute et son empathie nous conduit très facilement dans un espace de relaxation, de présence ...bienfaisant et guérisseur tant de âme que du corps. Chère Élodie merci pour les talents multiples qui sont les tiens, dont ta voix, et qui nous font tant de bien."
+      },
+      {
+        "author": "Manon M.",
+        "source": "Resalib",
+        "rating": 5,
+        "text": "J'ai reçu plusieurs soins de la part d'Elodie Bedon au cours de ces dernières 10 années, des rééquilibrage énergétique, séances de magnétisme avec utilisation de la litotherapie, état de conscience élargie. En vue de calmer mes angoisses et crises d'insomnies. À chaque fois les bienfaits ont été immédiats et durable. Je recommande vivement Elodie qui est une personne extrêmement à l'ecoute et doté d'une grande empathie et capable de comprendre nos maux et de les soulager."
       }
     ]
   }
