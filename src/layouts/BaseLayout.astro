@@ -102,18 +102,23 @@ const ogImageUrl = new URL(`${base}${ogImage}`, Astro.site).href;
 
     <!-- Twitter Card (reprend les balises og:* en repli) -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImageUrl} />
     <meta
       name="twitter:image:alt"
       content={`Logo ${business.name} — Magnétiseuse à Clermont-Ferrand`}
     />
 
-    <!-- Google Calendar (bouton de prise de rendez-vous) -->
-    <link
-      href="https://calendar.google.com/calendar/scheduling-button-script.css"
-      rel="stylesheet"
-    />
-    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async is:inline
-    ></script>
+    <!-- Google Calendar (bouton de prise de rendez-vous, absent sur les pages minimalNav) -->
+    {!minimalNav && (
+      <>
+        <link
+          href="https://calendar.google.com/calendar/scheduling-button-script.css"
+          rel="stylesheet"
+        />
+        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async is:inline
+        ></script>
+      </>
+    )}
 
     <!-- Schema.org JSON-LD (LocalBusiness du site + schémas propres à la page) -->
     <JsonLd image={ogImageUrl} schema={jsonLd} />
